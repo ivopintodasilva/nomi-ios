@@ -16,6 +16,7 @@
 		48D90FB41C047DD900693E17 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48D90FB21C047DD900693E17 /* Main.storyboard */; };
 		48D90FB61C047DD900693E17 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 48D90FB51C047DD900693E17 /* Assets.xcassets */; };
 		48D90FB91C047DD900693E17 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48D90FB71C047DD900693E17 /* LaunchScreen.storyboard */; };
+		48F9FA8B1C06793E00DAAFA3 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48F9FA8A1C06793E00DAAFA3 /* RegisterViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		48D90FB51C047DD900693E17 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		48D90FB81C047DD900693E17 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		48D90FBA1C047DD900693E17 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		48F9FA8A1C06793E00DAAFA3 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 				4883003B1C06641D00C2B25F /* ContactsViewController.swift */,
 				4883003D1C06642B00C2B25F /* ProfilesViewController.swift */,
 				4883003F1C06643A00C2B25F /* SettingsViewController.swift */,
+				48F9FA8A1C06793E00DAAFA3 /* RegisterViewController.swift */,
 			);
 			path = nomi;
 			sourceTree = "<group>";
@@ -149,6 +152,7 @@
 			files = (
 				4883003A1C0663E400C2B25F /* ShareViewController.swift in Sources */,
 				4883003C1C06641D00C2B25F /* ContactsViewController.swift in Sources */,
+				48F9FA8B1C06793E00DAAFA3 /* RegisterViewController.swift in Sources */,
 				4883003E1C06642B00C2B25F /* ProfilesViewController.swift in Sources */,
 				48D90FB11C047DD900693E17 /* ViewController.swift in Sources */,
 				48D90FAF1C047DD900693E17 /* AppDelegate.swift in Sources */,

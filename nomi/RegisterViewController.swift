@@ -1,5 +1,5 @@
 //
-//  ShareViewController.swift
+//  RegisterViewController.swift
 //  nomi
 //
 //  Created by Ivo Silva on 25/11/15.
@@ -8,14 +8,14 @@
 
 import UIKit
 
-class ShareViewController: UIViewController {
-    @IBOutlet weak var label_share: UILabel!
+class RegisterViewController: UIViewController {
 
+    @IBOutlet weak var nav_back: UINavigationItem!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        
     }
 
     override func didReceiveMemoryWarning() {
