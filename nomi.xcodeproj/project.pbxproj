@@ -12,12 +12,6 @@
 		48D90FB41C047DD900693E17 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48D90FB21C047DD900693E17 /* Main.storyboard */; };
 		48D90FB61C047DD900693E17 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 48D90FB51C047DD900693E17 /* Assets.xcassets */; };
 		48D90FB91C047DD900693E17 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48D90FB71C047DD900693E17 /* LaunchScreen.storyboard */; };
-		48D90FD31C04CD1200693E17 /* new_logo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 48D90FCE1C04CD1200693E17 /* new_logo.jpg */; };
-		48D90FD41C04CD1200693E17 /* new_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 48D90FCF1C04CD1200693E17 /* new_logo.png */; };
-		48D90FD51C04CD1200693E17 /* nomi_splash2_header.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 48D90FD01C04CD1200693E17 /* nomi_splash2_header.jpg */; };
-		48D90FD61C04CD1200693E17 /* nomi_splash2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 48D90FD11C04CD1200693E17 /* nomi_splash2.jpg */; };
-		48D90FD71C04CD1200693E17 /* splash_footer.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 48D90FD21C04CD1200693E17 /* splash_footer.jpg */; };
-		48D90FD91C04D44400693E17 /* nomi_splash2.png in Resources */ = {isa = PBXBuildFile; fileRef = 48D90FD81C04D44400693E17 /* nomi_splash2.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,12 +22,6 @@
 		48D90FB51C047DD900693E17 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		48D90FB81C047DD900693E17 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		48D90FBA1C047DD900693E17 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		48D90FCE1C04CD1200693E17 /* new_logo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = new_logo.jpg; path = images/new_logo.jpg; sourceTree = "<group>"; };
-		48D90FCF1C04CD1200693E17 /* new_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = new_logo.png; path = images/new_logo.png; sourceTree = "<group>"; };
-		48D90FD01C04CD1200693E17 /* nomi_splash2_header.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = nomi_splash2_header.jpg; path = images/nomi_splash2_header.jpg; sourceTree = "<group>"; };
-		48D90FD11C04CD1200693E17 /* nomi_splash2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = nomi_splash2.jpg; path = images/nomi_splash2.jpg; sourceTree = "<group>"; };
-		48D90FD21C04CD1200693E17 /* splash_footer.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = splash_footer.jpg; path = images/splash_footer.jpg; sourceTree = "<group>"; };
-		48D90FD81C04D44400693E17 /* nomi_splash2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = nomi_splash2.png; path = images/nomi_splash2.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,12 +38,6 @@
 		48D90FA21C047DD900693E17 = {
 			isa = PBXGroup;
 			children = (
-				48D90FD81C04D44400693E17 /* nomi_splash2.png */,
-				48D90FCE1C04CD1200693E17 /* new_logo.jpg */,
-				48D90FCF1C04CD1200693E17 /* new_logo.png */,
-				48D90FD01C04CD1200693E17 /* nomi_splash2_header.jpg */,
-				48D90FD11C04CD1200693E17 /* nomi_splash2.jpg */,
-				48D90FD21C04CD1200693E17 /* splash_footer.jpg */,
 				48D90FAD1C047DD900693E17 /* nomi */,
 				48D90FAC1C047DD900693E17 /* Products */,
 			);
@@ -141,13 +123,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				48D90FB91C047DD900693E17 /* LaunchScreen.storyboard in Resources */,
-				48D90FD71C04CD1200693E17 /* splash_footer.jpg in Resources */,
-				48D90FD91C04D44400693E17 /* nomi_splash2.png in Resources */,
-				48D90FD61C04CD1200693E17 /* nomi_splash2.jpg in Resources */,
-				48D90FD31C04CD1200693E17 /* new_logo.jpg in Resources */,
 				48D90FB61C047DD900693E17 /* Assets.xcassets in Resources */,
-				48D90FD51C04CD1200693E17 /* nomi_splash2_header.jpg in Resources */,
-				48D90FD41C04CD1200693E17 /* new_logo.png in Resources */,
 				48D90FB41C047DD900693E17 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

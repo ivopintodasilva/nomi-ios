@@ -31,6 +31,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBAction func b_login() {
         print(tf_email.text)
         print(tf_password.text)
+        performSegueWithIdentifier("login", sender: self)
     }
     
     
