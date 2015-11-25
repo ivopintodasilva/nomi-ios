@@ -65,7 +65,7 @@
         <!--Contacts-->
         <scene sceneID="h4I-9h-L40">
             <objects>
-                <viewController id="zqF-WB-d1S" sceneMemberID="viewController">
+                <viewController id="zqF-WB-d1S" customClass="ContactsViewController" customModule="nomi" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="IrS-Jh-1Ug"/>
                         <viewControllerLayoutGuide type="bottom" id="6kI-rg-64e"/>
@@ -73,10 +73,25 @@
                     <view key="view" contentMode="scaleToFill" id="Vwp-Mo-RNd">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Contacts" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p3e-gk-Fkx">
+                                <rect key="frame" x="125" y="229" width="70" height="21"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Contacts" image="contacts" id="85o-FV-oFb"/>
+                    <tabBarItem key="tabBarItem" title="Contacts" image="contacts" id="85o-FV-oFb">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NDL-fA-5nY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -85,7 +100,7 @@
         <!--Profiles-->
         <scene sceneID="b1l-Zt-Qo5">
             <objects>
-                <viewController id="fcY-oa-K91" sceneMemberID="viewController">
+                <viewController id="fcY-oa-K91" customClass="ProfilesViewController" customModule="nomi" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="2ih-v3-vtQ"/>
                         <viewControllerLayoutGuide type="bottom" id="bRx-PH-PL6"/>
@@ -93,10 +108,25 @@
                     <view key="view" contentMode="scaleToFill" id="bhE-P2-Bun">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Profiles" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oaE-G5-zYe">
+                                <rect key="frame" x="131" y="229" width="58" height="21"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Profiles" image="profiles" id="cOW-zm-zFu"/>
+                    <tabBarItem key="tabBarItem" title="Profiles" image="profiles" id="cOW-zm-zFu">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k2W-Ei-gLN" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -106,7 +136,7 @@
         <!--Settings-->
         <scene sceneID="ATI-f5-cnw">
             <objects>
-                <viewController id="8ah-EA-qD3" sceneMemberID="viewController">
+                <viewController id="8ah-EA-qD3" customClass="SettingsViewController" customModule="nomi" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="d6m-7e-7Ic"/>
                         <viewControllerLayoutGuide type="bottom" id="FAW-yb-dPZ"/>
@@ -114,10 +144,25 @@
                     <view key="view" contentMode="scaleToFill" id="fLs-Rx-OkA">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sx3-eP-acB">
+                                <rect key="frame" x="128" y="229" width="64" height="21"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Settings" image="settings" id="Cdp-Bo-GHJ"/>
+                    <tabBarItem key="tabBarItem" title="Settings" image="settings" id="Cdp-Bo-GHJ">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aFO-Es-l6h" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -127,7 +172,7 @@
         <!--Share-->
         <scene sceneID="MZF-ZI-EGT">
             <objects>
-                <viewController id="GK9-N2-U7z" sceneMemberID="viewController">
+                <viewController id="GK9-N2-U7z" customClass="ShareViewController" customModule="nomi" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ePx-b6-L8I"/>
                         <viewControllerLayoutGuide type="bottom" id="8vU-ZU-v07"/>
@@ -135,10 +180,25 @@
                     <view key="view" contentMode="scaleToFill" id="UNx-FR-hfI">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Share" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mWp-3p-KSo">
+                                <rect key="frame" x="138" y="229" width="45" height="21"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Share" image="share" id="Kzs-Eu-Ngk"/>
+                    <tabBarItem key="tabBarItem" title="Share" image="share" id="Kzs-Eu-Ngk">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Ik-ZF-NAb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -149,11 +209,11 @@
             <objects>
                 <tabBarController id="YkZ-Ur-yoh" sceneMemberID="viewController">
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="9In-AE-61M">
+                    <tabBar key="tabBar" opaque="NO" contentMode="scaleToFill" id="9In-AE-61M">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <animations/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" red="0.70831094457013566" green="0.2322696539106944" blue="0.21182561031564928" alpha="1" colorSpace="calibratedRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="GK9-N2-U7z" kind="relationship" relationship="viewControllers" id="EJc-XD-g7N"/>
