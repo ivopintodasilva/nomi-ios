@@ -17,6 +17,8 @@
 		48D90FB61C047DD900693E17 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 48D90FB51C047DD900693E17 /* Assets.xcassets */; };
 		48D90FB91C047DD900693E17 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48D90FB71C047DD900693E17 /* LaunchScreen.storyboard */; };
 		48F9FA8B1C06793E00DAAFA3 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48F9FA8A1C06793E00DAAFA3 /* RegisterViewController.swift */; };
+		48F9FA8F1C0690CF00DAAFA3 /* nomi_splash2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 48F9FA8E1C0690CF00DAAFA3 /* nomi_splash2.jpg */; };
+		48F9FA951C069C3800DAAFA3 /* nav_bar@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 48F9FA941C069C3800DAAFA3 /* nav_bar@2x.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		48D90FB81C047DD900693E17 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		48D90FBA1C047DD900693E17 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		48F9FA8A1C06793E00DAAFA3 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		48F9FA8E1C0690CF00DAAFA3 /* nomi_splash2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = nomi_splash2.jpg; path = images/nomi_splash2.jpg; sourceTree = "<group>"; };
+		48F9FA941C069C3800DAAFA3 /* nav_bar@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "nav_bar@2x.jpg"; path = "images/nav_bar@2x.jpg"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,6 +52,8 @@
 		48D90FA21C047DD900693E17 = {
 			isa = PBXGroup;
 			children = (
+				48F9FA941C069C3800DAAFA3 /* nav_bar@2x.jpg */,
+				48F9FA8E1C0690CF00DAAFA3 /* nomi_splash2.jpg */,
 				48D90FAD1C047DD900693E17 /* nomi */,
 				48D90FAC1C047DD900693E17 /* Products */,
 			);
@@ -139,7 +145,9 @@
 			files = (
 				48D90FB91C047DD900693E17 /* LaunchScreen.storyboard in Resources */,
 				48D90FB61C047DD900693E17 /* Assets.xcassets in Resources */,
+				48F9FA8F1C0690CF00DAAFA3 /* nomi_splash2.jpg in Resources */,
 				48D90FB41C047DD900693E17 /* Main.storyboard in Resources */,
+				48F9FA951C069C3800DAAFA3 /* nav_bar@2x.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

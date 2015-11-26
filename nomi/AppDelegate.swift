@@ -16,6 +16,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        
+        // Navigation bar handling
+        let navigationController = window!.rootViewController as! UINavigationController
+        navigationController.navigationBar.setBackgroundImage(UIImage(named: "nav_bar@2x.jpg")!.resizableImageWithCapInsets(UIEdgeInsetsMake(0, 0, 0, 0), resizingMode: .Stretch), forBarMetrics: .Default)
+        
+        
+        
         return true
     }
 
