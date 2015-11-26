@@ -21,8 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let navigationController = window!.rootViewController as! UINavigationController
         navigationController.navigationBar.setBackgroundImage(UIImage(named: "nav_bar@2x.jpg")!.resizableImageWithCapInsets(UIEdgeInsetsMake(0, 0, 0, 0), resizingMode: .Stretch), forBarMetrics: .Default)
         
-        
-        
+        navigationController.navigationBar.barStyle = UIBarStyle.Black;
         return true
     }
 

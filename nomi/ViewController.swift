@@ -13,16 +13,13 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var tf_email: UITextField!
     @IBOutlet weak var tf_password: UITextField!
     
-    
-
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
         tf_email.delegate = self
         tf_password.delegate = self
+        self.setNeedsStatusBarAppearanceUpdate()
     }
 
     override func didReceiveMemoryWarning() {
@@ -51,6 +48,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
     /*  hides keyboard on view touch  */
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         self.view.endEditing(true)
+    }
+    
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return .LightContent
     }
 }
 
