@@ -1,42 +1,31 @@
 //
-//  ViewController.swift
+//  RegisterViewController.swift
 //  nomi
 //
-//  Created by Ivo Silva on 24/11/15.
+//  Created by Ivo Silva on 25/11/15.
 //  Copyright © 2015 Ivo Silva. All rights reserved.
 //
 
 import UIKit
 
-class ViewController: UIViewController, UITextFieldDelegate {
+class RegisterViewController: UIViewController {
 
-    @IBOutlet weak var tf_email: UITextField!
-    @IBOutlet weak var tf_password: UITextField!
+    @IBOutlet weak var nav_back: UINavigationItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        
-        tf_email.delegate = self
-        tf_password.delegate = self
+
         self.setNeedsStatusBarAppearanceUpdate()
+        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
-    @IBAction func b_login() {
-        print(tf_email.text)
-        print(tf_password.text)
-        performSegueWithIdentifier("login", sender: self)
-    }
     
-    
-    @IBAction func b_sender() {
-        print("register")
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return .LightContent
     }
     
     /*  hides keyboard on return-pressed  */
@@ -49,9 +38,15 @@ class ViewController: UIViewController, UITextFieldDelegate {
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         self.view.endEditing(true)
     }
-    
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return .LightContent
-    }
-}
 
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+    }
+    */
+
+}

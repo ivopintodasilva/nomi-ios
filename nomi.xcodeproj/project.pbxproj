@@ -7,20 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4883003A1C0663E400C2B25F /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488300391C0663E400C2B25F /* ShareViewController.swift */; };
+		4883003C1C06641D00C2B25F /* ContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4883003B1C06641D00C2B25F /* ContactsViewController.swift */; };
+		4883003E1C06642B00C2B25F /* ProfilesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4883003D1C06642B00C2B25F /* ProfilesViewController.swift */; };
+		488300401C06643A00C2B25F /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4883003F1C06643A00C2B25F /* SettingsViewController.swift */; };
 		48D90FAF1C047DD900693E17 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D90FAE1C047DD900693E17 /* AppDelegate.swift */; };
 		48D90FB11C047DD900693E17 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D90FB01C047DD900693E17 /* ViewController.swift */; };
 		48D90FB41C047DD900693E17 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48D90FB21C047DD900693E17 /* Main.storyboard */; };
 		48D90FB61C047DD900693E17 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 48D90FB51C047DD900693E17 /* Assets.xcassets */; };
 		48D90FB91C047DD900693E17 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48D90FB71C047DD900693E17 /* LaunchScreen.storyboard */; };
-		48D90FD31C04CD1200693E17 /* new_logo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 48D90FCE1C04CD1200693E17 /* new_logo.jpg */; };
-		48D90FD41C04CD1200693E17 /* new_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 48D90FCF1C04CD1200693E17 /* new_logo.png */; };
-		48D90FD51C04CD1200693E17 /* nomi_splash2_header.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 48D90FD01C04CD1200693E17 /* nomi_splash2_header.jpg */; };
-		48D90FD61C04CD1200693E17 /* nomi_splash2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 48D90FD11C04CD1200693E17 /* nomi_splash2.jpg */; };
-		48D90FD71C04CD1200693E17 /* splash_footer.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 48D90FD21C04CD1200693E17 /* splash_footer.jpg */; };
-		48D90FD91C04D44400693E17 /* nomi_splash2.png in Resources */ = {isa = PBXBuildFile; fileRef = 48D90FD81C04D44400693E17 /* nomi_splash2.png */; };
+		48F9FA8B1C06793E00DAAFA3 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48F9FA8A1C06793E00DAAFA3 /* RegisterViewController.swift */; };
+		48F9FA8F1C0690CF00DAAFA3 /* nomi_splash2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 48F9FA8E1C0690CF00DAAFA3 /* nomi_splash2.jpg */; };
+		48F9FA951C069C3800DAAFA3 /* nav_bar@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 48F9FA941C069C3800DAAFA3 /* nav_bar@2x.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		488300391C0663E400C2B25F /* ShareViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
+		4883003B1C06641D00C2B25F /* ContactsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsViewController.swift; sourceTree = "<group>"; };
+		4883003D1C06642B00C2B25F /* ProfilesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfilesViewController.swift; sourceTree = "<group>"; };
+		4883003F1C06643A00C2B25F /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		48D90FAB1C047DD900693E17 /* nomi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = nomi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		48D90FAE1C047DD900693E17 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		48D90FB01C047DD900693E17 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -28,12 +33,9 @@
 		48D90FB51C047DD900693E17 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		48D90FB81C047DD900693E17 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		48D90FBA1C047DD900693E17 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		48D90FCE1C04CD1200693E17 /* new_logo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = new_logo.jpg; path = images/new_logo.jpg; sourceTree = "<group>"; };
-		48D90FCF1C04CD1200693E17 /* new_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = new_logo.png; path = images/new_logo.png; sourceTree = "<group>"; };
-		48D90FD01C04CD1200693E17 /* nomi_splash2_header.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = nomi_splash2_header.jpg; path = images/nomi_splash2_header.jpg; sourceTree = "<group>"; };
-		48D90FD11C04CD1200693E17 /* nomi_splash2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = nomi_splash2.jpg; path = images/nomi_splash2.jpg; sourceTree = "<group>"; };
-		48D90FD21C04CD1200693E17 /* splash_footer.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = splash_footer.jpg; path = images/splash_footer.jpg; sourceTree = "<group>"; };
-		48D90FD81C04D44400693E17 /* nomi_splash2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = nomi_splash2.png; path = images/nomi_splash2.png; sourceTree = "<group>"; };
+		48F9FA8A1C06793E00DAAFA3 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		48F9FA8E1C0690CF00DAAFA3 /* nomi_splash2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = nomi_splash2.jpg; path = images/nomi_splash2.jpg; sourceTree = "<group>"; };
+		48F9FA941C069C3800DAAFA3 /* nav_bar@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "nav_bar@2x.jpg"; path = "images/nav_bar@2x.jpg"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,12 +52,8 @@
 		48D90FA21C047DD900693E17 = {
 			isa = PBXGroup;
 			children = (
-				48D90FD81C04D44400693E17 /* nomi_splash2.png */,
-				48D90FCE1C04CD1200693E17 /* new_logo.jpg */,
-				48D90FCF1C04CD1200693E17 /* new_logo.png */,
-				48D90FD01C04CD1200693E17 /* nomi_splash2_header.jpg */,
-				48D90FD11C04CD1200693E17 /* nomi_splash2.jpg */,
-				48D90FD21C04CD1200693E17 /* splash_footer.jpg */,
+				48F9FA941C069C3800DAAFA3 /* nav_bar@2x.jpg */,
+				48F9FA8E1C0690CF00DAAFA3 /* nomi_splash2.jpg */,
 				48D90FAD1C047DD900693E17 /* nomi */,
 				48D90FAC1C047DD900693E17 /* Products */,
 			);
@@ -78,6 +76,11 @@
 				48D90FB51C047DD900693E17 /* Assets.xcassets */,
 				48D90FB71C047DD900693E17 /* LaunchScreen.storyboard */,
 				48D90FBA1C047DD900693E17 /* Info.plist */,
+				488300391C0663E400C2B25F /* ShareViewController.swift */,
+				4883003B1C06641D00C2B25F /* ContactsViewController.swift */,
+				4883003D1C06642B00C2B25F /* ProfilesViewController.swift */,
+				4883003F1C06643A00C2B25F /* SettingsViewController.swift */,
+				48F9FA8A1C06793E00DAAFA3 /* RegisterViewController.swift */,
 			);
 			path = nomi;
 			sourceTree = "<group>";
@@ -141,14 +144,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				48D90FB91C047DD900693E17 /* LaunchScreen.storyboard in Resources */,
-				48D90FD71C04CD1200693E17 /* splash_footer.jpg in Resources */,
-				48D90FD91C04D44400693E17 /* nomi_splash2.png in Resources */,
-				48D90FD61C04CD1200693E17 /* nomi_splash2.jpg in Resources */,
-				48D90FD31C04CD1200693E17 /* new_logo.jpg in Resources */,
 				48D90FB61C047DD900693E17 /* Assets.xcassets in Resources */,
-				48D90FD51C04CD1200693E17 /* nomi_splash2_header.jpg in Resources */,
-				48D90FD41C04CD1200693E17 /* new_logo.png in Resources */,
+				48F9FA8F1C0690CF00DAAFA3 /* nomi_splash2.jpg in Resources */,
 				48D90FB41C047DD900693E17 /* Main.storyboard in Resources */,
+				48F9FA951C069C3800DAAFA3 /* nav_bar@2x.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -159,8 +158,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4883003A1C0663E400C2B25F /* ShareViewController.swift in Sources */,
+				4883003C1C06641D00C2B25F /* ContactsViewController.swift in Sources */,
+				48F9FA8B1C06793E00DAAFA3 /* RegisterViewController.swift in Sources */,
+				4883003E1C06642B00C2B25F /* ProfilesViewController.swift in Sources */,
 				48D90FB11C047DD900693E17 /* ViewController.swift in Sources */,
 				48D90FAF1C047DD900693E17 /* AppDelegate.swift in Sources */,
+				488300401C06643A00C2B25F /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
