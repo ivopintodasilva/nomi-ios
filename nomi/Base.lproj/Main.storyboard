@@ -126,6 +126,9 @@
                                                 <rect key="frame" x="119" y="319" width="66" height="37"/>
                                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="18"/>
                                                 <state key="normal" title="Register"/>
+                                                <connections>
+                                                    <action selector="btn_register" destination="GAf-r5-UpM" eventType="touchUpInside" id="inM-70-v0u"/>
+                                                </connections>
                                             </button>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Il8-LF-rSh">
                                                 <rect key="frame" x="56" y="219" width="192" height="30"/>
@@ -219,6 +222,15 @@
                     </view>
                     <navigationItem key="navigationItem" id="v9i-st-fND"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="content_view" destination="yvX-41-N8z" id="rw0-R7-6do"/>
+                        <outlet property="scroll_view" destination="ruE-Fm-ia3" id="Mpa-mH-sQ4"/>
+                        <outlet property="tf_confirmpassword" destination="qBX-6I-q1z" id="0Vs-0U-3F8"/>
+                        <outlet property="tf_email" destination="kta-yk-Pgf" id="Lp5-VT-l4b"/>
+                        <outlet property="tf_fname" destination="faO-CF-al8" id="Aek-ZV-UZf"/>
+                        <outlet property="tf_lname" destination="1J6-tF-tZK" id="eLj-Ft-wFg"/>
+                        <outlet property="tf_password" destination="Il8-LF-rSh" id="rpN-ZZ-bK5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JNn-nH-TLM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
