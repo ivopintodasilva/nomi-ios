@@ -77,16 +77,16 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
     {
         //Need to calculate keyboard exact size due to Apple suggestions
         scroll_view.scrollEnabled = true
-        var info : NSDictionary = notification.userInfo!
-        var keyboardSize = (info[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue().size
-        var contentInsets : UIEdgeInsets = UIEdgeInsetsMake(0.0, 0.0, keyboardSize!.height, 0.0)
+        let info : NSDictionary = notification.userInfo!
+        let keyboardSize = (info[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue().size
+        let contentInsets : UIEdgeInsets = UIEdgeInsetsMake(0.0, 0.0, keyboardSize!.height, 0.0)
         
         scroll_view.contentInset = contentInsets
         scroll_view.scrollIndicatorInsets = contentInsets
         
         var aRect : CGRect = self.view.frame
         aRect.size.height -= keyboardSize!.height
-        if let activeFieldPresent = activeField
+        if let _ = activeField
         {
             if (!CGRectContainsPoint(aRect, activeField!.frame.origin))
             {
@@ -101,9 +101,9 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
     func keyboardWillBeHidden(notification: NSNotification)
     {
         //Once keyboard disappears, restore original positions
-        var info : NSDictionary = notification.userInfo!
-        var keyboardSize = (info[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue().size
-        var contentInsets : UIEdgeInsets = UIEdgeInsetsMake(0.0, 0.0, -keyboardSize!.height, 0.0)
+        let info : NSDictionary = notification.userInfo!
+        let keyboardSize = (info[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue().size
+        let contentInsets : UIEdgeInsets = UIEdgeInsetsMake(0.0, 0.0, -keyboardSize!.height, 0.0)
         scroll_view.contentInset = contentInsets
         scroll_view.scrollIndicatorInsets = contentInsets
         self.view.endEditing(true)
@@ -111,12 +111,12 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
         
     }
     
-    func textFieldDidBeginEditing(textField: UITextField!)
+    func textFieldDidBeginEditing(textField: UITextField)
     {
         activeField = textField
     }
     
-    func textFieldDidEndEditing(textField: UITextField!)
+    func textFieldDidEndEditing(textField: UITextField)
     {
         activeField = nil
     }
