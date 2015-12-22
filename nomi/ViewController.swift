@@ -40,40 +40,33 @@ class ViewController: UIViewController, UITextFieldDelegate {
 
     @IBAction func button_login_click() {
         let url = NSURL(string: "http://192.168.160.56:8000/api/user/login/?email=" + email_text.text! + "&password=" + password_text.text!)
-        let task = session!.dataTaskWithURL(url!) {(data, response, error) in
+        let task = session!.dataTaskWithURL(url!, completionHandler: {(data, response, error) in
             
-            print(url)
-            print(error)
-            // check if an error occured
-            if error == nil {
-                print("no error")
-                // check if data is not null
-                if let _ = data
-                {
-                    print(NSString(data: data!, encoding: NSUTF8StringEncoding))
-                }
-            } else {
-                print("error")
-                if #available(iOS 8.0, *) {
-                    let alertController = UIAlertController(title: "Error", message: "Put your error message here", preferredStyle: .Alert)
-                    let cancelAction = UIAlertAction(title: "OK", style: .Cancel) { (action) in
+            if let httpResponse = response as? NSHTTPURLResponse{
+                
+                if httpResponse.statusCode == 200 {
+                    print("no error")
+                    // check if data is not null
+                    if let _ = data
+                    {
+                        print(NSString(data: data!, encoding: NSUTF8StringEncoding))
+                        dispatch_async(dispatch_get_main_queue(), {
+                            self.performSegueWithIdentifier("login", sender: self)
+                        })
                     }
-                    alertController.addAction(cancelAction)
-                    self.presentViewController(alertController, animated: true, completion: nil)
-
                 } else {
-                    // Fallback on earlier versions
-                    let alert_view = UIAlertView()
-                    alert_view.title = "Noop"
-                    alert_view.message = "Nothing to verify"
-                    alert_view.addButtonWithTitle("Click")
-                    alert_view.show()
-
+                    dispatch_async(dispatch_get_main_queue(), {
+                        let alert = UIAlertView()
+                        alert.title = "Login failed"
+                        alert.message = "Come on, don't fool us!"
+                        alert.addButtonWithTitle("Ok, I'm sorry")
+                        alert.show()
+                    })
                 }
+            
             }
-        }
+        })
         
-        // performSegueWithIdentifier("login", sender: self)
         print("login")
         task.resume()
     }

@@ -43,7 +43,7 @@
                                                     <constraint firstAttribute="width" constant="200" id="eY4-Hn-qTb"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                                             </textField>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="l4f-bq-RNU">
                                                 <rect key="frame" x="60" y="200" width="200" height="30"/>
@@ -62,7 +62,6 @@
                                                 <state key="normal" title="Login"/>
                                                 <connections>
                                                     <action selector="button_login_click" destination="BYZ-38-t0r" eventType="touchUpInside" id="rJy-g5-REu"/>
-                                                    <segue destination="YkZ-Ur-yoh" kind="modal" identifier="login" id="BE4-q2-Xl7"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -106,6 +105,7 @@
                         <outlet property="email_text" destination="Jg1-8y-DOk" id="qRx-Fr-ozh"/>
                         <outlet property="password_text" destination="l4f-bq-RNU" id="FMf-J6-Ep7"/>
                         <outlet property="scroll_view" destination="5hR-Qg-cql" id="nBl-Cb-pRQ"/>
+                        <segue destination="YkZ-Ur-yoh" kind="push" identifier="login" id="5If-Hz-Xvh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -260,7 +260,7 @@
                         <viewControllerLayoutGuide type="bottom" id="6kI-rg-64e"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Vwp-Mo-RNd">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Contacts" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p3e-gk-Fkx">
@@ -293,7 +293,7 @@
                         <viewControllerLayoutGuide type="bottom" id="bRx-PH-PL6"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="bhE-P2-Bun">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Profiles" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oaE-G5-zYe">
@@ -327,7 +327,7 @@
                         <viewControllerLayoutGuide type="bottom" id="FAW-yb-dPZ"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="fLs-Rx-OkA">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sx3-eP-acB">
@@ -365,18 +365,18 @@
                         <viewControllerLayoutGuide type="bottom" id="8vU-ZU-v07"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="UNx-FR-hfI">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Kfk-t7-KWb">
-                                <rect key="frame" x="60" y="118" width="200" height="200"/>
+                                <rect key="frame" x="60" y="86" width="200" height="200"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="0PR-WC-ABo"/>
                                     <constraint firstAttribute="width" constant="200" id="PHV-pu-P8J"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xWh-N8-Jhs">
-                                <rect key="frame" x="115" y="347" width="91" height="28"/>
+                                <rect key="frame" x="115" y="315" width="91" height="28"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="28" id="EuH-GU-2ML"/>
                                     <constraint firstAttribute="width" constant="91" id="r3D-gx-KKb"/>
