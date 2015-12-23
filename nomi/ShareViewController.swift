@@ -16,6 +16,7 @@ class ShareViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     @IBOutlet weak var share_picker: UIPickerView!
     
     var login_info: NSString?
+    var profile_info: NSString?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,7 +59,12 @@ class ShareViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         share_picker.delegate = self
         
         
-        print(login_info)
+        //print(login_info)
+        //print(profile_info)
+        
+        print(UserInfoModel.sharedInstance.getId())
+        print(UserInfoModel.sharedInstance.getFirstName())
+        print(UserInfoModel.sharedInstance.getLastName())
         
     }
     

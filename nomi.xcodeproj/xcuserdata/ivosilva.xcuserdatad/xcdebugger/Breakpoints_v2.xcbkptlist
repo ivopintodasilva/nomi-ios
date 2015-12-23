@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "nomi/ViewController.swift"
-            timestampString = "472526966.422949"
+            timestampString = "472585015.449731"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "98"
-            endingLineNumber = "98"
+            startingLineNumber = "186"
+            endingLineNumber = "186"
             landmarkName = "button_login_click()"
             landmarkType = "5">
          </BreakpointContent>
@@ -58,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "nomi/ViewController.swift"
-            timestampString = "472526974.377793"
+            timestampString = "472585015.449731"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "97"
-            endingLineNumber = "97"
+            startingLineNumber = "185"
+            endingLineNumber = "185"
             landmarkName = "button_login_click()"
             landmarkType = "5">
          </BreakpointContent>

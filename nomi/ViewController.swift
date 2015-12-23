@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class ViewController: UIViewController, UITextFieldDelegate {
 
     var activeField: UITextField?
@@ -40,6 +41,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
             let tab = segue.destinationViewController as! UITabBarController
             let svc = tab.viewControllers![0] as! ShareViewController
             svc.login_info = self.login_info
+            svc.profile_info = self.profile_info
         }
     }
 
@@ -59,60 +61,146 @@ class ViewController: UIViewController, UITextFieldDelegate {
                     // check if data is not null
                     if let _ = data
                     {
-                        print(NSString(data: data!, encoding: NSUTF8StringEncoding))
+                        //print(NSString(data: data!, encoding: NSUTF8StringEncoding))
                         self.login_info = NSString(data: data!, encoding: NSUTF8StringEncoding)
                         
                         let data = self.login_info!.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!
                         
+                        
                         do {
                             if let json: NSDictionary = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers) as? NSDictionary {
+                                
+                                
                                 if let id = json["id"]{
-                                    let url = NSURL(string: "http://192.168.160.56:8000/api/profile/user/" + String(id.intValue))
-                                    print(url)
-                                    let task_profile = self.session!.dataTaskWithURL(url!, completionHandler: {(data, response, error) in
-                                        if let httpResponse = response as? NSHTTPURLResponse{
-                                            if httpResponse.statusCode == 200 {
-                                                print("no error")
-                                                // check if data is not null
-                                                if let _ = data
-                                                {
-                                                    print(NSString(data: data!, encoding: NSUTF8StringEncoding))
-                                                    self.profile_info = NSString(data: data!, encoding: NSUTF8StringEncoding)
-                                                    dispatch_async(dispatch_get_main_queue(), {
-                                                        self.performSegueWithIdentifier("login", sender: self)
-                                                    })
-                                                }
-                                            } else {
-                                                dispatch_async(dispatch_get_main_queue(), {
-                                                    let alert = UIAlertView()
-                                                    alert.title = "Login failed"
-                                                    alert.message = "Come on, don't fool us!"
-                                                    alert.addButtonWithTitle("Ok, I'm sorry")
-                                                    alert.show()
-                                                })
-                                            }
-                                            
-                                        }
-                                    })
-                                    
-                                    task_profile.resume()
-                                    
+                                    UserInfoModel.sharedInstance.setId(Int(id.intValue))
                                 }
                                 
+                                if let first_name = json["first_name"]{
+                                    UserInfoModel.sharedInstance.setFirstName(first_name as! String)
+                                }
+                                
+                                if let last_name = json["last_name"]{
+                                    UserInfoModel.sharedInstance.setLastName(last_name as! String)
+                                }
+                                
+                                
+                                
+                                
+                                let url = NSURL(string: "http://192.168.160.56:8000/api/profile/user/" + String(UserInfoModel.sharedInstance.getId()))
+                                print(url)
+                                let task_profile = self.session!.dataTaskWithURL(url!, completionHandler: {(data, response, error) in
+                                    if let httpResponse = response as? NSHTTPURLResponse{
+                                        if httpResponse.statusCode == 200 {
+                                            print("no error")
+                                            // check if data is not null
+                                            if let _ = data
+                                            {
+                                                //print(NSString(data: data!, encoding: NSUTF8StringEncoding))
+                                                self.profile_info = NSString(data: data!, encoding: NSUTF8StringEncoding)
+                                                
+                                                
+                                                
+                                                
+                                                let json = JSON(data: data!)
+
+                                                
+                                                for (index ,subJson):(String, JSON) in json["results"] {
+                                                    print (index)
+                                                    print(subJson)
+                                                }
+                                                
+                                                
+                                                
+//                                                do {
+//                                                    if let json: NSDictionary = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers) as? NSDictionary {
+//                                                        
+//                                                        
+//                                                        if let results = json["results"] as? Array<AnyObject>{
+//                                                            for profile in results {
+//                                                                
+//                                                                print(profile["id"])
+//
+//                                                                
+//                                                                
+//                                                                
+//                                                                if let profile_id = profile["id"]{
+//                                                                    if let user = profile["user"] as? NSDictionary{
+//                                                                        if let user_id = user["id"]{
+//                                                                            if let profile_name = profile["name"]{
+//                                                                                if let profile_color = profile["color"]{
+//                                                                                    
+//                                                                                }
+//                                                                            }
+//                                                                        }
+//                                                                    }
+//                                                                }
+//                                                                
+//                                                                
+//                                                                
+//                                                                
+//                                                                
+//                                                                
+//                                                                
+//                                                                
+//                                                                
+//                                                                
+//                                                                
+//                                                                if let attributes = profile["attributes"] as? Array<AnyObject>{
+//                                                                    for attribute in attributes {
+//                                                                        print(attribute["name"])
+//                                                                    }
+//                                                                    
+//                                                                }
+//                                                                
+//                                                                
+//                                                                print("--------------------------------------")
+//                                                                
+//                                                                
+//                                                            }
+//                                                        }
+//                                                    }
+//                                                    
+//                                                    
+//                                                } catch let error as NSError {
+//                                                    print("Failed to load: \(error.localizedDescription)")
+//                                                }
+                                                
+                                                
+                                                dispatch_async(dispatch_get_main_queue(), {
+                                                    self.performSegueWithIdentifier("login", sender: self)
+                                                })
+                                            }
+                                        } else {
+                                            dispatch_async(dispatch_get_main_queue(), {
+                                                let alert = UIAlertView()
+                                                alert.title = "Login failed"
+                                                alert.message = "Come on, don't fool us!"
+                                                alert.addButtonWithTitle("Ok, I'm sorry")
+                                                alert.show()
+                                            })
+                                        }
+                                        
+                                    }
+                                })
+                                
+                                task_profile.resume()
+                                
                             }
+                            
+                            
                         } catch let error as NSError {
                             print("Failed to load: \(error.localizedDescription)")
                         }
-
                         
                         
                         
                         
                         
-//                        
-//                        dispatch_async(dispatch_get_main_queue(), {
-//                            self.performSegueWithIdentifier("login", sender: self)
-//                        })
+                        
+                        //
+                        //                        dispatch_async(dispatch_get_main_queue(), {
+                        //                            self.performSegueWithIdentifier("login", sender: self)
+                        //                        })
                     }
                 } else {
                     dispatch_async(dispatch_get_main_queue(), {
@@ -123,7 +211,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
                         alert.show()
                     })
                 }
-            
+                
             }
         })
         

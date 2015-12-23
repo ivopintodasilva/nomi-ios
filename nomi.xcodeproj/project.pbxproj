@@ -11,6 +11,11 @@
 		4883003C1C06641D00C2B25F /* ContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4883003B1C06641D00C2B25F /* ContactsViewController.swift */; };
 		4883003E1C06642B00C2B25F /* ProfilesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4883003D1C06642B00C2B25F /* ProfilesViewController.swift */; };
 		488300401C06643A00C2B25F /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4883003F1C06643A00C2B25F /* SettingsViewController.swift */; };
+		48CB89ED1C2AE9B900156B25 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48CB89EC1C2AE9B900156B25 /* UserInfo.swift */; };
+		48CB89F01C2AF91900156B25 /* UserProfiles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48CB89EF1C2AF91900156B25 /* UserProfiles.swift */; };
+		48CB89F21C2AFA6300156B25 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48CB89F11C2AFA6300156B25 /* Profile.swift */; };
+		48CB89F41C2AFC2500156B25 /* ProfileAttribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48CB89F31C2AFC2500156B25 /* ProfileAttribute.swift */; };
+		48CB89F61C2B0EA500156B25 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48CB89F51C2B0EA500156B25 /* SwiftyJSON.swift */; };
 		48D90FAF1C047DD900693E17 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D90FAE1C047DD900693E17 /* AppDelegate.swift */; };
 		48D90FB11C047DD900693E17 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D90FB01C047DD900693E17 /* ViewController.swift */; };
 		48D90FB41C047DD900693E17 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48D90FB21C047DD900693E17 /* Main.storyboard */; };
@@ -26,6 +31,11 @@
 		4883003B1C06641D00C2B25F /* ContactsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsViewController.swift; sourceTree = "<group>"; };
 		4883003D1C06642B00C2B25F /* ProfilesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfilesViewController.swift; sourceTree = "<group>"; };
 		4883003F1C06643A00C2B25F /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		48CB89EC1C2AE9B900156B25 /* UserInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
+		48CB89EF1C2AF91900156B25 /* UserProfiles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfiles.swift; sourceTree = "<group>"; };
+		48CB89F11C2AFA6300156B25 /* Profile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		48CB89F31C2AFC2500156B25 /* ProfileAttribute.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileAttribute.swift; sourceTree = "<group>"; };
+		48CB89F51C2B0EA500156B25 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftyJSON.swift; path = ../../SwiftyJSON/Source/SwiftyJSON.swift; sourceTree = "<group>"; };
 		48D90FAB1C047DD900693E17 /* nomi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = nomi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		48D90FAE1C047DD900693E17 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		48D90FB01C047DD900693E17 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -49,6 +59,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		48CB89EB1C2AE98F00156B25 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				48CB89EC1C2AE9B900156B25 /* UserInfo.swift */,
+			);
+			name = User;
+			sourceTree = "<group>";
+		};
+		48CB89EE1C2AF7AA00156B25 /* Profiles */ = {
+			isa = PBXGroup;
+			children = (
+				48CB89EF1C2AF91900156B25 /* UserProfiles.swift */,
+				48CB89F11C2AFA6300156B25 /* Profile.swift */,
+				48CB89F31C2AFC2500156B25 /* ProfileAttribute.swift */,
+			);
+			name = Profiles;
+			sourceTree = "<group>";
+		};
 		48D90FA21C047DD900693E17 = {
 			isa = PBXGroup;
 			children = (
@@ -70,6 +98,9 @@
 		48D90FAD1C047DD900693E17 /* nomi */ = {
 			isa = PBXGroup;
 			children = (
+				48CB89F51C2B0EA500156B25 /* SwiftyJSON.swift */,
+				48CB89EE1C2AF7AA00156B25 /* Profiles */,
+				48CB89EB1C2AE98F00156B25 /* User */,
 				48D90FAE1C047DD900693E17 /* AppDelegate.swift */,
 				48D90FB01C047DD900693E17 /* ViewController.swift */,
 				48D90FB21C047DD900693E17 /* Main.storyboard */,
@@ -161,10 +192,15 @@
 				4883003A1C0663E400C2B25F /* ShareViewController.swift in Sources */,
 				4883003C1C06641D00C2B25F /* ContactsViewController.swift in Sources */,
 				48F9FA8B1C06793E00DAAFA3 /* RegisterViewController.swift in Sources */,
+				48CB89F61C2B0EA500156B25 /* SwiftyJSON.swift in Sources */,
+				48CB89F01C2AF91900156B25 /* UserProfiles.swift in Sources */,
 				4883003E1C06642B00C2B25F /* ProfilesViewController.swift in Sources */,
+				48CB89ED1C2AE9B900156B25 /* UserInfo.swift in Sources */,
 				48D90FB11C047DD900693E17 /* ViewController.swift in Sources */,
 				48D90FAF1C047DD900693E17 /* AppDelegate.swift in Sources */,
+				48CB89F41C2AFC2500156B25 /* ProfileAttribute.swift in Sources */,
 				488300401C06643A00C2B25F /* SettingsViewController.swift in Sources */,
+				48CB89F21C2AFA6300156B25 /* Profile.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
