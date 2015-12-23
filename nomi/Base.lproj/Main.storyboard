@@ -387,29 +387,22 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Kfk-t7-KWb">
-                                <rect key="frame" x="60" y="118" width="200" height="200"/>
+                                <rect key="frame" x="60" y="66" width="200" height="200"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="0PR-WC-ABo"/>
                                     <constraint firstAttribute="width" constant="200" id="PHV-pu-P8J"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xWh-N8-Jhs">
-                                <rect key="frame" x="115" y="347" width="91" height="28"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="28" id="EuH-GU-2ML"/>
-                                    <constraint firstAttribute="width" constant="91" id="r3D-gx-KKb"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="20"/>
-                                <color key="textColor" red="0.58039215686274503" green="0.58039215686274503" blue="0.58039215686274503" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dhc-DN-5Ax">
+                                <rect key="frame" x="0.0" y="238" width="320" height="216"/>
+                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Kfk-t7-KWb" firstAttribute="centerY" secondItem="UNx-FR-hfI" secondAttribute="centerY" constant="-22" id="77s-8u-nLt"/>
-                            <constraint firstItem="xWh-N8-Jhs" firstAttribute="top" secondItem="Kfk-t7-KWb" secondAttribute="bottom" constant="29" id="HVw-D2-fFa"/>
+                            <constraint firstItem="Kfk-t7-KWb" firstAttribute="centerY" secondItem="UNx-FR-hfI" secondAttribute="centerY" constant="-74" id="77s-8u-nLt"/>
+                            <constraint firstItem="8vU-ZU-v07" firstAttribute="top" secondItem="dhc-DN-5Ax" secondAttribute="bottom" constant="-23" id="N76-sC-ZN0"/>
                             <constraint firstItem="Kfk-t7-KWb" firstAttribute="centerX" secondItem="UNx-FR-hfI" secondAttribute="centerX" id="ZDs-yO-cNV"/>
-                            <constraint firstItem="xWh-N8-Jhs" firstAttribute="centerX" secondItem="UNx-FR-hfI" secondAttribute="centerX" id="vvI-7O-aYA"/>
+                            <constraint firstItem="dhc-DN-5Ax" firstAttribute="centerX" secondItem="UNx-FR-hfI" secondAttribute="centerX" id="orN-jb-FJz"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Share" image="share" id="Kzs-Eu-Ngk">
@@ -421,6 +414,7 @@
                     </tabBarItem>
                     <connections>
                         <outlet property="qr_code_view" destination="Kfk-t7-KWb" id="8Wu-SC-Pfs"/>
+                        <outlet property="share_picker" destination="dhc-DN-5Ax" id="ibI-b3-hzE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Ik-ZF-NAb" userLabel="First Responder" sceneMemberID="firstResponder"/>

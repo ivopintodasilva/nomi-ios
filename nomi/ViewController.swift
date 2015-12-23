@@ -10,8 +10,10 @@ import UIKit
 
 class ViewController: UIViewController, UITextFieldDelegate {
 
-    
     var activeField: UITextField?
+    
+    var login_info: NSString?
+    var profile_info: NSString?
     
     @IBOutlet weak var scroll_view: UIScrollView!
     @IBOutlet weak var content_view: UIView!
@@ -32,6 +34,14 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         session = NSURLSession.sharedSession()
     }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+        if (segue.identifier == "login") {
+            let tab = segue.destinationViewController as! UITabBarController
+            let svc = tab.viewControllers![0] as! ShareViewController
+            svc.login_info = self.login_info
+        }
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -50,9 +60,59 @@ class ViewController: UIViewController, UITextFieldDelegate {
                     if let _ = data
                     {
                         print(NSString(data: data!, encoding: NSUTF8StringEncoding))
-                        dispatch_async(dispatch_get_main_queue(), {
-                            self.performSegueWithIdentifier("login", sender: self)
-                        })
+                        self.login_info = NSString(data: data!, encoding: NSUTF8StringEncoding)
+                        
+                        let data = self.login_info!.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!
+                        
+                        do {
+                            if let json: NSDictionary = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers) as? NSDictionary {
+                                if let id = json["id"]{
+                                    let url = NSURL(string: "http://192.168.160.56:8000/api/profile/user/" + String(id.intValue))
+                                    print(url)
+                                    let task_profile = self.session!.dataTaskWithURL(url!, completionHandler: {(data, response, error) in
+                                        if let httpResponse = response as? NSHTTPURLResponse{
+                                            if httpResponse.statusCode == 200 {
+                                                print("no error")
+                                                // check if data is not null
+                                                if let _ = data
+                                                {
+                                                    print(NSString(data: data!, encoding: NSUTF8StringEncoding))
+                                                    self.profile_info = NSString(data: data!, encoding: NSUTF8StringEncoding)
+                                                    dispatch_async(dispatch_get_main_queue(), {
+                                                        self.performSegueWithIdentifier("login", sender: self)
+                                                    })
+                                                }
+                                            } else {
+                                                dispatch_async(dispatch_get_main_queue(), {
+                                                    let alert = UIAlertView()
+                                                    alert.title = "Login failed"
+                                                    alert.message = "Come on, don't fool us!"
+                                                    alert.addButtonWithTitle("Ok, I'm sorry")
+                                                    alert.show()
+                                                })
+                                            }
+                                            
+                                        }
+                                    })
+                                    
+                                    task_profile.resume()
+                                    
+                                }
+                                
+                            }
+                        } catch let error as NSError {
+                            print("Failed to load: \(error.localizedDescription)")
+                        }
+
+                        
+                        
+                        
+                        
+                        
+//                        
+//                        dispatch_async(dispatch_get_main_queue(), {
+//                            self.performSegueWithIdentifier("login", sender: self)
+//                        })
                     }
                 } else {
                     dispatch_async(dispatch_get_main_queue(), {

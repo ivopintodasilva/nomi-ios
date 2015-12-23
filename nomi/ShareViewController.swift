@@ -8,9 +8,15 @@
 
 import UIKit
 
-class ShareViewController: UIViewController {
+class ShareViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     @IBOutlet weak var qr_code_view: UIImageView!
+    
+    let gradePickerValues = ["Swag", "Trabalho", "Swaggermore"]
 
+    @IBOutlet weak var share_picker: UIPickerView!
+    
+    var login_info: NSString?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setNeedsStatusBarAppearanceUpdate()
@@ -20,15 +26,17 @@ class ShareViewController: UIViewController {
         
         // generate QR code
         var data: NSData
-        data = "id=3".dataUsingEncoding(NSUTF8StringEncoding)!
+        data = "{\"id\":3}".dataUsingEncoding(NSUTF8StringEncoding)!
         
         /// Foreground color of the output
         /// Defaults to black
-        let color = CIColor(red: 181, green: 59, blue: 54)
+        //let color = CIColor(red: 181, green: 59, blue: 54)
+        let color = CIColor(red: 0.71, green: 0.23, blue: 0.21)
         
         /// Background color of the output
         /// Defaults to white
-        let backgroundColor = CIColor(red: 0.71, green: 0.23, blue: 0.21)
+        //let backgroundColor = CIColor(red: 0.71, green: 0.23, blue: 0.21)
+        let backgroundColor = CIColor(red: 1, green: 1, blue: 1)
         let qrFilter = CIFilter(name: "CIQRCodeGenerator")
         qrFilter!.setDefaults()
         qrFilter!.setValue(data, forKey: "inputMessage")
@@ -40,6 +48,18 @@ class ShareViewController: UIViewController {
         colorFilter!.setValue(backgroundColor, forKey: "inputColor1")
         let transformedImage = createNonInterpolatedUIImageFromCIImage(colorFilter!.outputImage!, withScale: 8.0)
         qr_code_view.image = transformedImage
+        
+        
+        
+        
+        //share_picker = UIPickerView()
+        
+        share_picker.dataSource = self
+        share_picker.delegate = self
+        
+        
+        print(login_info)
+        
     }
     
     
@@ -66,15 +86,31 @@ class ShareViewController: UIViewController {
     
     
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int{
+        return 1
     }
-    */
+    
+    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int{
+        return gradePickerValues.count
+    }
+    
+    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return gradePickerValues[row]
+    }
+    
+    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int){
+        self.view.endEditing(true)
+    }
+    
+    func pickerView(pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusingView view: UIView?) -> UIView
+    {
+        let pickerLabel = UILabel()
+        pickerLabel.textColor = UIColor.blackColor()
+        pickerLabel.text = gradePickerValues[row]
+        pickerLabel.font = UIFont(name: "Avenir", size: 17) // In this use your custom font
+        pickerLabel.textAlignment = NSTextAlignment.Center
+        return pickerLabel
+    }
+    
 
 }
