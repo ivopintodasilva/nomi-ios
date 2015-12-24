@@ -21,6 +21,7 @@
 		48D90FB41C047DD900693E17 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48D90FB21C047DD900693E17 /* Main.storyboard */; };
 		48D90FB61C047DD900693E17 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 48D90FB51C047DD900693E17 /* Assets.xcassets */; };
 		48D90FB91C047DD900693E17 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48D90FB71C047DD900693E17 /* LaunchScreen.storyboard */; };
+		48F7828E1C2B89790080ADA7 /* ScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48F7828D1C2B89790080ADA7 /* ScanViewController.swift */; };
 		48F9FA8B1C06793E00DAAFA3 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48F9FA8A1C06793E00DAAFA3 /* RegisterViewController.swift */; };
 		48F9FA8F1C0690CF00DAAFA3 /* nomi_splash2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 48F9FA8E1C0690CF00DAAFA3 /* nomi_splash2.jpg */; };
 		48F9FA951C069C3800DAAFA3 /* nav_bar@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 48F9FA941C069C3800DAAFA3 /* nav_bar@2x.jpg */; };
@@ -43,6 +44,7 @@
 		48D90FB51C047DD900693E17 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		48D90FB81C047DD900693E17 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		48D90FBA1C047DD900693E17 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		48F7828D1C2B89790080ADA7 /* ScanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanViewController.swift; sourceTree = "<group>"; };
 		48F9FA8A1C06793E00DAAFA3 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		48F9FA8E1C0690CF00DAAFA3 /* nomi_splash2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = nomi_splash2.jpg; path = images/nomi_splash2.jpg; sourceTree = "<group>"; };
 		48F9FA941C069C3800DAAFA3 /* nav_bar@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "nav_bar@2x.jpg"; path = "images/nav_bar@2x.jpg"; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 				48CB89EE1C2AF7AA00156B25 /* Profiles */,
 				48CB89EB1C2AE98F00156B25 /* User */,
 				48D90FAE1C047DD900693E17 /* AppDelegate.swift */,
+				48F7828D1C2B89790080ADA7 /* ScanViewController.swift */,
 				48D90FB01C047DD900693E17 /* ViewController.swift */,
 				48D90FB21C047DD900693E17 /* Main.storyboard */,
 				48D90FB51C047DD900693E17 /* Assets.xcassets */,
@@ -193,6 +196,7 @@
 				4883003C1C06641D00C2B25F /* ContactsViewController.swift in Sources */,
 				48F9FA8B1C06793E00DAAFA3 /* RegisterViewController.swift in Sources */,
 				48CB89F61C2B0EA500156B25 /* SwiftyJSON.swift in Sources */,
+				48F7828E1C2B89790080ADA7 /* ScanViewController.swift in Sources */,
 				48CB89F01C2AF91900156B25 /* UserProfiles.swift in Sources */,
 				4883003E1C06642B00C2B25F /* ProfilesViewController.swift in Sources */,
 				48CB89ED1C2AE9B900156B25 /* UserInfo.swift in Sources */,
