@@ -100,15 +100,23 @@
 		48D90FAD1C047DD900693E17 /* nomi */ = {
 			isa = PBXGroup;
 			children = (
-				48CB89F51C2B0EA500156B25 /* SwiftyJSON.swift */,
+				48F782901C2B92860080ADA7 /* Extras */,
 				48CB89EE1C2AF7AA00156B25 /* Profiles */,
 				48CB89EB1C2AE98F00156B25 /* User */,
+				48F7828F1C2B92550080ADA7 /* ViewControllers */,
 				48D90FAE1C047DD900693E17 /* AppDelegate.swift */,
-				48D90FB01C047DD900693E17 /* ViewController.swift */,
 				48D90FB21C047DD900693E17 /* Main.storyboard */,
-				48D90FB51C047DD900693E17 /* Assets.xcassets */,
 				48D90FB71C047DD900693E17 /* LaunchScreen.storyboard */,
 				48D90FBA1C047DD900693E17 /* Info.plist */,
+				48D90FB51C047DD900693E17 /* Assets.xcassets */,
+			);
+			path = nomi;
+			sourceTree = "<group>";
+		};
+		48F7828F1C2B92550080ADA7 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				48D90FB01C047DD900693E17 /* ViewController.swift */,
 				488300391C0663E400C2B25F /* ShareViewController.swift */,
 				48F7828D1C2B89790080ADA7 /* ScanViewController.swift */,
 				4883003B1C06641D00C2B25F /* ContactsViewController.swift */,
@@ -116,7 +124,15 @@
 				4883003F1C06643A00C2B25F /* SettingsViewController.swift */,
 				48F9FA8A1C06793E00DAAFA3 /* RegisterViewController.swift */,
 			);
-			path = nomi;
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		48F782901C2B92860080ADA7 /* Extras */ = {
+			isa = PBXGroup;
+			children = (
+				48CB89F51C2B0EA500156B25 /* SwiftyJSON.swift */,
+			);
+			name = Extras;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
