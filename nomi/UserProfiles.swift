@@ -19,4 +19,5 @@ class UserProfilesModel{
     func addProfile(profile: ProfileModel){
         self.user_profiles.append(profile)
     }
+    
 }

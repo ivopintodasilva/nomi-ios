@@ -28,8 +28,7 @@
                                                 <rect key="frame" x="0.0" y="351" width="320" height="65"/>
                                                 <color key="backgroundColor" red="0.56523260749743587" green="0.18221519027954927" blue="0.17163031318034969" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="65" id="3FS-Ui-PaP"/>
-                                                    <constraint firstAttribute="width" constant="320" id="hsM-8t-RTL"/>
+                                                    <constraint firstAttribute="height" constant="65" id="3Tc-Lh-DB1"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="20"/>
                                                 <state key="normal" title="Register">
@@ -44,7 +43,6 @@
                                                 <rect key="frame" x="0.0" y="286" width="320" height="65"/>
                                                 <color key="backgroundColor" red="0.70980392160000005" green="0.23137254900000001" blue="0.21176470589999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="320" id="QUb-wG-ooH"/>
                                                     <constraint firstAttribute="height" constant="65" id="QVa-3j-aRc"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="20"/>
@@ -61,7 +59,7 @@
                                                     <constraint firstAttribute="width" constant="200" id="Tmt-I4-MhH"/>
                                                     <constraint firstAttribute="height" constant="31" id="tbu-M9-5jc"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" name="AvenirNext-UltraLight" family="Avenir Next" pointSize="38"/>
+                                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="38"/>
                                                 <color key="textColor" red="0.36731122737556554" green="0.36731122737556554" blue="0.36731122737556554" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -84,18 +82,22 @@
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="paY-wJ-q1E" secondAttribute="trailing" id="5OW-zN-I4v"/>
                                             <constraint firstAttribute="height" constant="416" id="77e-dV-Tbi"/>
                                             <constraint firstItem="Jg1-8y-DOk" firstAttribute="centerX" secondItem="bWy-U4-huq" secondAttribute="centerX" id="8YD-Q7-9JT"/>
                                             <constraint firstItem="sB0-US-igS" firstAttribute="centerX" secondItem="bWy-U4-huq" secondAttribute="centerX" id="DQH-eI-38q"/>
                                             <constraint firstItem="paY-wJ-q1E" firstAttribute="centerX" secondItem="bWy-U4-huq" secondAttribute="centerX" id="H5u-Tq-WIe"/>
                                             <constraint firstAttribute="width" constant="320" id="IeY-rR-Fuj"/>
                                             <constraint firstItem="l4f-bq-RNU" firstAttribute="centerX" secondItem="bWy-U4-huq" secondAttribute="centerX" id="UYy-yZ-yza"/>
+                                            <constraint firstItem="paY-wJ-q1E" firstAttribute="leading" secondItem="bWy-U4-huq" secondAttribute="leading" id="Vb4-5K-KO7"/>
                                             <constraint firstAttribute="bottom" secondItem="paY-wJ-q1E" secondAttribute="bottom" id="eIp-wT-FhK"/>
                                             <constraint firstItem="l4f-bq-RNU" firstAttribute="top" secondItem="Jg1-8y-DOk" secondAttribute="bottom" constant="17" id="fpU-8O-BqB"/>
+                                            <constraint firstAttribute="trailing" secondItem="sB0-US-igS" secondAttribute="trailing" id="qxw-lh-Jf0"/>
                                             <constraint firstItem="Jg1-8y-DOk" firstAttribute="centerY" secondItem="bWy-U4-huq" secondAttribute="centerY" constant="-42" id="rQ9-aH-8sT"/>
                                             <constraint firstAttribute="bottom" secondItem="sB0-US-igS" secondAttribute="bottom" constant="65" id="rWJ-I5-aaP"/>
                                             <constraint firstItem="Jg1-8y-DOk" firstAttribute="top" secondItem="iOS-10-lSe" secondAttribute="bottom" constant="53" id="uVR-QP-she"/>
                                             <constraint firstItem="iOS-10-lSe" firstAttribute="centerX" secondItem="bWy-U4-huq" secondAttribute="centerX" id="wcC-oP-ENS"/>
+                                            <constraint firstItem="sB0-US-igS" firstAttribute="leading" secondItem="bWy-U4-huq" secondAttribute="leading" id="zcz-Fw-dHY"/>
                                         </constraints>
                                     </view>
                                 </subviews>

@@ -11,7 +11,7 @@ import UIKit
 class ShareViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     @IBOutlet weak var qr_code_view: UIImageView!
     
-    let gradePickerValues = ["Swag", "Trabalho", "Swaggermore"]
+    let picker_profiles = UserProfilesModel.sharedInstance.user_profiles
 
     @IBOutlet weak var share_picker: UIPickerView!
     
@@ -27,7 +27,7 @@ class ShareViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         
         // generate QR code
         var data: NSData
-        data = "{\"id\":3}".dataUsingEncoding(NSUTF8StringEncoding)!
+        data = ("{\"id\":" + String(self.picker_profiles[0].id) + "}").dataUsingEncoding(NSUTF8StringEncoding)!
         
         /// Foreground color of the output
         /// Defaults to black
@@ -49,8 +49,7 @@ class ShareViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         colorFilter!.setValue(backgroundColor, forKey: "inputColor1")
         let transformedImage = createNonInterpolatedUIImageFromCIImage(colorFilter!.outputImage!, withScale: 8.0)
         qr_code_view.image = transformedImage
-        
-        
+
         
         
         //share_picker = UIPickerView()
@@ -65,6 +64,8 @@ class ShareViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         print(UserInfoModel.sharedInstance.getId())
         print(UserInfoModel.sharedInstance.getFirstName())
         print(UserInfoModel.sharedInstance.getLastName())
+        
+        print(UserProfilesModel.sharedInstance.user_profiles)
         
     }
     
@@ -97,22 +98,51 @@ class ShareViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     }
     
     func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int{
-        return gradePickerValues.count
+        return picker_profiles.count
     }
     
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return gradePickerValues[row]
+        return picker_profiles[row].name
     }
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int){
-        self.view.endEditing(true)
+        //self.view.endEditing(true)
+        print(picker_profiles[row].id)
+        
+        
+        // generate QR code
+        var data: NSData
+        data = ("{\"id\":" + String(self.picker_profiles[row].id) + "}").dataUsingEncoding(NSUTF8StringEncoding)!
+        
+        /// Foreground color of the output
+        /// Defaults to black
+        //let color = CIColor(red: 181, green: 59, blue: 54)
+        let color = CIColor(red: 0.71, green: 0.23, blue: 0.21)
+        
+        /// Background color of the output
+        /// Defaults to white
+        //let backgroundColor = CIColor(red: 0.71, green: 0.23, blue: 0.21)
+        let backgroundColor = CIColor(red: 1, green: 1, blue: 1)
+        let qrFilter = CIFilter(name: "CIQRCodeGenerator")
+        qrFilter!.setDefaults()
+        qrFilter!.setValue(data, forKey: "inputMessage")
+        qrFilter!.setValue("H", forKey: "inputCorrectionLevel")
+        let colorFilter = CIFilter(name: "CIFalseColor")
+        colorFilter!.setDefaults()
+        colorFilter!.setValue(qrFilter!.outputImage, forKey: "inputImage")
+        colorFilter!.setValue(color, forKey: "inputColor0")
+        colorFilter!.setValue(backgroundColor, forKey: "inputColor1")
+        let transformedImage = createNonInterpolatedUIImageFromCIImage(colorFilter!.outputImage!, withScale: 8.0)
+        qr_code_view.image = transformedImage
+
+        
     }
     
     func pickerView(pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusingView view: UIView?) -> UIView
     {
         let pickerLabel = UILabel()
         pickerLabel.textColor = UIColor.blackColor()
-        pickerLabel.text = gradePickerValues[row]
+        pickerLabel.text = picker_profiles[row].name
         pickerLabel.font = UIFont(name: "Avenir", size: 17) // In this use your custom font
         pickerLabel.textAlignment = NSTextAlignment.Center
         return pickerLabel

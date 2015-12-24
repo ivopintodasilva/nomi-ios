@@ -17,13 +17,13 @@ class ProfileModel{
     var connections: [Int]
     var attributes: [ProfileAttributeModel]
     
-    init(id: Int, user_id: Int, name: String, color: String, connections: [Int]) {
+    init(id: Int, user_id: Int, name: String, color: String, connections: [Int], attributes: [ProfileAttributeModel]) {
         self.id = id
         self.user_id = user_id
         self.name = name
         self.color = color
         self.connections = connections
-        self.attributes = []
+        self.attributes = attributes
     }
     
     func addAttribute(attribute: ProfileAttributeModel){

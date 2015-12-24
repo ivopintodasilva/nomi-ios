@@ -104,9 +104,40 @@ class ViewController: UIViewController, UITextFieldDelegate {
                                                 let json = JSON(data: data!)
 
                                                 
-                                                for (index ,subJson):(String, JSON) in json["results"] {
-                                                    print (index)
-                                                    print(subJson)
+                                                for (_ ,subJson):(String, JSON) in json["results"] {
+                                                    
+                                                    
+                                                    var connections: [Int] = []
+                                                    
+                                                    for (_ ,subJson1):(String, JSON) in subJson["connections"]{
+                                                        //print("-------------------SUBJSON--------------------")
+                                                        //print (subJson1)
+                                                        connections.append(subJson1.intValue)
+                                                    }
+                                                    
+                                                    
+                                                    var attributes: [ProfileAttributeModel] = []
+                                                    
+                                                    for (_ ,subJson1):(String, JSON) in subJson["attributes"]{
+                                                        attributes.append(ProfileAttributeModel(id: subJson1["id"].intValue, name: subJson1["name"].stringValue, value: subJson1["value"].stringValue))
+                                                    }
+                                                    
+                                                    
+                                                    
+                                                    //print (index)
+                                                    //print(subJson["id"].intValue)
+                                                    //print(subJson["name"].stringValue)
+                                                    //print(subJson["color"].stringValue)
+                                                    //print(subJson["user"]["id"].intValue)
+                                                    //print(subJson["connections"])
+                                                    //print("---------------------------------")
+                                                    
+                                                    var profile: ProfileModel = ProfileModel(id: subJson["id"].intValue, user_id: subJson["user"]["id"].intValue, name: subJson["name"].stringValue, color: subJson["color"].stringValue, connections:  connections, attributes: attributes)
+                                                    
+                                                    //print (profile)
+                                                    //print("---------------------------------")
+                                                    
+                                                    UserProfilesModel.sharedInstance.addProfile(profile)
                                                 }
                                                 
                                                 
