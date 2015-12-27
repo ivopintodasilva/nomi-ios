@@ -1,0 +1,3 @@
+[submodule "ImageLoaderSwift"]
+	path = ImageLoaderSwift
+	url = https://github.com/hirohisa/ImageLoaderSwift.git

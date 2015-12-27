@@ -106,7 +106,14 @@ class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
             if metadataObj.stringValue != nil {
                 
                 // DO THE PROFILE LINKAGE HERE!
-                print(metadataObj.stringValue)
+                //print(metadataObj.stringValue)
+                
+                let json = JSON(data: metadataObj.stringValue.dataUsingEncoding(NSUTF8StringEncoding)!)
+                
+                if(json["id"] != nil){
+                    print(json["id"])
+                }
+                
             
             }
         }

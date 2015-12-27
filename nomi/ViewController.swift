@@ -15,6 +15,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     var login_info: NSString?
     var profile_info: NSString?
+    var contacts_info: NSString?
     
     @IBOutlet weak var scroll_view: UIScrollView!
     @IBOutlet weak var content_view: UIView!
@@ -95,23 +96,16 @@ class ViewController: UIViewController, UITextFieldDelegate {
                                             // check if data is not null
                                             if let _ = data
                                             {
-                                                //print(NSString(data: data!, encoding: NSUTF8StringEncoding))
                                                 self.profile_info = NSString(data: data!, encoding: NSUTF8StringEncoding)
-                                                
-                                                
-                                                
-                                                
+
                                                 let json = JSON(data: data!)
 
-                                                
                                                 for (_ ,subJson):(String, JSON) in json["results"] {
                                                     
                                                     
                                                     var connections: [Int] = []
                                                     
                                                     for (_ ,subJson1):(String, JSON) in subJson["connections"]{
-                                                        //print("-------------------SUBJSON--------------------")
-                                                        //print (subJson1)
                                                         connections.append(subJson1.intValue)
                                                     }
                                                     
@@ -121,85 +115,75 @@ class ViewController: UIViewController, UITextFieldDelegate {
                                                     for (_ ,subJson1):(String, JSON) in subJson["attributes"]{
                                                         attributes.append(ProfileAttributeModel(id: subJson1["id"].intValue, name: subJson1["name"].stringValue, value: subJson1["value"].stringValue))
                                                     }
+
                                                     
+                                                    var profile: ProfileModel = ProfileModel(id: subJson["id"].intValue, user_id: subJson["user"]["id"].intValue, user_fname: subJson["user"]["first_name"].stringValue, user_lname: subJson["user"]["last_name"].stringValue, user_email: subJson["user"]["email"].stringValue,  name: subJson["name"].stringValue, color: subJson["color"].stringValue, connections:  connections, attributes: attributes)
                                                     
-                                                    
-                                                    //print (index)
-                                                    //print(subJson["id"].intValue)
-                                                    //print(subJson["name"].stringValue)
-                                                    //print(subJson["color"].stringValue)
-                                                    //print(subJson["user"]["id"].intValue)
-                                                    //print(subJson["connections"])
-                                                    //print("---------------------------------")
-                                                    
-                                                    var profile: ProfileModel = ProfileModel(id: subJson["id"].intValue, user_id: subJson["user"]["id"].intValue, name: subJson["name"].stringValue, color: subJson["color"].stringValue, connections:  connections, attributes: attributes)
-                                                    
-                                                    //print (profile)
-                                                    //print("---------------------------------")
                                                     
                                                     UserProfilesModel.sharedInstance.addProfile(profile)
                                                 }
                                                 
                                                 
-                                                
-//                                                do {
-//                                                    if let json: NSDictionary = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers) as? NSDictionary {
-//                                                        
-//                                                        
-//                                                        if let results = json["results"] as? Array<AnyObject>{
-//                                                            for profile in results {
-//                                                                
-//                                                                print(profile["id"])
-//
-//                                                                
-//                                                                
-//                                                                
-//                                                                if let profile_id = profile["id"]{
-//                                                                    if let user = profile["user"] as? NSDictionary{
-//                                                                        if let user_id = user["id"]{
-//                                                                            if let profile_name = profile["name"]{
-//                                                                                if let profile_color = profile["color"]{
-//                                                                                    
-//                                                                                }
-//                                                                            }
-//                                                                        }
-//                                                                    }
-//                                                                }
-//                                                                
-//                                                                
-//                                                                
-//                                                                
-//                                                                
-//                                                                
-//                                                                
-//                                                                
-//                                                                
-//                                                                
-//                                                                
-//                                                                if let attributes = profile["attributes"] as? Array<AnyObject>{
-//                                                                    for attribute in attributes {
-//                                                                        print(attribute["name"])
-//                                                                    }
-//                                                                    
-//                                                                }
-//                                                                
-//                                                                
-//                                                                print("--------------------------------------")
-//                                                                
-//                                                                
-//                                                            }
-//                                                        }
-//                                                    }
-//                                                    
-//                                                    
-//                                                } catch let error as NSError {
-//                                                    print("Failed to load: \(error.localizedDescription)")
-//                                                }
-                                                
-                                                
-                                                dispatch_async(dispatch_get_main_queue(), {
-                                                    self.performSegueWithIdentifier("login", sender: self)
+                                                let url_contacts = NSURL(string: "http://192.168.160.56:8000/api/profile/relation/user/" + String(UserInfoModel.sharedInstance.getId()))
+                                                print(url_contacts)
+                                                let task_contacts = self.session!.dataTaskWithURL(url_contacts!, completionHandler: {(data, response, error) in
+                                                    if let httpResponse = response as? NSHTTPURLResponse{
+                                                        if httpResponse.statusCode == 200 {
+                                                            print("no error")
+                                                            // check if data is not null
+                                                            if let _ = data
+                                                            {
+                                                                self.contacts_info = NSString(data: data!, encoding: NSUTF8StringEncoding)
+                                                                
+                                                                let json = JSON(data: data!)
+                                                                
+                                                                for (_ ,subJson):(String, JSON) in json["results"] {
+                                                                    
+                                                                    
+                                                                    var connections: [Int] = []
+                                                                    
+                                                                    for (_ ,subJson1):(String, JSON) in subJson["connections"]{
+                                                                        connections.append(subJson1.intValue)
+                                                                    }
+                                                                    
+                                                                    
+                                                                    var attributes: [ProfileAttributeModel] = []
+                                                                    
+                                                                    for (_ ,subJson1):(String, JSON) in subJson["attributes"]{
+                                                                        attributes.append(ProfileAttributeModel(id: subJson1["id"].intValue, name: subJson1["name"].stringValue, value: subJson1["value"].stringValue))
+                                                                    }
+                                                                    
+                                                                    
+                                                                    var profile: ProfileModel = ProfileModel(id: subJson["id"].intValue, user_id: subJson["user"]["id"].intValue, user_fname: subJson["user"]["first_name"].stringValue, user_lname: subJson["user"]["last_name"].stringValue, user_email: subJson["user"]["email"].stringValue,  name: subJson["name"].stringValue, color: subJson["color"].stringValue, connections:  connections, attributes: attributes)
+                                                                    
+                                                                    
+                                                                    ContactsModel.sharedInstance.addProfile(profile)
+                                                                }
+                                                                
+                                                                
+                                                                
+                                                                dispatch_async(dispatch_get_main_queue(), {
+                                                                    self.performSegueWithIdentifier("login", sender: self)
+                                                                })
+                                                            }
+                                                        } else {
+                                                            dispatch_async(dispatch_get_main_queue(), {
+                                                                let alert = UIAlertView()
+                                                                alert.title = "Login failed"
+                                                                alert.message = "Come on, don't fool us!"
+                                                                alert.addButtonWithTitle("Ok, I'm sorry")
+                                                                alert.show()
+                                                            })
+                                                        }
+                                                        
+                                                    }
                                                 })
+                                                task_contacts.resume()
+                                                
+                                                
+//                                                dispatch_async(dispatch_get_main_queue(), {
+//                                                    self.performSegueWithIdentifier("login", sender: self)
+//                                                })
                                             }
                                         } else {
                                             dispatch_async(dispatch_get_main_queue(), {
@@ -216,22 +200,14 @@ class ViewController: UIViewController, UITextFieldDelegate {
                                 
                                 task_profile.resume()
                                 
+                                
                             }
                             
                             
                         } catch let error as NSError {
                             print("Failed to load: \(error.localizedDescription)")
                         }
-                        
-                        
-                        
-                        
-                        
-                        
-                        //
-                        //                        dispatch_async(dispatch_get_main_queue(), {
-                        //                            self.performSegueWithIdentifier("login", sender: self)
-                        //                        })
+
                     }
                 } else {
                     dispatch_async(dispatch_get_main_queue(), {
