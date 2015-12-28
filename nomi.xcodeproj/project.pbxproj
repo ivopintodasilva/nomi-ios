@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		481557371C306EBB0025CA54 /* Contacts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481557361C306EBB0025CA54 /* Contacts.swift */; };
 		4815573C1C3083820025CA54 /* ContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4815573B1C3083820025CA54 /* ContactCell.swift */; };
-		481557421C30B08D0025CA54 /* ImageLoader in Resources */ = {isa = PBXBuildFile; fileRef = 481557411C30B08D0025CA54 /* ImageLoader */; };
 		4883003A1C0663E400C2B25F /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488300391C0663E400C2B25F /* ShareViewController.swift */; };
 		4883003C1C06641D00C2B25F /* ContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4883003B1C06641D00C2B25F /* ContactsViewController.swift */; };
 		4883003E1C06642B00C2B25F /* ProfilesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4883003D1C06642B00C2B25F /* ProfilesViewController.swift */; };
@@ -33,7 +32,6 @@
 /* Begin PBXFileReference section */
 		481557361C306EBB0025CA54 /* Contacts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contacts.swift; sourceTree = "<group>"; };
 		4815573B1C3083820025CA54 /* ContactCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactCell.swift; sourceTree = "<group>"; };
-		481557411C30B08D0025CA54 /* ImageLoader */ = {isa = PBXFileReference; lastKnownFileType = folder; path = ImageLoader; sourceTree = "<group>"; };
 		481557471C30C1620025CA54 /* nomi-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "nomi-Bridging-Header.h"; sourceTree = "<group>"; };
 		488300391C0663E400C2B25F /* ShareViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
 		4883003B1C06641D00C2B25F /* ContactsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsViewController.swift; sourceTree = "<group>"; };
@@ -125,7 +123,6 @@
 			isa = PBXGroup;
 			children = (
 				481557431C30BC3E0025CA54 /* CommonCrypto */,
-				481557411C30B08D0025CA54 /* ImageLoader */,
 				481557381C3083310025CA54 /* Custom Cells */,
 				48F782901C2B92860080ADA7 /* Extras */,
 				48CB89EE1C2AF7AA00156B25 /* Profiles */,
@@ -222,7 +219,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				48D90FB91C047DD900693E17 /* LaunchScreen.storyboard in Resources */,
-				481557421C30B08D0025CA54 /* ImageLoader in Resources */,
 				48D90FB61C047DD900693E17 /* Assets.xcassets in Resources */,
 				48F9FA8F1C0690CF00DAAFA3 /* nomi_splash2.jpg in Resources */,
 				48D90FB41C047DD900693E17 /* Main.storyboard in Resources */,
