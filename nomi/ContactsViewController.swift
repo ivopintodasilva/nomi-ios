@@ -20,6 +20,8 @@ class ContactsViewController: UIViewController, UITableViewDelegate, UITableView
         contacts_list.delegate = self
         contacts_list.dataSource = self
         self.contacts_list.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        self.automaticallyAdjustsScrollViewInsets = false
+
         // Do any additional setup after loading the view.
     }
 
@@ -103,7 +105,10 @@ class ContactsViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        performSegueWithIdentifier("contactdetails", sender: self)
+        contacts_list.deselectRowAtIndexPath(indexPath, animated: true)
         
+
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
