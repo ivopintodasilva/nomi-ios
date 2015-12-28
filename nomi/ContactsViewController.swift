@@ -57,6 +57,43 @@ class ContactsViewController: UIViewController, UITableViewDelegate, UITableView
         cell.userImageView.clipsToBounds = true
         //cell.userImageView.image = nil
         
+        let email = ContactsModel.sharedInstance.user_contacts[indexPath.row].user_email
+        
+        var curatedEmail: String = email.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet()).lowercaseString
+        let cStr = (curatedEmail as NSString).UTF8String
+        
+    
+        
+        var result = [UInt8](count: Int(CC_MD5_DIGEST_LENGTH), repeatedValue: 0)
+
+        if let data = curatedEmail.dataUsingEncoding(NSUTF8StringEncoding) {
+            CC_MD5(data.bytes, CC_LONG(data.length), &result)
+        }
+        
+        // compute MD5
+        let md5email: String = String(format: "%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x", result[0], result[1], result[2], result[3], result[4], result[5], result[6], result[7], result[8], result[9], result[10], result[11], result[12], result[13], result[14], result[15])
+        
+        var gravatarEndPoint: String = "http://www.gravatar.com/avatar/\(md5email)?s=512"
+
+
+        
+        let url = NSURL(string: gravatarEndPoint)
+        getDataFromUrl(url!) { (data, response, error)  in
+            dispatch_async(dispatch_get_main_queue()) { () -> Void in
+                guard let data = data where error == nil else { return }
+                print(response?.suggestedFilename ?? "")
+                print("Download Finished")
+                let transition = CATransition()
+                transition.duration = 0.5
+                transition.type = kCATransitionFade
+                cell.userImageView.layer.addAnimation(transition, forKey: nil)
+                cell.userImageView.image = UIImage(data: data)
+            }
+        }
+        
+
+        
+        
         //cell.userImageView
     }
     
@@ -73,6 +110,16 @@ class ContactsViewController: UIViewController, UITableViewDelegate, UITableView
         return 80
     }
     
+    
+    func getDataFromUrl(url:NSURL, completion: ((data: NSData?, response: NSURLResponse?, error: NSError? ) -> Void)) {
+        NSURLSession.sharedSession().dataTaskWithURL(url) { (data, response, error) in
+            completion(data: data, response: response, error: error)
+            }.resume()
+    }
+
+
+
+
     
     /*
     // MARK: - Navigation
