@@ -359,23 +359,75 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NDL-fA-5nY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1710" y="1"/>
+            <point key="canvasLocation" x="1674" y="-5"/>
         </scene>
-        <!--View Controller-->
+        <!--Contact Details Controller-->
         <scene sceneID="vUb-Uq-Mqc">
             <objects>
-                <viewController id="cgr-rm-zGn" sceneMemberID="viewController">
+                <viewController id="cgr-rm-zGn" customClass="ContactDetailsController" customModule="nomi" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="SOI-Tp-Zgv"/>
                         <viewControllerLayoutGuide type="bottom" id="MK7-FC-OAy"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="saG-cX-gvG">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kOA-qU-uke">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="367"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z6C-mW-cCW">
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" id="rwA-8b-BqR"/>
+                                            <constraint firstAttribute="height" id="szj-fh-YUn"/>
+                                        </constraints>
+                                    </view>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nomi_splash2.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="h4B-RG-zWz">
+                                        <rect key="frame" x="97" y="20" width="125" height="125"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="125" id="73r-70-sAX"/>
+                                            <constraint firstAttribute="height" constant="125" id="AXO-Pv-Ek6"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="z6C-mW-cCW" secondAttribute="trailing" id="78g-YF-n67"/>
+                                    <constraint firstAttribute="bottom" secondItem="z6C-mW-cCW" secondAttribute="bottom" id="7ja-B0-B4I"/>
+                                    <constraint firstItem="z6C-mW-cCW" firstAttribute="leading" secondItem="kOA-qU-uke" secondAttribute="leading" id="A5o-9u-Icp"/>
+                                    <constraint firstItem="h4B-RG-zWz" firstAttribute="top" secondItem="kOA-qU-uke" secondAttribute="top" constant="20" id="Czn-jD-eEy"/>
+                                    <constraint firstItem="h4B-RG-zWz" firstAttribute="centerX" secondItem="kOA-qU-uke" secondAttribute="centerX" id="XrN-wB-tyn"/>
+                                    <constraint firstItem="z6C-mW-cCW" firstAttribute="top" secondItem="kOA-qU-uke" secondAttribute="top" id="a1w-oJ-rkr"/>
+                                </constraints>
+                            </scrollView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a2T-vE-VyB">
+                                <rect key="frame" x="60" y="166" width="200" height="27.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="XJw-Qk-yiu"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="20"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="a2T-vE-VyB" firstAttribute="top" secondItem="h4B-RG-zWz" secondAttribute="bottom" constant="21" id="Egt-Sv-rLP"/>
+                            <constraint firstItem="kOA-qU-uke" firstAttribute="centerY" secondItem="saG-cX-gvG" secondAttribute="centerY" id="QQC-nj-Vdr"/>
+                            <constraint firstItem="kOA-qU-uke" firstAttribute="top" secondItem="saG-cX-gvG" secondAttribute="top" id="Rlv-f9-jGP"/>
+                            <constraint firstItem="kOA-qU-uke" firstAttribute="leading" secondItem="saG-cX-gvG" secondAttribute="leading" id="XAh-DQ-EGq"/>
+                            <constraint firstAttribute="bottom" secondItem="kOA-qU-uke" secondAttribute="bottom" id="cHK-bZ-Br5"/>
+                            <constraint firstAttribute="trailing" secondItem="kOA-qU-uke" secondAttribute="trailing" id="klh-n9-LGn"/>
+                            <constraint firstItem="a2T-vE-VyB" firstAttribute="centerX" secondItem="saG-cX-gvG" secondAttribute="centerX" id="owO-Qb-Tmh"/>
+                        </constraints>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" id="V6x-Lj-TX9"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="contact_details_image" destination="h4B-RG-zWz" id="fNi-Cw-ZdG"/>
+                        <outlet property="contact_details_name" destination="a2T-vE-VyB" id="oJZ-iM-hyv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gl3-24-RJq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

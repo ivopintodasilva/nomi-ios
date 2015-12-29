@@ -17,6 +17,17 @@ class ContactsModel{
     
     private init(){}
     
+    func get(id: Int) -> ProfileModel?{
+        //self.user_contacts.append(profile)
+        
+        for element in self.user_contacts {
+            if(element.id == id){
+                return element
+            }
+        }
+        return nil
+    }
+    
     func addProfile(profile: ProfileModel){
         self.user_contacts.append(profile)
     }

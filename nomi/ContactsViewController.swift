@@ -12,6 +12,8 @@ class ContactsViewController: UIViewController, UITableViewDelegate, UITableView
 
     @IBOutlet weak var contacts_list: UITableView!
     
+    var contact_id: Int?
+    
     let basicCellIdentifier = "ContactCell"
     
     override func viewDidLoad() {
@@ -61,10 +63,7 @@ class ContactsViewController: UIViewController, UITableViewDelegate, UITableView
         
         let email = ContactsModel.sharedInstance.user_contacts[indexPath.row].user_email
         
-        var curatedEmail: String = email.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet()).lowercaseString
-        let cStr = (curatedEmail as NSString).UTF8String
-        
-    
+        let curatedEmail: String = email.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet()).lowercaseString
         
         var result = [UInt8](count: Int(CC_MD5_DIGEST_LENGTH), repeatedValue: 0)
 
@@ -75,7 +74,7 @@ class ContactsViewController: UIViewController, UITableViewDelegate, UITableView
         // compute MD5
         let md5email: String = String(format: "%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x", result[0], result[1], result[2], result[3], result[4], result[5], result[6], result[7], result[8], result[9], result[10], result[11], result[12], result[13], result[14], result[15])
         
-        var gravatarEndPoint: String = "http://www.gravatar.com/avatar/\(md5email)?s=512"
+        let gravatarEndPoint: String = "http://www.gravatar.com/avatar/\(md5email)?s=512"
 
 
         
@@ -105,6 +104,9 @@ class ContactsViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let item = ContactsModel.sharedInstance.user_contacts[indexPath.row]
+        contact_id = item.id
+        
         performSegueWithIdentifier("contactdetails", sender: self)
         contacts_list.deselectRowAtIndexPath(indexPath, animated: true)
         
@@ -123,7 +125,12 @@ class ContactsViewController: UIViewController, UITableViewDelegate, UITableView
     }
 
 
-
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+        if (segue.identifier == "contactdetails") {
+            let svc = segue.destinationViewController as! ContactDetailsController
+            svc.contact_id = self.contact_id
+        }
+    }
 
     
     /*
