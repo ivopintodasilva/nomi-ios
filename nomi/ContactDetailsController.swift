@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ContactDetailsController: UIViewController {
+class ContactDetailsController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var contact_id: Int?
     
@@ -17,11 +17,21 @@ class ContactDetailsController: UIViewController {
     @IBOutlet weak var contact_details_image: UIImageView!
     @IBOutlet weak var contact_details_name: UILabel!
     
+    @IBOutlet weak var contact_attributes: UITableView!
+    
+    let cell_identifier = "ContactDetailsCell"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         contact_details_image.layer.cornerRadius = contact_details_image.frame.size.width / 2
         contact_details_image.clipsToBounds = true
+        
+        contact_attributes.delegate = self
+        contact_attributes.dataSource = self
+        
+        self.contact_attributes.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        self.automaticallyAdjustsScrollViewInsets = false
 
         // Do any additional setup after loading the view.
         
@@ -36,12 +46,7 @@ class ContactDetailsController: UIViewController {
             
             
             
-            // Example of how to write an icon into textbox
             
-            //var androidIcon: FAKMaterialIcons = FAKMaterialIcons.androidIconWithSize(48)
-            //var result: NSMutableAttributedString = androidIcon.attributedString().mutableCopy() as! NSMutableAttributedString
-            //result.appendAttributedString(NSMutableAttributedString(string:" - askjdnkajsnd"))
-            //contact_details_name.attributedText = result
         }
         
     }
@@ -109,6 +114,64 @@ class ContactDetailsController: UIViewController {
 
     
 
+    
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if let contact_retrieved: ProfileModel = contact!{
+            return contact_retrieved.attributes.count
+        }
+        return 0
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        let cell = contact_attributes.dequeueReusableCellWithIdentifier(cell_identifier) as! ContactDetailsCell
+        cell.value.text = contact!.attributes[indexPath.row].value
+        
+        // Example of how to write an icon into textbox
+        
+        //var androidIcon: FAKMaterialIcons = FAKMaterialIcons.androidIconWithSize(48)
+        //var result: NSMutableAttributedString = androidIcon.attributedString().mutableCopy() as! NSMutableAttributedString
+        //result.appendAttributedString(NSMutableAttributedString(string:" - askjdnkajsnd"))
+        //contact_details_name.attributedText = result
+        
+        
+        if contact!.attributes[indexPath.row].name == "FACEBOOK"{
+            cell.icon.attributedText = FAKMaterialIcons.facebookIconWithSize(30).attributedString()
+            cell.icon.textColor = UIColor(red: 59/255, green: 89/255, blue: 152/255, alpha: 1)
+        }
+        else if contact!.attributes[indexPath.row].name == "TWITTER"{
+            cell.icon.attributedText = FAKMaterialIcons.twitterIconWithSize(30).attributedString()
+            cell.icon.textColor = UIColor(red: 0/255, green: 172/255, blue: 238/255, alpha: 1)
+        }
+        else if contact!.attributes[indexPath.row].name == "INSTAGRAM"{
+            cell.icon.attributedText = FAKMaterialIcons.instagramIconWithSize(30).attributedString()
+            cell.icon.textColor = UIColor(red: 18/255, green: 86/255, blue: 136/255, alpha: 1)
+        }
+        else if contact!.attributes[indexPath.row].name == "GOOGLE"{
+            cell.icon.attributedText = FAKMaterialIcons.googlePlusIconWithSize(30).attributedString()
+            cell.icon.textColor = UIColor(red: 221/255, green: 75/255, blue: 57/255, alpha: 1)
+        }
+        else if contact!.attributes[indexPath.row].name == "EMAIL"{
+            cell.icon.attributedText = FAKMaterialIcons.emailIconWithSize(30).attributedString()
+            cell.icon.textColor = UIColor(red: 50/255, green: 80/255, blue: 109/255, alpha: 1)
+        }
+        else if contact!.attributes[indexPath.row].name == "NUMBER"{
+            cell.icon.attributedText = FAKMaterialIcons.phoneIconWithSize(30).attributedString()
+            cell.icon.textColor = UIColor(red: 0/255, green: 191/255, blue: 143/255, alpha: 1)
+        }
+        
+        return cell
+
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+    }
+    
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 60
+    }
     
     
     /*
