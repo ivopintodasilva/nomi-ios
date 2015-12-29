@@ -30,6 +30,8 @@ class ContactDetailsController: UIViewController, UITableViewDelegate, UITableVi
         contact_attributes.delegate = self
         contact_attributes.dataSource = self
         
+        contact_attributes.separatorStyle = UITableViewCellSeparatorStyle.None
+        
         self.contact_attributes.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
         self.automaticallyAdjustsScrollViewInsets = false
 

@@ -11,6 +11,8 @@ import AVFoundation
 
 class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate{
     
+    var scanned = false
+    
     var captureSession:AVCaptureSession?
     var videoPreviewLayer:AVCaptureVideoPreviewLayer?
     var qrCodeFrameView:UIView?
@@ -22,6 +24,8 @@ class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        scanned = false
         self.setNeedsStatusBarAppearanceUpdate()
         
         // Get an instance of the AVCaptureDevice class to initialize a device object and provide the video
@@ -103,16 +107,20 @@ class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
             
             
             
-            if metadataObj.stringValue != nil {
+            if metadataObj.stringValue != nil && scanned == false{
                 
                 // DO THE PROFILE LINKAGE HERE!
                 //print(metadataObj.stringValue)
+                
+                self.performSegueWithIdentifier("scanned", sender: self)
                 
                 let json = JSON(data: metadataObj.stringValue.dataUsingEncoding(NSUTF8StringEncoding)!)
                 
                 if(json["id"] != nil){
                     print(json["id"])
                 }
+                
+                scanned = true
                 
             
             }
@@ -128,5 +136,6 @@ class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return .Default
     }
+    
 
 }

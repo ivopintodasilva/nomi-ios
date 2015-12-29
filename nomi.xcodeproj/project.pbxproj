@@ -10,6 +10,7 @@
 		481557371C306EBB0025CA54 /* Contacts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481557361C306EBB0025CA54 /* Contacts.swift */; };
 		4815573C1C3083820025CA54 /* ContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4815573B1C3083820025CA54 /* ContactCell.swift */; };
 		481F2C901C32DC690002DC3C /* ContactDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481F2C8F1C32DC690002DC3C /* ContactDetailsCell.swift */; };
+		481F2C941C331BFD0002DC3C /* ScannedContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481F2C931C331BFD0002DC3C /* ScannedContactViewController.swift */; };
 		4883003A1C0663E400C2B25F /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488300391C0663E400C2B25F /* ShareViewController.swift */; };
 		4883003C1C06641D00C2B25F /* ContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4883003B1C06641D00C2B25F /* ContactsViewController.swift */; };
 		4883003E1C06642B00C2B25F /* ProfilesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4883003D1C06642B00C2B25F /* ProfilesViewController.swift */; };
@@ -49,6 +50,7 @@
 		4815573B1C3083820025CA54 /* ContactCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactCell.swift; sourceTree = "<group>"; };
 		481557471C30C1620025CA54 /* nomi-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "nomi-Bridging-Header.h"; sourceTree = "<group>"; };
 		481F2C8F1C32DC690002DC3C /* ContactDetailsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactDetailsCell.swift; sourceTree = "<group>"; };
+		481F2C931C331BFD0002DC3C /* ScannedContactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScannedContactViewController.swift; sourceTree = "<group>"; };
 		488300391C0663E400C2B25F /* ShareViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
 		4883003B1C06641D00C2B25F /* ContactsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsViewController.swift; sourceTree = "<group>"; };
 		4883003D1C06642B00C2B25F /* ProfilesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfilesViewController.swift; sourceTree = "<group>"; };
@@ -216,6 +218,7 @@
 				4883003F1C06643A00C2B25F /* SettingsViewController.swift */,
 				48F9FA8A1C06793E00DAAFA3 /* RegisterViewController.swift */,
 				48C75BF21C31F30D006908B3 /* ContactDetailsController.swift */,
+				481F2C931C331BFD0002DC3C /* ScannedContactViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -319,6 +322,7 @@
 				48C75C171C32111B006908B3 /* FAKMaterialIcons.m in Sources */,
 				48F7828E1C2B89790080ADA7 /* ScanViewController.swift in Sources */,
 				48CB89F01C2AF91900156B25 /* UserProfiles.swift in Sources */,
+				481F2C941C331BFD0002DC3C /* ScannedContactViewController.swift in Sources */,
 				48C75C151C32111B006908B3 /* FAKIcon.m in Sources */,
 				481557371C306EBB0025CA54 /* Contacts.swift in Sources */,
 				48C75C141C32111B006908B3 /* FAKFoundationIcons.m in Sources */,
