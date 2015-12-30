@@ -17,20 +17,20 @@ class ContactDetailsController: UIViewController, UITableViewDelegate, UITableVi
     @IBOutlet weak var contact_details_image: UIImageView!
     @IBOutlet weak var contact_details_name: UILabel!
     
-    @IBOutlet weak var contact_attributes: UITableView!
+    @IBOutlet var contact_attributes: UITableView!
     
     let cell_identifier = "ContactDetailsCell"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        contact_details_image.layer.cornerRadius = contact_details_image.frame.size.width / 2
-        contact_details_image.clipsToBounds = true
+        self.contact_details_image.layer.cornerRadius = contact_details_image.frame.size.width / 2
+        self.contact_details_image.clipsToBounds = true
         
-        contact_attributes.delegate = self
-        contact_attributes.dataSource = self
+        self.contact_attributes.delegate = self
+        self.contact_attributes.dataSource = self
         
-        contact_attributes.separatorStyle = UITableViewCellSeparatorStyle.None
+        self.contact_attributes.separatorStyle = UITableViewCellSeparatorStyle.None
         
         self.contact_attributes.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
         self.automaticallyAdjustsScrollViewInsets = false

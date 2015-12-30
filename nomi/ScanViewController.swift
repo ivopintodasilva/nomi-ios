@@ -9,9 +9,10 @@
 import UIKit
 import AVFoundation
 
-class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate{
+class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate, UIAlertViewDelegate{
     
     var scanned = false
+    var contact_id: Int?
     
     var captureSession:AVCaptureSession?
     var videoPreviewLayer:AVCaptureVideoPreviewLayer?
@@ -24,6 +25,9 @@ class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        
         
         scanned = false
         self.setNeedsStatusBarAppearanceUpdate()
@@ -98,7 +102,7 @@ class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
         // Here we use filter method to check if the type of metadataObj is supported
         // Instead of hardcoding the AVMetadataObjectTypeQRCode, we check if the type
         // can be found in the array of supported bar codes.
-        if supportedBarCodes.contains(metadataObj.type) {
+        if supportedBarCodes.contains(metadataObj.type) && scanned == false{
             //        if metadataObj.type == AVMetadataObjectTypeQRCode {
             // If the found metadata is equal to the QR code metadata then update the status label's text and set the bounds
             let barCodeObject = videoPreviewLayer?.transformedMetadataObjectForMetadataObject(metadataObj)
@@ -107,22 +111,30 @@ class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
             
             
             
-            if metadataObj.stringValue != nil && scanned == false{
+            if metadataObj.stringValue != nil{
+                scanned = true
                 
                 // DO THE PROFILE LINKAGE HERE!
                 //print(metadataObj.stringValue)
                 
-                self.performSegueWithIdentifier("scanned", sender: self)
+                
                 
                 let json = JSON(data: metadataObj.stringValue.dataUsingEncoding(NSUTF8StringEncoding)!)
                 
                 if(json["id"] != nil){
                     print(json["id"])
+                    self.contact_id = json["id"].intValue
+                    self.performSegueWithIdentifier("scanned", sender: self)
                 }
-                
-                scanned = true
-                
-            
+                else{
+                    
+                    let alert = UIAlertView()
+                    alert.delegate = self
+                    alert.title = "Invalid code"
+                    alert.message = "Come on, don't fool us!"
+                    alert.addButtonWithTitle("Ok, I'm sorry")
+                    alert.show()
+                }
             }
         }
     }
@@ -135,6 +147,19 @@ class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return .Default
+    }
+    
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+        if (segue.identifier == "scanned") {
+            let svc = segue.destinationViewController as! ScannedViewController;
+            svc.contact_id = self.contact_id
+        }
+    }
+    
+    func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int) {
+        print ("button pressed")
+        scanned = false
     }
     
 

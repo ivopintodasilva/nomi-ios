@@ -10,7 +10,7 @@ import UIKit
 
 class ContactsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    @IBOutlet weak var contacts_list: UITableView!
+    @IBOutlet var contacts_list: UITableView!
     
     var contact_id: Int?
     
