@@ -69,11 +69,11 @@ class SettingsViewController: UIViewController {
         
         
         let url1 = NSURL(string: gravatarEndPoint1)
-        getDataFromUrl(url1!) { (data1, response, error)  in
+        getDataFromUrl(url1!) { (data, response, error)  in
             dispatch_async(dispatch_get_main_queue()) { () -> Void in
-                guard let data = data1 where error == nil else { return }
+                guard let data = data where error == nil else { return }
                 print(response?.suggestedFilename ?? "")
-                print("Download Finished")
+                print("Download1 Finished")
                 let transition = CATransition()
                 transition.duration = 0.5
                 transition.type = kCATransitionFade
@@ -84,11 +84,11 @@ class SettingsViewController: UIViewController {
         }
         
         let url2 = NSURL(string: gravatarEndPoint2)
-        getDataFromUrl(url2!) { (data2, response, error)  in
+        getDataFromUrl(url2!) { (data, response, error)  in
             dispatch_async(dispatch_get_main_queue()) { () -> Void in
-                guard let data = data2 where error == nil else { return }
+                guard let data = data where error == nil else { return }
                 print(response?.suggestedFilename ?? "")
-                print("Download Finished")
+                print("Download2 Finished")
                 let transition = CATransition()
                 transition.duration = 0.5
                 transition.type = kCATransitionFade
