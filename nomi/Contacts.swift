@@ -35,5 +35,9 @@ class ContactsModel{
     func size() -> Int{
         return self.user_contacts.count
     }
+    
+    func cleanInstance(){
+        self.user_contacts = []
+    }
 
 }

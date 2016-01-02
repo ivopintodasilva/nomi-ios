@@ -20,4 +20,8 @@ class UserProfilesModel{
         self.user_profiles.append(profile)
     }
     
+    func cleanInstance(){
+        self.user_profiles = []
+    }
+    
 }

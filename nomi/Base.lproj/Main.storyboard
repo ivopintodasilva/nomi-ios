@@ -24,22 +24,6 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bWy-U4-huq">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
                                         <subviews>
-                                            <button opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="paY-wJ-q1E">
-                                                <rect key="frame" x="0.0" y="351" width="320" height="65"/>
-                                                <animations/>
-                                                <color key="backgroundColor" red="0.56523260749743587" green="0.18221519027954927" blue="0.17163031318034969" alpha="1" colorSpace="calibratedRGB"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="65" id="3Tc-Lh-DB1"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="20"/>
-                                                <state key="normal" title="Register">
-                                                    <color key="titleColor" red="0.97762222200000004" green="0.97751299970000005" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="button_register_click" destination="BYZ-38-t0r" eventType="touchUpInside" id="CKK-Rx-rHH"/>
-                                                    <segue destination="GAf-r5-UpM" kind="push" id="K32-R0-Q2u"/>
-                                                </connections>
-                                            </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iOS-10-lSe">
                                                 <rect key="frame" x="60" y="68" width="200" height="31"/>
                                                 <animations/>
@@ -69,8 +53,8 @@
                                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="20"/>
                                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                             </textField>
-                                            <button opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sB0-US-igS">
-                                                <rect key="frame" x="0.0" y="286" width="320" height="65"/>
+                                            <button opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sB0-US-igS">
+                                                <rect key="frame" x="0.0" y="287" width="320" height="65"/>
                                                 <animations/>
                                                 <color key="backgroundColor" red="0.70980392160000005" green="0.23137254900000001" blue="0.21176470589999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
@@ -82,6 +66,22 @@
                                                 </state>
                                                 <connections>
                                                     <action selector="button_login_click" destination="BYZ-38-t0r" eventType="touchUpInside" id="rJy-g5-REu"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="paY-wJ-q1E">
+                                                <rect key="frame" x="0.0" y="351" width="320" height="65"/>
+                                                <animations/>
+                                                <color key="backgroundColor" red="0.56523260749743587" green="0.18221519027954927" blue="0.17163031318034969" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="65" id="3Tc-Lh-DB1"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="20"/>
+                                                <state key="normal" title="Register">
+                                                    <color key="titleColor" red="0.97762222200000004" green="0.97751299970000005" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="button_register_click" destination="BYZ-38-t0r" eventType="touchUpInside" id="CKK-Rx-rHH"/>
+                                                    <segue destination="GAf-r5-UpM" kind="push" id="K32-R0-Q2u"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -605,17 +605,6 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ENf-Q0-8KQ">
-                                <rect key="frame" x="0.0" y="374" width="320" height="30"/>
-                                <animations/>
-                                <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="320" id="6Z0-Bg-eKk"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="JMU-Ql-eAK"/>
-                                    <constraint firstAttribute="height" constant="30" id="ieN-hp-iaJ"/>
-                                    <constraint firstAttribute="width" constant="320" id="kfb-It-Gk4"/>
-                                </constraints>
-                                <state key="normal" title="LOGOUT"/>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="daniel.silva@ua.pt" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ebq-y2-khp">
                                 <rect key="frame" x="158" y="288" width="162" height="25"/>
                                 <animations/>
@@ -650,6 +639,21 @@
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="100" id="hWR-2c-VG2"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ENf-Q0-8KQ">
+                                <rect key="frame" x="0.0" y="373" width="320" height="30"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="320" id="6Z0-Bg-eKk"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="JMU-Ql-eAK"/>
+                                    <constraint firstAttribute="height" constant="30" id="ieN-hp-iaJ"/>
+                                    <constraint firstAttribute="width" constant="320" id="kfb-It-Gk4"/>
+                                </constraints>
+                                <state key="normal" title="LOGOUT"/>
+                                <connections>
+                                    <action selector="button_logout_click" destination="8ah-EA-qD3" eventType="touchUpInside" id="3Z0-cx-Uo1"/>
+                                    <segue destination="BYZ-38-t0r" kind="push" id="3yY-RT-5hI"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -669,6 +673,7 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </tabBarItem>
+                    <navigationItem key="navigationItem" id="XHk-nm-jc1"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="contact_image_daniel" destination="rXn-Uo-MNZ" id="eUp-0s-MNx"/>
@@ -923,7 +928,8 @@
         <image name="share" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="U0n-Tp-6ch"/>
+        <segue reference="5If-Hz-Xvh"/>
+        <segue reference="3yY-RT-5hI"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.70980392156862748" green="0.23137254901960785" blue="0.21176470588235294" alpha="1" colorSpace="calibratedRGB"/>
 </document>
