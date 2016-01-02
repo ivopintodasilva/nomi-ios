@@ -24,6 +24,7 @@ class SettingsViewController: UIViewController {
         self.contact_image_daniel.clipsToBounds = true
         
         // Do any additional setup after loading the view.
+        setContactImage()
         
     }
 
@@ -38,6 +39,7 @@ class SettingsViewController: UIViewController {
     
     
     func setContactImage() {
+        
         contact_image_ivo.layer.cornerRadius = contact_image_ivo.frame.size.width / 2
         contact_image_ivo.clipsToBounds = true
         
