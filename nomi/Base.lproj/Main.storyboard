@@ -617,7 +617,16 @@
                     <view key="view" contentMode="scaleToFill" id="0UK-8N-Eio">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="431"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KeI-Ce-Ham">
+                                <rect key="frame" x="0.0" y="108" width="320" height="216"/>
+                            </pickerView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="KeI-Ce-Ham" firstAttribute="centerY" secondItem="0UK-8N-Eio" secondAttribute="centerY" id="15v-Y0-bVx"/>
+                            <constraint firstItem="KeI-Ce-Ham" firstAttribute="centerX" secondItem="0UK-8N-Eio" secondAttribute="centerX" id="4oM-9f-3u5"/>
+                        </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <tabBarItem key="tabBarItem" title="Scan" image="scan" id="rvK-xY-hXs">
@@ -629,6 +638,7 @@
                     </tabBarItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
+                        <outlet property="profile_picker" destination="KeI-Ce-Ham" id="RA4-vJ-HRw"/>
                         <segue destination="3Qb-dj-5J0" kind="modal" identifier="scanned" id="8Cz-6y-D2n"/>
                     </connections>
                 </viewController>
