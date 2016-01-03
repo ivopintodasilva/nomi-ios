@@ -7,6 +7,7 @@
 //
 
 import UIKit
+//import SwiftHTTP
 
 class RegisterViewController: UIViewController, UITextFieldDelegate {
     
@@ -23,15 +24,11 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var tf_password: UITextField!
     @IBOutlet weak var tf_confirmpassword: UITextField!
     
-    
-    @IBAction func btn_register() {
-        print("register!")
-    }
-    
+    var session: NSURLSession?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         self.setNeedsStatusBarAppearanceUpdate()
         // Do any additional setup after loading the view.
         
@@ -41,6 +38,83 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
         tf_password.delegate = self
         tf_confirmpassword.delegate = self
         registerForKeyboardNotifications()
+        
+        session = NSURLSession.sharedSession()
+    }
+    
+    
+    @IBAction func btn_register() {
+        print("registering!")
+        // {}
+        
+        let email = self.tf_email.text
+        let password = self.tf_password.text
+        let password2 = self.tf_confirmpassword.text
+        let fname = self.tf_fname.text
+        let lname = self.tf_lname.text
+        
+        let params: [String: String] = [
+            "email" : email!,
+            "password" : password!,
+            "first_name" : fname!,
+            "last_name" : lname!
+        ]
+        print(params)
+        print("Valid JSON:", NSJSONSerialization.isValidJSONObject(params))
+        
+        if password != password2 {
+            dispatch_async(dispatch_get_main_queue(), {
+                let alert = UIAlertView()
+                alert.title = "Register failed"
+                alert.message = "Passwords did not match!"
+                alert.addButtonWithTitle("Ok, I'll try again")
+                alert.show()
+            })
+            return
+        }
+        
+        let url = NSURL(string: "http://192.168.160.56:8000/api/user/")
+        let request = NSMutableURLRequest(URL: url!)
+        request.HTTPMethod = "POST"
+        let charset = CFStringConvertEncodingToIANACharSetName(CFStringConvertNSStringEncodingToEncoding(NSUTF8StringEncoding));
+        request.setValue("application/json; charset=\(charset)", forHTTPHeaderField: "Content-Type")
+        
+        do {
+            request.HTTPBody = try NSJSONSerialization.dataWithJSONObject(params, options: NSJSONWritingOptions())
+            
+            let task = self.session!.dataTaskWithRequest(request, completionHandler: {(data, response, error) in
+            
+                if let httpResponse = response as? NSHTTPURLResponse{
+                    
+                    if httpResponse.statusCode == 200 {
+                        print("no error registering")
+                        
+                        dispatch_async(dispatch_get_main_queue(), {
+                            let alert = UIAlertView()
+                            alert.title = "Register success"
+                            alert.message = "Congratulations, you'r registered!"
+                            alert.addButtonWithTitle("Ok, lets go do login")
+                            alert.show()
+                        })
+                    } else {
+                        print(httpResponse.description)
+                        
+                        dispatch_async(dispatch_get_main_queue(), {
+                            let alert = UIAlertView()
+                            alert.title = "Register failed"
+                            alert.message = "Something went wrong."
+                            alert.addButtonWithTitle("Ok, I'll try again")
+                            alert.show()
+                        })
+                    }
+                }
+            })
+            
+            task.resume()
+        } catch let error as NSError {
+            print("Failed to load: \(error.localizedDescription)")
+        }
+        
     }
 
     override func didReceiveMemoryWarning() {

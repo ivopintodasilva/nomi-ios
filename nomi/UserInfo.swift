@@ -42,4 +42,10 @@ class UserInfoModel{
         return self.last_name
     }
     
+    func cleanInstance(){
+        self.id = -1
+        self.first_name = ""
+        self.last_name = ""
+    }
+    
 }

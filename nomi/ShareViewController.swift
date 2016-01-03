@@ -27,29 +27,30 @@ class ShareViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         
         // generate QR code
         var data: NSData
-        data = ("{\"id\":" + String(self.picker_profiles[0].id) + "}").dataUsingEncoding(NSUTF8StringEncoding)!
-        
-        /// Foreground color of the output
-        /// Defaults to black
-        //let color = CIColor(red: 181, green: 59, blue: 54)
-        let color = CIColor(red: 0.71, green: 0.23, blue: 0.21)
-        
-        /// Background color of the output
-        /// Defaults to white
-        //let backgroundColor = CIColor(red: 0.71, green: 0.23, blue: 0.21)
-        let backgroundColor = CIColor(red: 1, green: 1, blue: 1)
-        let qrFilter = CIFilter(name: "CIQRCodeGenerator")
-        qrFilter!.setDefaults()
-        qrFilter!.setValue(data, forKey: "inputMessage")
-        qrFilter!.setValue("H", forKey: "inputCorrectionLevel")
-        let colorFilter = CIFilter(name: "CIFalseColor")
-        colorFilter!.setDefaults()
-        colorFilter!.setValue(qrFilter!.outputImage, forKey: "inputImage")
-        colorFilter!.setValue(color, forKey: "inputColor0")
-        colorFilter!.setValue(backgroundColor, forKey: "inputColor1")
-        let transformedImage = createNonInterpolatedUIImageFromCIImage(colorFilter!.outputImage!, withScale: 8.0)
-        qr_code_view.image = transformedImage
-
+        if self.picker_profiles.count > 0 {
+            data = ("{\"id\":" + String(self.picker_profiles[0].id) + "}").dataUsingEncoding(NSUTF8StringEncoding)!
+            
+            /// Foreground color of the output
+            /// Defaults to black
+            //let color = CIColor(red: 181, green: 59, blue: 54)
+            let color = CIColor(red: 0.71, green: 0.23, blue: 0.21)
+            
+            /// Background color of the output
+            /// Defaults to white
+            //let backgroundColor = CIColor(red: 0.71, green: 0.23, blue: 0.21)
+            let backgroundColor = CIColor(red: 1, green: 1, blue: 1)
+            let qrFilter = CIFilter(name: "CIQRCodeGenerator")
+            qrFilter!.setDefaults()
+            qrFilter!.setValue(data, forKey: "inputMessage")
+            qrFilter!.setValue("H", forKey: "inputCorrectionLevel")
+            let colorFilter = CIFilter(name: "CIFalseColor")
+            colorFilter!.setDefaults()
+            colorFilter!.setValue(qrFilter!.outputImage, forKey: "inputImage")
+            colorFilter!.setValue(color, forKey: "inputColor0")
+            colorFilter!.setValue(backgroundColor, forKey: "inputColor1")
+            let transformedImage = createNonInterpolatedUIImageFromCIImage(colorFilter!.outputImage!, withScale: 8.0)
+            qr_code_view.image = transformedImage
+        }
         
         
         //share_picker = UIPickerView()
