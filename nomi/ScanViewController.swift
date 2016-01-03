@@ -11,7 +11,7 @@ import AVFoundation
 
 class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate, UIAlertViewDelegate, UIPickerViewDelegate, UIPickerViewDataSource{
     
-    var selected_user_profile: Int = UserProfilesModel.sharedInstance.user_profiles[0].id
+    var selected_user_profile: Int?
     
     var scanned = false
     var contact_id: Int?
@@ -30,6 +30,9 @@ class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if UserProfilesModel.sharedInstance.user_profiles.count > 0{
+            self.selected_user_profile = UserProfilesModel.sharedInstance.user_profiles[0].id
+        }
         
         profile_picker.delegate = self
         profile_picker.dataSource = self
@@ -198,9 +201,10 @@ class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
     }
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int){
-        self.selected_user_profile = UserProfilesModel.sharedInstance.user_profiles[row].id
-        
-        print (UserProfilesModel.sharedInstance.user_profiles[row].id)
+        if UserProfilesModel.sharedInstance.user_profiles.count > 0{
+            self.selected_user_profile = UserProfilesModel.sharedInstance.user_profiles[row].id
+            print (UserProfilesModel.sharedInstance.user_profiles[row].id)
+        }
     }
     
 
