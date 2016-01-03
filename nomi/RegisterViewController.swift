@@ -96,9 +96,6 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
                             alert.addButtonWithTitle("Ok, lets go do login")
                             alert.show()
                         })
-                        
-//                        let center = DTIToastCenter.defaultCenter
-//                        center.makeText("Registered")
                     } else {
                         print(httpResponse.description)
                         

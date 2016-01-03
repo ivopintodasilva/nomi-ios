@@ -38,11 +38,10 @@ class SettingsViewController: UIViewController {
     }
     
     @IBAction func button_logout_click() {
+        print("Logout")
         UserInfoModel.sharedInstance.cleanInstance()
         ContactsModel.sharedInstance.cleanInstance()
         UserProfilesModel.sharedInstance.cleanInstance()
-        //NSURLSession.sharedSession().delete(self)
-        print("Logout")
     }
     
     func setContactImage() {
