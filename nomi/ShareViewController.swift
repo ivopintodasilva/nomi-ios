@@ -152,10 +152,11 @@ class ShareViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
                 color = CIColor(red: 41/255, green: 128/255.0, blue: 185/255)
             }
             else if picker_profiles[row].color == "GREEN" {
-                color = CIColor(red: 39/255, green: 174/96, blue: 38/255)
+                
+                color = CIColor(red: 0/255, green: 150/96, blue: 136/255)
             }
             else if picker_profiles[row].color == "RED" {
-                color = CIColor(red: 200/255, green: 46/255, blue: 70/255)
+                color = CIColor(red: 192/255, green: 57/255, blue: 43/255)
             }
             else if picker_profiles[row].color == "WHITE" {
                 color = CIColor(red: 1, green: 1, blue: 1)

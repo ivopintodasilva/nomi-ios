@@ -13,6 +13,9 @@ class ProfilesViewController: UIViewController, UITableViewDelegate, UITableView
     
     @IBOutlet weak var new_profile_btn: UIButton!
     @IBOutlet weak var profile_table: UITableView!
+    
+    var profile_id: Int?
+    var profile_row: Int?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,10 +67,10 @@ class ProfilesViewController: UIViewController, UITableViewDelegate, UITableView
             cell.colorView.backgroundColor = UIColor(red: 41/255, green: 128/255.0, blue: 185/255, alpha: 1)
         }
         else if UserProfilesModel.sharedInstance.user_profiles[indexPath.row].color == "GREEN" {
-            cell.colorView.backgroundColor = UIColor(red: 39/255, green: 174/96, blue: 38/255, alpha: 1)
+            cell.colorView.backgroundColor = UIColor(red: 0/255, green: 150/96, blue: 136/255, alpha: 1)
         }
         else if UserProfilesModel.sharedInstance.user_profiles[indexPath.row].color == "RED" {
-            cell.colorView.backgroundColor = UIColor(red: 200/255, green: 46/255, blue: 70/255, alpha: 1)
+            cell.colorView.backgroundColor = UIColor(red: 192/255, green: 57/255, blue: 43/255, alpha: 1)
         }
         else if UserProfilesModel.sharedInstance.user_profiles[indexPath.row].color == "WHITE" {
             cell.colorView.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
@@ -87,7 +90,7 @@ class ProfilesViewController: UIViewController, UITableViewDelegate, UITableView
         //contact_details_name.attributedText = result
         
         
-        var result: NSMutableAttributedString = NSMutableAttributedString(string:"").mutableCopy() as! NSMutableAttributedString
+        let result: NSMutableAttributedString = NSMutableAttributedString(string:"").mutableCopy() as! NSMutableAttributedString
         
         
         for (attribute) in UserProfilesModel.sharedInstance.user_profiles[indexPath.row].attributes {
@@ -130,5 +133,23 @@ class ProfilesViewController: UIViewController, UITableViewDelegate, UITableView
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 80
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let item = UserProfilesModel.sharedInstance.user_profiles[indexPath.row]
+        profile_id = item.id
+        profile_row = indexPath.row
+        
+        performSegueWithIdentifier("profileDetails", sender: self)
+        profile_table.deselectRowAtIndexPath(indexPath, animated: true)
+    }
+    
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+        if (segue.identifier == "profileDetails") {
+            let svc = segue.destinationViewController as! ProfileDetailsViewController
+            svc.profile_id = self.profile_id
+            svc.profile_row = self.profile_row
+        }
     }
 }
