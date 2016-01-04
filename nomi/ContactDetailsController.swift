@@ -163,7 +163,7 @@ class ContactDetailsController: UIViewController, UITableViewDelegate, UITableVi
             cell.icon.textColor = UIColor(red: 0/255, green: 191/255, blue: 143/255, alpha: 1)
         }
         else if contact!.attributes[indexPath.row].name == "LINKEDIN"{
-            cell.icon.attributedText = FAKMaterialIcons.linkIconWithSize(30).attributedString()
+            cell.icon.attributedText = FAKMaterialIcons.linkedinBoxIconWithSize(30).attributedString()
             cell.icon.textColor = UIColor(red: 0/255, green: 123/255, blue: 182/255, alpha: 1)
         }
         

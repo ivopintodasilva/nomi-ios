@@ -489,6 +489,7 @@
         <!--Profiles-->
         <scene sceneID="b1l-Zt-Qo5">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="k2W-Ei-gLN" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="fcY-oa-K91" customClass="ProfilesViewController" customModule="nomi" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="2ih-v3-vtQ"/>
@@ -509,19 +510,39 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PVQ-Yv-EUk">
-                                                    <rect key="frame" x="139" y="11" width="42" height="20.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PVQ-Yv-EUk">
+                                                    <rect key="frame" x="160" y="12" width="0.0" height="0.0"/>
+                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="19"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rb6-UZ-1w5">
+                                                    <rect key="frame" x="18" y="-2" width="50" height="50"/>
+                                                    <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="50" id="7Qd-aU-x9U"/>
+                                                        <constraint firstAttribute="width" constant="50" id="WPX-T8-Mya"/>
+                                                    </constraints>
+                                                </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6ad-dp-8QV">
+                                                    <rect key="frame" x="160" y="37" width="0.0" height="0.0"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.58039215690000001" green="0.58039215690000001" blue="0.58039215690000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="PVQ-Yv-EUk" firstAttribute="centerY" secondItem="gQr-ir-RIF" secondAttribute="centerY" id="TmV-Z4-hpI"/>
+                                                <constraint firstItem="6ad-dp-8QV" firstAttribute="centerY" secondItem="gQr-ir-RIF" secondAttribute="centerY" constant="15" id="9JX-ki-daw"/>
+                                                <constraint firstItem="Rb6-UZ-1w5" firstAttribute="leading" secondItem="gQr-ir-RIF" secondAttribute="leadingMargin" constant="10" id="QTg-cr-a1v"/>
+                                                <constraint firstItem="PVQ-Yv-EUk" firstAttribute="centerY" secondItem="gQr-ir-RIF" secondAttribute="centerY" constant="-10" id="TmV-Z4-hpI"/>
                                                 <constraint firstItem="PVQ-Yv-EUk" firstAttribute="centerX" secondItem="gQr-ir-RIF" secondAttribute="centerX" id="XQP-hP-KWy"/>
+                                                <constraint firstItem="Rb6-UZ-1w5" firstAttribute="centerY" secondItem="gQr-ir-RIF" secondAttribute="centerY" constant="1.75" id="cqa-Tz-vzp"/>
+                                                <constraint firstItem="6ad-dp-8QV" firstAttribute="centerX" secondItem="gQr-ir-RIF" secondAttribute="centerX" id="eRh-TD-NTq"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="colorView" destination="Rb6-UZ-1w5" id="aeQ-Z7-Byk"/>
+                                            <outlet property="iconLabel" destination="6ad-dp-8QV" id="3Zz-bP-gU3"/>
                                             <outlet property="titleLabel" destination="PVQ-Yv-EUk" id="Xr5-oJ-IUS"/>
                                         </connections>
                                     </tableViewCell>
@@ -563,7 +584,6 @@
                         <outlet property="profile_table" destination="u4w-l3-3Ob" id="9RI-el-QVS"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="k2W-Ei-gLN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1100" y="719"/>
         </scene>
@@ -929,7 +949,7 @@
         <image name="share" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="U0n-Tp-6ch"/>
+        <segue reference="5If-Hz-Xvh"/>
         <segue reference="4nP-2G-HWF"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.70980392156862748" green="0.23137254901960785" blue="0.21176470588235294" alpha="1" colorSpace="calibratedRGB"/>
