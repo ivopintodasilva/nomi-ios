@@ -24,12 +24,12 @@ class ShareViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
 
         // Do any additional setup after loading the view.
         
-        
-        // generate QR code
         let data: NSData
+        // generate QR code
+        
         if self.picker_profiles.count > 0 {
             
-            
+            data = ("{\"id\":" + String(self.picker_profiles[0].id) + "}").dataUsingEncoding(NSUTF8StringEncoding)!
             
             /// Foreground color of the output
             /// Defaults to black
@@ -103,7 +103,7 @@ class ShareViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         return scaledImage
     }
     
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -128,56 +128,56 @@ class ShareViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     }
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int){
-
+        
         if picker_profiles.count > 0{
-        
-        print(picker_profiles[row].id)
-        
-        
-        // generate QR code
-        var data: NSData
-        data = ("{\"id\":" + String(self.picker_profiles[row].id) + "}").dataUsingEncoding(NSUTF8StringEncoding)!
-        
-        /// Foreground color of the output
-        /// Defaults to black
-        //let color = CIColor(red: 181, green: 59, blue: 54)
-        var color = CIColor(red: 0.71, green: 0.23, blue: 0.21)
-        var backgroundColor = CIColor(red: 1, green: 1, blue: 1)
-        
-        
-        if picker_profiles[row].color == "BLACK" {
-            color = CIColor(red: 0, green: 0, blue: 0)
-        }
-        else if picker_profiles[row].color == "BLUE" {
-            color = CIColor(red: 41/255, green: 128/255.0, blue: 185/255)
-        }
-        else if picker_profiles[row].color == "GREEN" {
-            color = CIColor(red: 39/255, green: 174/96, blue: 38/255)
-        }
-        else if picker_profiles[row].color == "RED" {
-            color = CIColor(red: 200/255, green: 46/255, blue: 70/255)
-        }
-        else if picker_profiles[row].color == "WHITE" {
-            color = CIColor(red: 1, green: 1, blue: 1)
-            backgroundColor = CIColor(red: 0, green: 0, blue: 0)
-        }
-        
-        /// Background color of the output
-        /// Defaults to white
-        //let backgroundColor = CIColor(red: 0.71, green: 0.23, blue: 0.21)
-        
-        let qrFilter = CIFilter(name: "CIQRCodeGenerator")
-        qrFilter!.setDefaults()
-        qrFilter!.setValue(data, forKey: "inputMessage")
-        qrFilter!.setValue("H", forKey: "inputCorrectionLevel")
-        let colorFilter = CIFilter(name: "CIFalseColor")
-        colorFilter!.setDefaults()
-        colorFilter!.setValue(qrFilter!.outputImage, forKey: "inputImage")
-        colorFilter!.setValue(color, forKey: "inputColor0")
-        colorFilter!.setValue(backgroundColor, forKey: "inputColor1")
-        let transformedImage = createNonInterpolatedUIImageFromCIImage(colorFilter!.outputImage!, withScale: 8.0)
-        qr_code_view.image = transformedImage
-
+            
+            print(picker_profiles[row].id)
+            
+            
+            // generate QR code
+            var data: NSData
+            data = ("{\"id\":" + String(self.picker_profiles[row].id) + "}").dataUsingEncoding(NSUTF8StringEncoding)!
+            
+            /// Foreground color of the output
+            /// Defaults to black
+            //let color = CIColor(red: 181, green: 59, blue: 54)
+            var color = CIColor(red: 0.71, green: 0.23, blue: 0.21)
+            var backgroundColor = CIColor(red: 1, green: 1, blue: 1)
+            
+            
+            if picker_profiles[row].color == "BLACK" {
+                color = CIColor(red: 0, green: 0, blue: 0)
+            }
+            else if picker_profiles[row].color == "BLUE" {
+                color = CIColor(red: 41/255, green: 128/255.0, blue: 185/255)
+            }
+            else if picker_profiles[row].color == "GREEN" {
+                color = CIColor(red: 39/255, green: 174/96, blue: 38/255)
+            }
+            else if picker_profiles[row].color == "RED" {
+                color = CIColor(red: 200/255, green: 46/255, blue: 70/255)
+            }
+            else if picker_profiles[row].color == "WHITE" {
+                color = CIColor(red: 1, green: 1, blue: 1)
+                backgroundColor = CIColor(red: 0, green: 0, blue: 0)
+            }
+            
+            /// Background color of the output
+            /// Defaults to white
+            //let backgroundColor = CIColor(red: 0.71, green: 0.23, blue: 0.21)
+            
+            let qrFilter = CIFilter(name: "CIQRCodeGenerator")
+            qrFilter!.setDefaults()
+            qrFilter!.setValue(data, forKey: "inputMessage")
+            qrFilter!.setValue("H", forKey: "inputCorrectionLevel")
+            let colorFilter = CIFilter(name: "CIFalseColor")
+            colorFilter!.setDefaults()
+            colorFilter!.setValue(qrFilter!.outputImage, forKey: "inputImage")
+            colorFilter!.setValue(color, forKey: "inputColor0")
+            colorFilter!.setValue(backgroundColor, forKey: "inputColor1")
+            let transformedImage = createNonInterpolatedUIImageFromCIImage(colorFilter!.outputImage!, withScale: 8.0)
+            qr_code_view.image = transformedImage
+            
         }
     }
     
