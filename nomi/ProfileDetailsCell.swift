@@ -10,7 +10,6 @@ import UIKit
 
 class ProfileDetailsCell: UITableViewCell {
     @IBOutlet var icon: UILabel!
-    @IBOutlet var value: UILabel!
-    
+    @IBOutlet weak var value: UITextField!
     
 }
