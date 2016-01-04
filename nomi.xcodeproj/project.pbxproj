@@ -39,6 +39,7 @@
 		48D90FB41C047DD900693E17 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48D90FB21C047DD900693E17 /* Main.storyboard */; };
 		48D90FB61C047DD900693E17 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 48D90FB51C047DD900693E17 /* Assets.xcassets */; };
 		48D90FB91C047DD900693E17 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48D90FB71C047DD900693E17 /* LaunchScreen.storyboard */; };
+		48F6B9D11C39E45200F345E9 /* ProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48F6B9D01C39E45200F345E9 /* ProfileCell.swift */; };
 		48F7828E1C2B89790080ADA7 /* ScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48F7828D1C2B89790080ADA7 /* ScanViewController.swift */; };
 		48F9FA8B1C06793E00DAAFA3 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48F9FA8A1C06793E00DAAFA3 /* RegisterViewController.swift */; };
 		48F9FA8F1C0690CF00DAAFA3 /* nomi_splash2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 48F9FA8E1C0690CF00DAAFA3 /* nomi_splash2.jpg */; };
@@ -90,6 +91,7 @@
 		48D90FB51C047DD900693E17 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		48D90FB81C047DD900693E17 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		48D90FBA1C047DD900693E17 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		48F6B9D01C39E45200F345E9 /* ProfileCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileCell.swift; sourceTree = "<group>"; };
 		48F7828D1C2B89790080ADA7 /* ScanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanViewController.swift; sourceTree = "<group>"; };
 		48F9FA8A1C06793E00DAAFA3 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		48F9FA8E1C0690CF00DAAFA3 /* nomi_splash2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = nomi_splash2.jpg; path = images/nomi_splash2.jpg; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 			children = (
 				4815573B1C3083820025CA54 /* ContactCell.swift */,
 				481F2C8F1C32DC690002DC3C /* ContactDetailsCell.swift */,
+				48F6B9D01C39E45200F345E9 /* ProfileCell.swift */,
 			);
 			name = "Custom Cells";
 			sourceTree = "<group>";
@@ -327,6 +330,7 @@
 				48C75C151C32111B006908B3 /* FAKIcon.m in Sources */,
 				481F2C961C3356DF0002DC3C /* ScannedViewController.swift in Sources */,
 				481557371C306EBB0025CA54 /* Contacts.swift in Sources */,
+				48F6B9D11C39E45200F345E9 /* ProfileCell.swift in Sources */,
 				48C75C141C32111B006908B3 /* FAKFoundationIcons.m in Sources */,
 				B51AE8011C39DB0700F73F37 /* ProfileCreateViewController.swift in Sources */,
 				4883003E1C06642B00C2B25F /* ProfilesViewController.swift in Sources */,

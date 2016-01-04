@@ -9,10 +9,14 @@
 import UIKit
 import AVFoundation
 
-class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate, UIAlertViewDelegate{
+class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate, UIAlertViewDelegate, UIPickerViewDelegate, UIPickerViewDataSource{
+    
+    var selected_user_profile: Int?
     
     var scanned = false
     var contact_id: Int?
+    
+    @IBOutlet weak var profile_picker: UIPickerView!
     
     var captureSession:AVCaptureSession?
     var videoPreviewLayer:AVCaptureVideoPreviewLayer?
@@ -26,8 +30,13 @@ class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if UserProfilesModel.sharedInstance.user_profiles.count > 0{
+            self.selected_user_profile = UserProfilesModel.sharedInstance.user_profiles[0].id
+        }
         
-        
+        profile_picker.delegate = self
+        profile_picker.dataSource = self
+        profile_picker.backgroundColor = UIColor (red: 0, green: 0, blue: 0, alpha: 0.2)
         
         scanned = false
         self.setNeedsStatusBarAppearanceUpdate()
@@ -60,6 +69,8 @@ class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
             videoPreviewLayer?.videoGravity = AVLayerVideoGravityResizeAspectFill
             videoPreviewLayer?.frame = view.layer.bounds
             view.layer.addSublayer(videoPreviewLayer!)
+            
+            view.bringSubviewToFront(profile_picker)
             
             // Start video capture
             captureSession?.startRunning()
@@ -154,12 +165,46 @@ class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
         if (segue.identifier == "scanned") {
             let svc = segue.destinationViewController as! ScannedViewController;
             svc.contact_id = self.contact_id
+            svc.user_profile = self.selected_user_profile
         }
     }
     
     func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int) {
         print ("button pressed")
         scanned = false
+    }
+    
+    
+    
+    
+    
+    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int{
+        return 1
+    }
+    
+    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int{
+        return UserProfilesModel.sharedInstance.user_profiles.count
+    }
+    
+    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return UserProfilesModel.sharedInstance.user_profiles[row].name
+    }
+    
+    func pickerView(pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusingView view: UIView?) -> UIView
+    {
+        let pickerLabel = UILabel()
+        pickerLabel.textColor = UIColor.whiteColor()
+        pickerLabel.text = UserProfilesModel.sharedInstance.user_profiles[row].name
+        pickerLabel.font = UIFont(name: "Avenir", size: 20) // In this use your custom font
+        pickerLabel.textAlignment = NSTextAlignment.Center
+        return pickerLabel
+    }
+    
+    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int){
+        if UserProfilesModel.sharedInstance.user_profiles.count > 0{
+            self.selected_user_profile = UserProfilesModel.sharedInstance.user_profiles[row].id
+            print (UserProfilesModel.sharedInstance.user_profiles[row].id)
+        }
     }
     
 

@@ -10,6 +10,7 @@ import UIKit
 
 class ScannedViewController: UIViewController {
     
+    var user_profile: Int?
     var contact_id: Int?
 
     @IBOutlet weak var scanned_image: UIImageView!
@@ -38,14 +39,14 @@ class ScannedViewController: UIViewController {
         
         let requestURL = NSURL(string:"http://192.168.160.56:8000/api/profile/relation/")!
         
-        let json: [String: AnyObject] = ["profileId1": 47, "profileId2": contact_id!]
+        let json: [String: AnyObject] = ["profileId1": user_profile!, "profileId2": contact_id!]
         
         do {
             print ("do")
             let jsonData = try NSJSONSerialization.dataWithJSONObject(json, options: .PrettyPrinted)
             print ("after do")
             print (jsonData)
-            var request = NSMutableURLRequest(URL: requestURL)
+            let request = NSMutableURLRequest(URL: requestURL)
             request.HTTPMethod = "PUT"
             request.HTTPBody = jsonData
             request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -89,7 +90,7 @@ class ScannedViewController: UIViewController {
                                             }
                                             
                                             
-                                            var profile: ProfileModel = ProfileModel(id: subJson["id"].intValue, user_id: subJson["user"]["id"].intValue, user_fname: subJson["user"]["first_name"].stringValue, user_lname: subJson["user"]["last_name"].stringValue, user_email: subJson["user"]["email"].stringValue,  name: subJson["name"].stringValue, color: subJson["color"].stringValue, connections:  connections, attributes: attributes)
+                                            let profile: ProfileModel = ProfileModel(id: subJson["id"].intValue, user_id: subJson["user"]["id"].intValue, user_fname: subJson["user"]["first_name"].stringValue, user_lname: subJson["user"]["last_name"].stringValue, user_email: subJson["user"]["email"].stringValue,  name: subJson["name"].stringValue, color: subJson["color"].stringValue, connections:  connections, attributes: attributes)
                                             
                                             
                                             ContactsModel.sharedInstance.addProfile(profile)

@@ -56,7 +56,6 @@ class ContactsViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func setImageForCell(cell:ContactCell, indexPath:NSIndexPath) {
-        let item = ContactsModel.sharedInstance.user_contacts[indexPath.row]
         cell.userImageView.layer.cornerRadius = cell.userImageView.frame.size.width / 2
         cell.userImageView.clipsToBounds = true
         //cell.userImageView.image = nil
