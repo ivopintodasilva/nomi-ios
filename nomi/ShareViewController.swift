@@ -26,9 +26,10 @@ class ShareViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         
         
         // generate QR code
-        var data: NSData
+        let data: NSData
         if self.picker_profiles.count > 0 {
-            data = ("{\"id\":" + String(self.picker_profiles[0].id) + "}").dataUsingEncoding(NSUTF8StringEncoding)!
+            
+            
             
             /// Foreground color of the output
             /// Defaults to black
@@ -59,6 +60,8 @@ class ShareViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
             
             let qrFilter = CIFilter(name: "CIQRCodeGenerator")
             qrFilter!.setDefaults()
+            
+            
             qrFilter!.setValue(data, forKey: "inputMessage")
             qrFilter!.setValue("H", forKey: "inputCorrectionLevel")
             let colorFilter = CIFilter(name: "CIFalseColor")
@@ -125,7 +128,9 @@ class ShareViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     }
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int){
-        //self.view.endEditing(true)
+
+        if picker_profiles.count > 0{
+        
         print(picker_profiles[row].id)
         
         
@@ -173,7 +178,7 @@ class ShareViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         let transformedImage = createNonInterpolatedUIImageFromCIImage(colorFilter!.outputImage!, withScale: 8.0)
         qr_code_view.image = transformedImage
 
-        
+        }
     }
     
     func pickerView(pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusingView view: UIView?) -> UIView
