@@ -39,6 +39,8 @@
 		48D90FB41C047DD900693E17 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48D90FB21C047DD900693E17 /* Main.storyboard */; };
 		48D90FB61C047DD900693E17 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 48D90FB51C047DD900693E17 /* Assets.xcassets */; };
 		48D90FB91C047DD900693E17 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48D90FB71C047DD900693E17 /* LaunchScreen.storyboard */; };
+		48F0429B1C3B3012004D575A /* ProfileDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48F042991C3B3012004D575A /* ProfileDetailsCell.swift */; };
+		48F0429C1C3B3012004D575A /* ProfileDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48F0429A1C3B3012004D575A /* ProfileDetailsViewController.swift */; };
 		48F6B9D11C39E45200F345E9 /* ProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48F6B9D01C39E45200F345E9 /* ProfileCell.swift */; };
 		48F7828E1C2B89790080ADA7 /* ScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48F7828D1C2B89790080ADA7 /* ScanViewController.swift */; };
 		48F9FA8B1C06793E00DAAFA3 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48F9FA8A1C06793E00DAAFA3 /* RegisterViewController.swift */; };
@@ -91,6 +93,8 @@
 		48D90FB51C047DD900693E17 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		48D90FB81C047DD900693E17 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		48D90FBA1C047DD900693E17 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		48F042991C3B3012004D575A /* ProfileDetailsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileDetailsCell.swift; sourceTree = "<group>"; };
+		48F0429A1C3B3012004D575A /* ProfileDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileDetailsViewController.swift; sourceTree = "<group>"; };
 		48F6B9D01C39E45200F345E9 /* ProfileCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileCell.swift; sourceTree = "<group>"; };
 		48F7828D1C2B89790080ADA7 /* ScanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanViewController.swift; sourceTree = "<group>"; };
 		48F9FA8A1C06793E00DAAFA3 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
@@ -215,6 +219,8 @@
 		48F7828F1C2B92550080ADA7 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				48F042991C3B3012004D575A /* ProfileDetailsCell.swift */,
+				48F0429A1C3B3012004D575A /* ProfileDetailsViewController.swift */,
 				48D90FB01C047DD900693E17 /* ViewController.swift */,
 				488300391C0663E400C2B25F /* ShareViewController.swift */,
 				48F7828D1C2B89790080ADA7 /* ScanViewController.swift */,
@@ -324,9 +330,11 @@
 				48C75C181C32111B006908B3 /* FAKOcticons.m in Sources */,
 				48C75C191C32111B006908B3 /* FAKZocial.m in Sources */,
 				48F9FA8B1C06793E00DAAFA3 /* RegisterViewController.swift in Sources */,
+				48F0429C1C3B3012004D575A /* ProfileDetailsViewController.swift in Sources */,
 				48C75C171C32111B006908B3 /* FAKMaterialIcons.m in Sources */,
 				48F7828E1C2B89790080ADA7 /* ScanViewController.swift in Sources */,
 				48CB89F01C2AF91900156B25 /* UserProfiles.swift in Sources */,
+				48F0429B1C3B3012004D575A /* ProfileDetailsCell.swift in Sources */,
 				48C75C151C32111B006908B3 /* FAKIcon.m in Sources */,
 				481F2C961C3356DF0002DC3C /* ScannedViewController.swift in Sources */,
 				481557371C306EBB0025CA54 /* Contacts.swift in Sources */,
