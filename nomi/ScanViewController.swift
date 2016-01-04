@@ -204,10 +204,11 @@ class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
             pickerLabel.backgroundColor = UIColor(red: 41/255, green: 128/255.0, blue: 185/255, alpha: 1)
         }
         else if UserProfilesModel.sharedInstance.user_profiles[row].color == "GREEN" {
-            pickerLabel.backgroundColor = UIColor(red: 39/255, green: 174/96, blue: 38/255, alpha: 1)
+            pickerLabel.backgroundColor = UIColor(red: 0/255, green: 150/96, blue: 136/255, alpha: 1)
         }
         else if UserProfilesModel.sharedInstance.user_profiles[row].color == "RED" {
-            pickerLabel.backgroundColor = UIColor(red: 200/255, green: 46/255, blue: 70/255, alpha: 1)
+            pickerLabel.backgroundColor = UIColor(red: 192/255, green: 57/255, blue: 43/255, alpha: 1)
+
         }
         else if UserProfilesModel.sharedInstance.user_profiles[row].color == "WHITE" {
             pickerLabel.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
