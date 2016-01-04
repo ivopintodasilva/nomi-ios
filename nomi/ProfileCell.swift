@@ -10,4 +10,6 @@ import UIKit
 
 class ProfileCell: UITableViewCell {
     @IBOutlet var titleLabel: UILabel!
+    @IBOutlet weak var colorView: UIView!
+    @IBOutlet weak var iconLabel: UILabel!
 }

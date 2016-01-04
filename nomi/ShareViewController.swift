@@ -33,12 +33,30 @@ class ShareViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
             /// Foreground color of the output
             /// Defaults to black
             //let color = CIColor(red: 181, green: 59, blue: 54)
-            let color = CIColor(red: 0.71, green: 0.23, blue: 0.21)
+            var color = CIColor(red: 0.71, green: 0.23, blue: 0.21)
+            var backgroundColor = CIColor(red: 1, green: 1, blue: 1)
+            
+            if picker_profiles[0].color == "BLACK" {
+                color = CIColor(red: 0, green: 0, blue: 0)
+            }
+            else if picker_profiles[0].color == "BLUE" {
+                color = CIColor(red: 41/255, green: 128/255.0, blue: 185/255)
+            }
+            else if picker_profiles[0].color == "GREEN" {
+                color = CIColor(red: 39/255, green: 174/96, blue: 38/255)
+            }
+            else if picker_profiles[0].color == "RED" {
+                color = CIColor(red: 200/255, green: 46/255, blue: 70/255)
+            }
+            else if picker_profiles[0].color == "WHITE" {
+                color = CIColor(red: 1, green: 1, blue: 1)
+                backgroundColor = CIColor(red: 0, green: 0, blue: 0)
+            }
             
             /// Background color of the output
             /// Defaults to white
             //let backgroundColor = CIColor(red: 0.71, green: 0.23, blue: 0.21)
-            let backgroundColor = CIColor(red: 1, green: 1, blue: 1)
+            
             let qrFilter = CIFilter(name: "CIQRCodeGenerator")
             qrFilter!.setDefaults()
             qrFilter!.setValue(data, forKey: "inputMessage")
@@ -118,12 +136,31 @@ class ShareViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         /// Foreground color of the output
         /// Defaults to black
         //let color = CIColor(red: 181, green: 59, blue: 54)
-        let color = CIColor(red: 0.71, green: 0.23, blue: 0.21)
+        var color = CIColor(red: 0.71, green: 0.23, blue: 0.21)
+        var backgroundColor = CIColor(red: 1, green: 1, blue: 1)
+        
+        
+        if picker_profiles[row].color == "BLACK" {
+            color = CIColor(red: 0, green: 0, blue: 0)
+        }
+        else if picker_profiles[row].color == "BLUE" {
+            color = CIColor(red: 41/255, green: 128/255.0, blue: 185/255)
+        }
+        else if picker_profiles[row].color == "GREEN" {
+            color = CIColor(red: 39/255, green: 174/96, blue: 38/255)
+        }
+        else if picker_profiles[row].color == "RED" {
+            color = CIColor(red: 200/255, green: 46/255, blue: 70/255)
+        }
+        else if picker_profiles[row].color == "WHITE" {
+            color = CIColor(red: 1, green: 1, blue: 1)
+            backgroundColor = CIColor(red: 0, green: 0, blue: 0)
+        }
         
         /// Background color of the output
         /// Defaults to white
         //let backgroundColor = CIColor(red: 0.71, green: 0.23, blue: 0.21)
-        let backgroundColor = CIColor(red: 1, green: 1, blue: 1)
+        
         let qrFilter = CIFilter(name: "CIQRCodeGenerator")
         qrFilter!.setDefaults()
         qrFilter!.setValue(data, forKey: "inputMessage")

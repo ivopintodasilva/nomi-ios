@@ -36,7 +36,10 @@ class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
         
         profile_picker.delegate = self
         profile_picker.dataSource = self
-        profile_picker.backgroundColor = UIColor (red: 0, green: 0, blue: 0, alpha: 0.2)
+        
+        let ps = profile_picker.sizeThatFits(CGSize.zero)
+        profile_picker.frame = CGRectMake(0.0, 0.0, ps.width, 216.0)
+        //profile_picker.backgroundColor = UIColor (red: 0, green: 0, blue: 0, alpha: 0.2)
         
         scanned = false
         self.setNeedsStatusBarAppearanceUpdate()
@@ -193,6 +196,23 @@ class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
     func pickerView(pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusingView view: UIView?) -> UIView
     {
         let pickerLabel = UILabel()
+        
+        if UserProfilesModel.sharedInstance.user_profiles[row].color == "BLACK" {
+            pickerLabel.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+        }
+        else if UserProfilesModel.sharedInstance.user_profiles[row].color == "BLUE" {
+            pickerLabel.backgroundColor = UIColor(red: 41/255, green: 128/255.0, blue: 185/255, alpha: 1)
+        }
+        else if UserProfilesModel.sharedInstance.user_profiles[row].color == "GREEN" {
+            pickerLabel.backgroundColor = UIColor(red: 39/255, green: 174/96, blue: 38/255, alpha: 1)
+        }
+        else if UserProfilesModel.sharedInstance.user_profiles[row].color == "RED" {
+            pickerLabel.backgroundColor = UIColor(red: 200/255, green: 46/255, blue: 70/255, alpha: 1)
+        }
+        else if UserProfilesModel.sharedInstance.user_profiles[row].color == "WHITE" {
+            pickerLabel.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
+        }
+        
         pickerLabel.textColor = UIColor.whiteColor()
         pickerLabel.text = UserProfilesModel.sharedInstance.user_profiles[row].name
         pickerLabel.font = UIFont(name: "Avenir", size: 20) // In this use your custom font
