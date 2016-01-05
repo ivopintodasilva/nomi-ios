@@ -67,11 +67,82 @@ class ProfileDetailsViewController: UIViewController, UITableViewDelegate, UITab
     
     
     @IBAction func save(sender: AnyObject) {
-        print(name_tf.text)
-        UserProfilesModel.sharedInstance.user_profiles[profile_row!].name = name_tf.text!
         
-        print(current_color)
-        UserProfilesModel.sharedInstance.user_profiles[profile_row!].color = current_color!
+        
+        
+        let session = NSURLSession.sharedSession()
+        
+        let requestURL = NSURL(string:"http://192.168.160.56:8000/api/profile/" + String(self.profile_id!))!
+        
+        let json: [String: AnyObject] = ["name": name_tf.text!, "color": current_color!]
+        
+        do {
+            print ("do")
+            let jsonData = try NSJSONSerialization.dataWithJSONObject(json, options: .PrettyPrinted)
+            print ("after do")
+            print (jsonData)
+            let request = NSMutableURLRequest(URL: requestURL)
+            request.HTTPMethod = "PUT"
+            request.HTTPBody = jsonData
+            request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+            
+            
+            
+            let edit_profile_task = session.dataTaskWithRequest(request, completionHandler:{(data, response, error) in
+                
+                
+                if let httpResponse = response as? NSHTTPURLResponse{
+                    if httpResponse.statusCode == 200 {
+                        
+                        let url_contacts = NSURL(string: "http://192.168.160.56:8000/api/profile/relation/user/" + String(UserInfoModel.sharedInstance.getId()))
+                        print(url_contacts)
+                        let task_contacts = session.dataTaskWithURL(url_contacts!, completionHandler: {(data, response, error) in
+                            if let httpResponse = response as? NSHTTPURLResponse{
+                                if httpResponse.statusCode == 200 {
+                                    print("no error")
+                                    // check if data is not null
+                                    
+                                        
+                                    dispatch_async(dispatch_get_main_queue(), {
+                                        print(self.name_tf.text)
+                                        UserProfilesModel.sharedInstance.user_profiles[self.profile_row!].name = self.name_tf.text!
+                                        
+                                        print(self.current_color)
+                                        UserProfilesModel.sharedInstance.user_profiles[self.profile_row!].color = self.current_color!
+                                    })
+                                        
+                                    
+                                } else {
+                                    dispatch_async(dispatch_get_main_queue(), {
+                                        let alert = UIAlertView()
+                                        alert.title = "Impossible operation"
+                                        alert.message = "Please, try again later"
+                                        alert.addButtonWithTitle("Ok")
+                                        alert.show()
+                                    })
+                                }
+                                
+                            }
+                        })
+                        task_contacts.resume()
+                        
+                    }
+                }
+                
+            })
+            
+            edit_profile_task.resume()
+            
+        }catch _{
+            dispatch_async(dispatch_get_main_queue(), {
+                let alert = UIAlertView()
+                alert.title = "Impossible operation"
+                alert.message = "Please, try again later"
+                alert.addButtonWithTitle("Ok")
+                alert.show()
+            })
+        }
+        
         
         for var section = 0; section < user_profile_attributes.numberOfSections; section++ {
             for var row = 0; row < user_profile_attributes.numberOfRowsInSection(section); row++ {
