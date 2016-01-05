@@ -64,6 +64,8 @@ class ProfileDetailsViewController: UIViewController, UITableViewDelegate, UITab
         }
         
         
+        
+        
     }
     
     
@@ -145,19 +147,19 @@ class ProfileDetailsViewController: UIViewController, UITableViewDelegate, UITab
         }
         
         
-//        for var section = 0; section < user_profile_attributes.numberOfSections; section++ {
-//            for var row = 0; row < user_profile_attributes.numberOfRowsInSection(section); row++ {
-//                
-//                let cellPath: NSIndexPath = NSIndexPath(forRow: row, inSection: section)
-//                let cell: ProfileDetailsCell = user_profile_attributes.cellForRowAtIndexPath(cellPath) as! ProfileDetailsCell
-//                print(cell.value.text)
-//                UserProfilesModel.sharedInstance.user_profiles[profile_row!].attributes[row].value = cell.value.text!
-//                
-//            }
-//        }
-
+        for var section = 0; section < user_profile_attributes.numberOfSections; section++ {
+            for var row = 0; row < user_profile_attributes.numberOfRowsInSection(section); row++ {
+                
+                let cellPath: NSIndexPath = NSIndexPath(forRow: row, inSection: section)
+                let cell: ProfileDetailsCell = user_profile_attributes.cellForRowAtIndexPath(cellPath) as! ProfileDetailsCell
+                print(cell.value.text)
+                //UserProfilesModel.sharedInstance.user_profiles[profile_row!].attributes[row].value = cell.value.text!
+                
+            }
+        }
+        
     }
-
+    
     @IBAction func changeColor(sender: AnyObject) {
         
         if self.current_color == "BLACK" {
@@ -247,6 +249,8 @@ class ProfileDetailsViewController: UIViewController, UITableViewDelegate, UITab
             cell.icon.textColor = UIColor(red: 0/255, green: 123/255, blue: 182/255, alpha: 1)
         }
         
+        cell.value.placeholder = "Contact"
+        
         return cell
         
     }
@@ -301,7 +305,7 @@ class ProfileDetailsViewController: UIViewController, UITableViewDelegate, UITab
         
         
         if self.current_color == "BLACK" {
-            self.sectionHeaderView!.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.8)
+            self.sectionHeaderView!.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.9)
             text.textColor = UIColor.blackColor()
             facebook_icon.addAttribute(NSForegroundColorAttributeName, value: UIColor.blackColor())
             twitter_icon.addAttribute(NSForegroundColorAttributeName, value: UIColor.blackColor())
@@ -312,7 +316,7 @@ class ProfileDetailsViewController: UIViewController, UITableViewDelegate, UITab
             linkedin_icon.addAttribute(NSForegroundColorAttributeName, value: UIColor.blackColor())
         }
         else if self.current_color == "BLUE" {
-            self.sectionHeaderView!.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.8)
+            self.sectionHeaderView!.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.9)
             text.textColor = UIColor(red: 41/255, green: 128/255.0, blue: 185/255, alpha: 1)
             facebook_icon.addAttribute(NSForegroundColorAttributeName, value: UIColor(red: 41/255, green: 128/255.0, blue: 185/255, alpha: 1))
             twitter_icon.addAttribute(NSForegroundColorAttributeName, value: UIColor(red: 41/255, green: 128/255.0, blue: 185/255, alpha: 1))
@@ -323,7 +327,7 @@ class ProfileDetailsViewController: UIViewController, UITableViewDelegate, UITab
             linkedin_icon.addAttribute(NSForegroundColorAttributeName, value: UIColor(red: 41/255, green: 128/255.0, blue: 185/255, alpha: 1))
         }
         else if self.current_color == "GREEN" {
-            self.sectionHeaderView!.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.8)
+            self.sectionHeaderView!.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.9)
             text.textColor = UIColor(red: 0/255, green: 150/96, blue: 136/255, alpha: 1)
             facebook_icon.addAttribute(NSForegroundColorAttributeName, value: UIColor(red: 0/255, green: 150/96, blue: 136/255, alpha: 1))
             twitter_icon.addAttribute(NSForegroundColorAttributeName, value: UIColor(red: 0/255, green: 150/96, blue: 136/255, alpha: 1))
@@ -334,7 +338,7 @@ class ProfileDetailsViewController: UIViewController, UITableViewDelegate, UITab
             linkedin_icon.addAttribute(NSForegroundColorAttributeName, value: UIColor(red: 0/255, green: 150/96, blue: 136/255, alpha: 1))
         }
         else if self.current_color == "RED" {
-            self.sectionHeaderView!.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.8)
+            self.sectionHeaderView!.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.9)
             text.textColor = UIColor(red: 192/255, green: 57/255, blue: 43/255, alpha: 1)
             facebook_icon.addAttribute(NSForegroundColorAttributeName, value: UIColor(red: 192/255, green: 57/255, blue: 43/255, alpha: 1))
             twitter_icon.addAttribute(NSForegroundColorAttributeName, value: UIColor(red: 192/255, green: 57/255, blue: 43/255, alpha: 1))
@@ -345,7 +349,7 @@ class ProfileDetailsViewController: UIViewController, UITableViewDelegate, UITab
             linkedin_icon.addAttribute(NSForegroundColorAttributeName, value: UIColor(red: 192/255, green: 57/255, blue: 43/255, alpha: 1))
         }
         else if self.current_color == "WHITE" {
-            self.sectionHeaderView!.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.8)
+            self.sectionHeaderView!.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.9)
             text.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
             facebook_icon.addAttribute(NSForegroundColorAttributeName, value: UIColor(red: 1, green: 1, blue: 1, alpha: 1))
             twitter_icon.addAttribute(NSForegroundColorAttributeName, value: UIColor(red: 1, green: 1, blue: 1, alpha: 1))
@@ -362,31 +366,29 @@ class ProfileDetailsViewController: UIViewController, UITableViewDelegate, UITab
         facebook_button.addTarget(self, action: "addFacebook:", forControlEvents: .TouchUpInside)
         facebook_button.frame = CGRectMake(0, 0, 30, 30)
         facebook_button.center = self.sectionHeaderView!.center
-        facebook_button.center.x = self.sectionHeaderView!.center.x - 70
         
         twitter_button.setAttributedTitle(twitter_icon.attributedString(), forState: .Normal)
         twitter_button.addTarget(self, action: "addTwitter:", forControlEvents: .TouchUpInside)
         twitter_button.frame = CGRectMake(0, 0, 30, 30)
         twitter_button.center = self.sectionHeaderView!.center
-        twitter_button.center.x = self.sectionHeaderView!.center.x - 40
+        
         
         insta_button.setAttributedTitle(insta_icon.attributedString(), forState: .Normal)
         insta_button.addTarget(self, action: "addInsta:", forControlEvents: .TouchUpInside)
         insta_button.frame = CGRectMake(0, 0, 30, 30)
         insta_button.center = self.sectionHeaderView!.center
-        insta_button.center.x = self.sectionHeaderView!.center.x - 10
         
         google_button.setAttributedTitle(google_icon.attributedString(), forState: .Normal)
         google_button.addTarget(self, action: "addGoogle:", forControlEvents: .TouchUpInside)
         google_button.frame = CGRectMake(0, 0, 30, 30)
         google_button.center = self.sectionHeaderView!.center
-        google_button.center.x = self.sectionHeaderView!.center.x + 20
+        
         
         email_button.setAttributedTitle(email_icon.attributedString(), forState: .Normal)
         email_button.addTarget(self, action: "addEmail:", forControlEvents: .TouchUpInside)
         email_button.frame = CGRectMake(0, 0, 30, 30)
         email_button.center = self.sectionHeaderView!.center
-        email_button.center.x = self.sectionHeaderView!.center.x + 50
+        
         
         num_button.setAttributedTitle(num_icon.attributedString(), forState: .Normal)
         num_button.addTarget(self, action: "addNum:", forControlEvents: .TouchUpInside)
@@ -398,7 +400,7 @@ class ProfileDetailsViewController: UIViewController, UITableViewDelegate, UITab
         linkedin_button.addTarget(self, action: "addLinkedin:", forControlEvents: .TouchUpInside)
         linkedin_button.frame = CGRectMake(0, 0, 30, 30)
         linkedin_button.center = self.sectionHeaderView!.center
-        linkedin_button.center.x = self.sectionHeaderView!.center.x + 110
+        
         
         
         
@@ -413,41 +415,59 @@ class ProfileDetailsViewController: UIViewController, UITableViewDelegate, UITab
         print (existent)
         
         
-        
+        var header_logo_pos: CGFloat = -70
         
         var exists = false
         
         if existent.contains("FACEBOOK") == false {
             exists = true
             self.sectionHeaderView!.addSubview(facebook_button)
+            facebook_button.center.x = self.sectionHeaderView!.center.x + header_logo_pos
+            header_logo_pos += 30
+            
         }
         if existent.contains("TWITTER") == false {
             exists = true
             self.sectionHeaderView!.addSubview(twitter_button)
+            twitter_button.center.x = self.sectionHeaderView!.center.x + header_logo_pos
+            header_logo_pos += 30
         }
         if existent.contains("INSTAGRAM") == false {
             exists = true
             self.sectionHeaderView!.addSubview(insta_button)
+            insta_button.center.x = self.sectionHeaderView!.center.x + header_logo_pos
+            header_logo_pos += 30
         }
         if existent.contains("GOOGLE") == false {
             exists = true
             self.sectionHeaderView!.addSubview(google_button)
+            google_button.center.x = self.sectionHeaderView!.center.x + header_logo_pos
+            header_logo_pos += 30
         }
         if existent.contains("EMAIL") == false {
             exists = true
             self.sectionHeaderView!.addSubview(email_button)
+            email_button.center.x = self.sectionHeaderView!.center.x + header_logo_pos
+            header_logo_pos += 30
         }
         if existent.contains("NUMBER") == false {
             exists = true
             self.sectionHeaderView!.addSubview(num_button)
+            num_button.center.x = self.sectionHeaderView!.center.x + header_logo_pos
+            header_logo_pos += 30
         }
         if existent.contains("LINKEDIN") == false {
             exists = true
             self.sectionHeaderView!.addSubview(linkedin_button)
+            linkedin_button.center.x = self.sectionHeaderView!.center.x + header_logo_pos
+            header_logo_pos += 30
         }
         
         if exists{
             self.sectionHeaderView!.addSubview(text)
+        }
+        else{
+            self.sectionHeaderView = UIView(frame: CGRectMake(0, 0, 0, 0))
         }
         
         return sectionHeaderView
@@ -456,30 +476,44 @@ class ProfileDetailsViewController: UIViewController, UITableViewDelegate, UITab
     
     func addFacebook(sender: AnyObject) {
         NSLog("add facebook")
+        UserProfilesModel.sharedInstance.user_profiles[profile_row!].attributes.append(ProfileAttributeModel(id: -1, name: "FACEBOOK", value: ""))
+        user_profile_attributes.reloadData()
     }
     
     func addTwitter(sender: AnyObject) {
         NSLog("add twitter")
+        UserProfilesModel.sharedInstance.user_profiles[profile_row!].attributes.append(ProfileAttributeModel(id: -1, name: "TWITTER", value: ""))
+        user_profile_attributes.reloadData()
     }
     
     func addInsta(sender: AnyObject) {
         NSLog("add insta")
+        UserProfilesModel.sharedInstance.user_profiles[profile_row!].attributes.append(ProfileAttributeModel(id: -1, name: "INSTAGRAM", value: ""))
+        user_profile_attributes.reloadData()
     }
     
     func addGoogle(sender: AnyObject) {
         NSLog("add google")
+        UserProfilesModel.sharedInstance.user_profiles[profile_row!].attributes.append(ProfileAttributeModel(id: -1, name: "GOOGLE", value: ""))
+        user_profile_attributes.reloadData()
     }
     
     func addEmail(sender: AnyObject) {
         NSLog("add email")
+        UserProfilesModel.sharedInstance.user_profiles[profile_row!].attributes.append(ProfileAttributeModel(id: -1, name: "EMAIL", value: ""))
+        user_profile_attributes.reloadData()
     }
     
     func addNum(sender: AnyObject) {
         NSLog("add num")
+        UserProfilesModel.sharedInstance.user_profiles[profile_row!].attributes.append(ProfileAttributeModel(id: -1, name: "NUMBER", value: ""))
+        user_profile_attributes.reloadData()
     }
     
     func addLinkedin(sender: AnyObject) {
         NSLog("add linkedin")
+        UserProfilesModel.sharedInstance.user_profiles[profile_row!].attributes.append(ProfileAttributeModel(id: -1, name: "LINKEDIN", value: ""))
+        user_profile_attributes.reloadData()
     }
     
     
