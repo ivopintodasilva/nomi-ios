@@ -586,7 +586,7 @@
             </objects>
             <point key="canvasLocation" x="1674" y="719"/>
         </scene>
-        <!--Profile Create View Controller-->
+        <!--New profile-->
         <scene sceneID="j13-5P-wfc">
             <objects>
                 <viewController automaticallyAdjustsScrollViewInsets="NO" id="iAJ-et-Dai" customClass="ProfileCreateViewController" customModule="nomi" customModuleProvider="target" sceneMemberID="viewController">
@@ -598,35 +598,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New profile" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hRP-7E-xS0">
-                                <rect key="frame" x="35" y="20" width="250" height="50"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" highlighted="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Profile name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="obl-FC-kMH">
+                                <rect key="frame" x="60.5" y="75" width="200" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="250" id="BTk-9e-86g"/>
-                                    <constraint firstAttribute="height" constant="50" id="LQK-fp-aIT"/>
+                                    <constraint firstAttribute="width" constant="200" id="3Yh-Vj-wFa"/>
+                                    <constraint firstAttribute="height" constant="30" id="RVj-K1-EZ8"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="38"/>
-                                <color key="textColor" red="0.3673112274" green="0.3673112274" blue="0.3673112274" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" highlighted="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Profile name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="obl-FC-kMH">
-                                <rect key="frame" x="90" y="95" width="141" height="30"/>
-                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="20"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="30"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose a color" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QEJ-YE-ynN">
-                                <rect key="frame" x="97" y="138" width="126" height="24"/>
-                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vbO-Se-WMz">
-                                <rect key="frame" x="0.0" y="170" width="320" height="216"/>
-                            </pickerView>
                             <button opaque="NO" alpha="0.80000001192092896" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XP6-b0-1FM">
-                                <rect key="frame" x="0.0" y="430" width="320" height="50"/>
+                                <rect key="frame" x="0.0" y="415" width="320" height="65"/>
                                 <color key="backgroundColor" red="0.70980392160000005" green="0.23137254900000001" blue="0.21176470589999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="4iF-El-0H6"/>
+                                    <constraint firstAttribute="height" constant="65" id="4iF-El-0H6"/>
                                     <constraint firstAttribute="width" constant="320" id="Nmz-IQ-iBI"/>
                                 </constraints>
                                 <edgeInsets key="layoutMargins" top="0.0" left="0.0" bottom="0.0" right="0.0"/>
@@ -638,29 +623,29 @@
                                     <action selector="btnCreateProfile_click:" destination="iAJ-et-Dai" eventType="touchUpInside" id="Sh0-7t-XUd"/>
                                 </connections>
                             </button>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vbO-Se-WMz">
+                                <rect key="frame" x="0.0" y="209" width="320" height="162"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="162" id="fps-7x-Iu2"/>
+                                </constraints>
+                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="XP6-b0-1FM" firstAttribute="leading" secondItem="tqH-vZ-KVP" secondAttribute="leading" id="5lF-zW-tCW"/>
                             <constraint firstItem="vbO-Se-WMz" firstAttribute="leading" secondItem="tqH-vZ-KVP" secondAttribute="leading" id="K8a-FY-p2i"/>
-                            <constraint firstItem="QEJ-YE-ynN" firstAttribute="top" secondItem="PqK-mV-Q0W" secondAttribute="bottom" constant="118" id="Nw7-h9-7eW"/>
-                            <constraint firstItem="hRP-7E-xS0" firstAttribute="top" secondItem="PqK-mV-Q0W" secondAttribute="bottom" id="Nw9-Dt-Dsm"/>
                             <constraint firstItem="N1H-VZ-89D" firstAttribute="top" secondItem="XP6-b0-1FM" secondAttribute="bottom" id="Pqi-32-b67"/>
-                            <constraint firstItem="hRP-7E-xS0" firstAttribute="centerX" secondItem="tqH-vZ-KVP" secondAttribute="centerX" id="Rf4-h5-S12"/>
                             <constraint firstItem="obl-FC-kMH" firstAttribute="centerX" secondItem="tqH-vZ-KVP" secondAttribute="centerX" id="UA8-ko-oU3"/>
+                            <constraint firstItem="XP6-b0-1FM" firstAttribute="top" secondItem="vbO-Se-WMz" secondAttribute="bottom" constant="44" id="XuH-Ir-i9h"/>
                             <constraint firstItem="XP6-b0-1FM" firstAttribute="centerX" secondItem="tqH-vZ-KVP" secondAttribute="centerX" id="b0j-PV-oJS"/>
-                            <constraint firstItem="obl-FC-kMH" firstAttribute="leading" secondItem="tqH-vZ-KVP" secondAttribute="leadingMargin" constant="74" id="dlB-2q-wcb"/>
                             <constraint firstItem="vbO-Se-WMz" firstAttribute="centerX" secondItem="tqH-vZ-KVP" secondAttribute="centerX" id="fmv-gl-mIx"/>
                             <constraint firstAttribute="trailing" secondItem="vbO-Se-WMz" secondAttribute="trailing" id="gCo-WA-N09"/>
-                            <constraint firstItem="vbO-Se-WMz" firstAttribute="top" secondItem="QEJ-YE-ynN" secondAttribute="bottom" constant="8" id="gqg-dd-Ha8"/>
-                            <constraint firstItem="obl-FC-kMH" firstAttribute="top" secondItem="PqK-mV-Q0W" secondAttribute="bottom" constant="75" id="kGU-xe-ywG"/>
+                            <constraint firstItem="obl-FC-kMH" firstAttribute="top" secondItem="PqK-mV-Q0W" secondAttribute="bottom" constant="55" id="kGU-xe-ywG"/>
                             <constraint firstAttribute="trailing" secondItem="XP6-b0-1FM" secondAttribute="trailing" id="nfH-e9-ofO"/>
-                            <constraint firstItem="QEJ-YE-ynN" firstAttribute="leading" secondItem="tqH-vZ-KVP" secondAttribute="leadingMargin" constant="81" id="yqm-IN-iPc"/>
-                            <constraint firstItem="QEJ-YE-ynN" firstAttribute="centerX" secondItem="tqH-vZ-KVP" secondAttribute="centerX" id="zbO-jh-pV8"/>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
-                    <navigationItem key="navigationItem" id="X7N-lO-pWd"/>
+                    <navigationItem key="navigationItem" title="New profile" id="C32-Dv-Jum" userLabel="Create"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="color_picker" destination="vbO-Se-WMz" id="F2j-dD-t32"/>
@@ -1013,17 +998,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="11S-8b-vDt">
-                                <rect key="frame" x="0.0" y="415" width="320" height="65"/>
-                                <color key="backgroundColor" red="0.70980392156862748" green="0.23137254901960785" blue="0.21176470588235294" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="20"/>
-                                <state key="normal" title="I love this app!">
-                                    <color key="titleColor" red="0.97762222200000004" green="0.97751299970000005" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <segue destination="YkZ-Ur-yoh" kind="modal" id="U0n-Tp-6ch"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You just met" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CnK-N3-hfr">
                                 <rect key="frame" x="60" y="290" width="200" height="26"/>
                                 <constraints>
@@ -1049,6 +1023,17 @@
                                     <constraint firstAttribute="width" constant="200" id="ujW-gP-k7W"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="11S-8b-vDt">
+                                <rect key="frame" x="0.0" y="415" width="320" height="65"/>
+                                <color key="backgroundColor" red="0.70980392156862748" green="0.23137254901960785" blue="0.21176470588235294" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="20"/>
+                                <state key="normal" title="I love this app!">
+                                    <color key="titleColor" red="0.97762222200000004" green="0.97751299970000005" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="YkZ-Ur-yoh" kind="modal" id="U0n-Tp-6ch"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -1162,6 +1147,11 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="iur-bO-7d4">
+                        <rect key="frame" x="0.0" y="524" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.70980392156862748" green="0.23137254901960785" blue="0.21176470588235294" alpha="1" colorSpace="calibratedRGB"/>
+                    </toolbar>
                     <connections>
                         <segue destination="fcY-oa-K91" kind="relationship" relationship="rootViewController" id="y6u-1q-jzs"/>
                     </connections>

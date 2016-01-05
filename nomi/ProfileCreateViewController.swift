@@ -21,7 +21,7 @@ class ProfileCreateViewController: UIViewController, UIPickerViewDelegate, UIPic
     @IBOutlet weak var color_picker: UIPickerView!
     @IBOutlet weak var txtProfileName: UITextField!
     
-    var pickerLabel = UILabel()
+    
     var selected_color: Int?
     
     var session: NSURLSession?
@@ -197,19 +197,57 @@ class ProfileCreateViewController: UIViewController, UIPickerViewDelegate, UIPic
     
     // item name
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return colors[row]
+        if colors[row] == "BLACK" {
+            return "Black"
+        }
+        else if colors[row] == "BLUE" {
+            return "Blue"
+        }
+        else if colors[row] == "GREEN" {
+            return "Green"
+        }
+        else if colors[row] == "RED" {
+            return "Red"
+        }
+        else if colors[row] == "WHITE" {
+            return "White"
+        }
+        return ""
     }
     
     // after select picker item
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int){
         self.selected_color = row
+        print (colors[row])
     }
     
     func pickerView(pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusingView view: UIView?) -> UIView
     {
-        pickerLabel.textColor = UIColor.blackColor()
+        let pickerLabel = UILabel()
+        
+        if colors[row] == "BLACK" {
+            pickerLabel.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+            pickerLabel.textColor = UIColor.whiteColor()
+        }
+        else if colors[row] == "BLUE" {
+            pickerLabel.backgroundColor = UIColor(red: 41/255, green: 128/255.0, blue: 185/255, alpha: 1)
+            pickerLabel.textColor = UIColor.whiteColor()
+        }
+        else if colors[row] == "GREEN" {
+            pickerLabel.backgroundColor = UIColor(red: 0/255, green: 150/96, blue: 136/255, alpha: 1)
+            pickerLabel.textColor = UIColor.whiteColor()
+        }
+        else if colors[row] == "RED" {
+            pickerLabel.backgroundColor = UIColor(red: 192/255, green: 57/255, blue: 43/255, alpha: 1)
+            pickerLabel.textColor = UIColor.whiteColor()
+        }
+        else if colors[row] == "WHITE" {
+            pickerLabel.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
+            pickerLabel.textColor = UIColor.blackColor()
+        }
+        
         pickerLabel.text = colors[row]
-        pickerLabel.font = UIFont(name: "Avenir", size: 15) // In this use your custom font
+        pickerLabel.font = UIFont(name: "Avenir", size: 17) // In this use your custom font
         pickerLabel.textAlignment = NSTextAlignment.Center
         return pickerLabel
     }
