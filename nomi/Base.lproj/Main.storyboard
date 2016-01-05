@@ -691,7 +691,7 @@
             </objects>
             <point key="canvasLocation" x="2216" y="719"/>
         </scene>
-        <!--Profile Details View Controller-->
+        <!--Edit-->
         <scene sceneID="NhG-c3-6t2">
             <objects>
                 <viewController automaticallyAdjustsScrollViewInsets="NO" id="xN0-Vz-Cag" customClass="ProfileDetailsViewController" customModule="nomi" customModuleProvider="target" sceneMemberID="viewController">
@@ -765,26 +765,27 @@
                                                 <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="35"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NgP-Wc-9UI">
-                                                <rect key="frame" x="0.0" y="0.0" width="50" height="416"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vXY-zI-J6q">
+                                                <rect key="frame" x="0.0" y="0.0" width="56" height="416"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="50" id="rRh-Ne-dyC"/>
+                                                    <constraint firstAttribute="width" constant="56" id="Nh1-yo-99X"/>
                                                 </constraints>
-                                            </view>
+                                                <connections>
+                                                    <action selector="changeColor:" destination="xN0-Vz-Cag" eventType="touchUpInside" id="noT-CJ-IYd"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstItem="NgP-Wc-9UI" firstAttribute="top" secondItem="mRy-aI-bHg" secondAttribute="top" id="7Mw-WW-aLH"/>
+                                            <constraint firstItem="vXY-zI-J6q" firstAttribute="top" secondItem="mRy-aI-bHg" secondAttribute="top" id="7E7-Io-pEc"/>
                                             <constraint firstAttribute="trailing" secondItem="44G-gR-oUC" secondAttribute="trailing" constant="18" id="GiA-Ql-Ghc"/>
-                                            <constraint firstItem="X9C-cp-i8S" firstAttribute="leading" secondItem="NgP-Wc-9UI" secondAttribute="trailing" constant="8" id="TyC-NK-Hhl"/>
                                             <constraint firstItem="X9C-cp-i8S" firstAttribute="top" secondItem="44G-gR-oUC" secondAttribute="bottom" constant="13" id="U3f-pn-nmZ"/>
-                                            <constraint firstAttribute="bottom" secondItem="NgP-Wc-9UI" secondAttribute="bottom" id="Vpp-cn-raY"/>
                                             <constraint firstAttribute="bottom" secondItem="X9C-cp-i8S" secondAttribute="bottom" id="XTK-ne-heG"/>
-                                            <constraint firstItem="NgP-Wc-9UI" firstAttribute="leading" secondItem="mRy-aI-bHg" secondAttribute="leading" id="bkK-Wb-GXW"/>
+                                            <constraint firstItem="X9C-cp-i8S" firstAttribute="leading" secondItem="vXY-zI-J6q" secondAttribute="trailing" constant="2" id="cdA-dw-JcC"/>
                                             <constraint firstItem="44G-gR-oUC" firstAttribute="top" secondItem="mRy-aI-bHg" secondAttribute="top" constant="8" id="ifK-Ib-3z3"/>
                                             <constraint firstAttribute="trailing" secondItem="X9C-cp-i8S" secondAttribute="trailing" id="nMo-ac-UFd"/>
-                                            <constraint firstItem="44G-gR-oUC" firstAttribute="leading" secondItem="NgP-Wc-9UI" secondAttribute="trailing" constant="27" id="w1n-wu-2g1"/>
+                                            <constraint firstItem="vXY-zI-J6q" firstAttribute="leading" secondItem="mRy-aI-bHg" secondAttribute="leading" id="pBn-NE-Ycp"/>
+                                            <constraint firstAttribute="bottom" secondItem="vXY-zI-J6q" secondAttribute="bottom" id="pVT-QF-Q5H"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -809,10 +810,12 @@
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
-                    <navigationItem key="navigationItem" id="kJG-vx-s8Z"/>
+                    <navigationItem key="navigationItem" title="Edit" id="bp1-Mk-fE9">
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="save" id="tQR-m4-aog"/>
+                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
-                        <outlet property="color_view" destination="NgP-Wc-9UI" id="MSC-ue-aqf"/>
+                        <outlet property="color_view" destination="vXY-zI-J6q" id="qkc-EL-5q1"/>
                         <outlet property="name_tf" destination="44G-gR-oUC" id="0S2-Wy-VGO"/>
                         <outlet property="scrollView" destination="G9Z-JL-2Pd" id="tEw-XF-JeD"/>
                         <outlet property="user_profile_attributes" destination="X9C-cp-i8S" id="bHx-mx-qMr"/>

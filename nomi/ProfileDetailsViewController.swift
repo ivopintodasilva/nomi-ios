@@ -16,9 +16,12 @@ class ProfileDetailsViewController: UIViewController, UITableViewDelegate, UITab
     var activeField: UITextField?
     
     @IBOutlet weak var name_tf: UITextField!
-    @IBOutlet weak var color_view: UIView!
+    
+    @IBOutlet weak var color_view: UIButton!
 
     let cell_identifier = "userProfileCell"
+    
+    var current_color: String?
     
     @IBOutlet weak var scrollView: UIScrollView!
     
@@ -29,11 +32,7 @@ class ProfileDetailsViewController: UIViewController, UITableViewDelegate, UITab
         
         super.viewDidLoad()
         
-        let paintView = UIView(frame: CGRectMake(0, 50, 320, 430))
-        paintView.backgroundColor = UIColor.yellowColor()
-
         
-        print (profile_id!)
         
         name_tf.delegate = self
         
@@ -53,23 +52,53 @@ class ProfileDetailsViewController: UIViewController, UITableViewDelegate, UITab
         
         if UserProfilesModel.sharedInstance.user_profiles[profile_row!].color == "BLACK" {
             color_view.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+            self.current_color = "BLACK"
         }
         else if UserProfilesModel.sharedInstance.user_profiles[profile_row!].color == "BLUE" {
             color_view.backgroundColor = UIColor(red: 41/255, green: 128/255.0, blue: 185/255, alpha: 1)
+            self.current_color = "BLUE"
         }
         else if UserProfilesModel.sharedInstance.user_profiles[profile_row!].color == "GREEN" {
             color_view.backgroundColor = UIColor(red: 0/255, green: 150/96, blue: 136/255, alpha: 1)
+            self.current_color = "GREEN"
         }
         else if UserProfilesModel.sharedInstance.user_profiles[profile_row!].color == "RED" {
             color_view.backgroundColor = UIColor(red: 192/255, green: 57/255, blue: 43/255, alpha: 1)
+            self.current_color = "RED"
         }
         else if UserProfilesModel.sharedInstance.user_profiles[profile_row!].color == "WHITE" {
             color_view.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
+            self.current_color = "WHITE"
         }
         
         
     }
 
+    @IBAction func changeColor(sender: AnyObject) {
+        
+        if self.current_color == "BLACK" {
+            color_view.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
+            self.current_color = "WHITE"
+        }
+        else if self.current_color == "BLUE" {
+            color_view.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+            self.current_color = "BLACK"
+        }
+        else if self.current_color == "GREEN" {
+            color_view.backgroundColor = UIColor(red: 41/255, green: 128/255.0, blue: 185/255, alpha: 1)
+            self.current_color = "BLUE"
+        }
+        else if self.current_color == "RED" {
+            color_view.backgroundColor = UIColor(red: 0/255, green: 150/96, blue: 136/255, alpha: 1)
+            self.current_color = "GREEN"
+        }
+        else if self.current_color == "WHITE" {
+            color_view.backgroundColor = UIColor(red: 192/255, green: 57/255, blue: 43/255, alpha: 1)
+            self.current_color = "RED"
+        }
+        
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
