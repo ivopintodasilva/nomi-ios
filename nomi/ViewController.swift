@@ -57,6 +57,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
             
             if let httpResponse = response as? NSHTTPURLResponse{
                 
+                print (httpResponse.statusCode)
+                
                 if httpResponse.statusCode == 200 {
                     print("no error")
                     // check if data is not null

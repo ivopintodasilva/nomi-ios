@@ -9,7 +9,7 @@
 import UIKit
 
 
-class ProfilesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ProfilesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
     @IBOutlet weak var new_profile_btn: UIButton!
     @IBOutlet weak var profile_table: UITableView!
@@ -30,9 +30,13 @@ class ProfilesViewController: UIViewController, UITableViewDelegate, UITableView
         profile_table.delegate = self
         profile_table.dataSource = self
         
+    }
+    
+    override func viewWillAppear(animated: Bool) {
         
-
-        
+        profile_table.reloadData()
+        print("viewWillAppear")
+        super.viewWillAppear(animated)
     }
 
     override func didReceiveMemoryWarning() {

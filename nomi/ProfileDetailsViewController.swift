@@ -12,37 +12,28 @@ class ProfileDetailsViewController: UIViewController, UITableViewDelegate, UITab
 
     var profile_id: Int?
     var profile_row: Int?
-    
     var activeField: UITextField?
     
-    @IBOutlet weak var name_tf: UITextField!
-    
-    @IBOutlet weak var color_view: UIButton!
-
     let cell_identifier = "userProfileCell"
-    
     var current_color: String?
     
     @IBOutlet weak var scrollView: UIScrollView!
-    
     @IBOutlet weak var user_profile_attributes: UITableView!
+    @IBOutlet weak var name_tf: UITextField!
+    @IBOutlet weak var color_view: UIButton!
+    
+    
     
     override func viewDidLoad() {
-        
-        
         super.viewDidLoad()
-        
-        
-        
+
         name_tf.delegate = self
-        
-        registerForKeyboardNotifications()
-        
         user_profile_attributes.delegate = self
         user_profile_attributes.dataSource = self
         
-        user_profile_attributes.separatorStyle = UITableViewCellSeparatorStyle.None
+        registerForKeyboardNotifications()
         
+        user_profile_attributes.separatorStyle = UITableViewCellSeparatorStyle.None
         user_profile_attributes.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
         self.automaticallyAdjustsScrollViewInsets = false
 
@@ -72,6 +63,28 @@ class ProfileDetailsViewController: UIViewController, UITableViewDelegate, UITab
         }
         
         
+    }
+    
+    
+    @IBAction func save(sender: AnyObject) {
+        print(name_tf.text)
+        UserProfilesModel.sharedInstance.user_profiles[profile_row!].name = name_tf.text!
+        
+        print(current_color)
+        UserProfilesModel.sharedInstance.user_profiles[profile_row!].color = current_color!
+        
+        for var section = 0; section < user_profile_attributes.numberOfSections; section++ {
+            for var row = 0; row < user_profile_attributes.numberOfRowsInSection(section); row++ {
+                
+                
+                let cellPath: NSIndexPath = NSIndexPath(forRow: row, inSection: section)
+                let cell: ProfileDetailsCell = user_profile_attributes.cellForRowAtIndexPath(cellPath) as! ProfileDetailsCell
+                print(cell.value.text)
+                UserProfilesModel.sharedInstance.user_profiles[profile_row!].attributes[row].value = cell.value.text!
+                
+            }
+        }
+
     }
 
     @IBAction func changeColor(sender: AnyObject) {
@@ -215,8 +228,6 @@ class ProfileDetailsViewController: UIViewController, UITableViewDelegate, UITab
                 scrollView.scrollRectToVisible(activeField!.frame, animated: true)
             }
         }
-        
-        
     }
     
     
