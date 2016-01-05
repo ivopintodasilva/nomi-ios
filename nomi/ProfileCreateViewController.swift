@@ -15,7 +15,7 @@ class ProfileCreateViewController: UIViewController, UIPickerViewDelegate, UIPic
     var profile_info: NSString?
     var contacts_info: NSString?
     
-    @IBOutlet weak var scroll_view: UIScrollView!
+    //@IBOutlet weak var scroll_view: UIScrollView!
     @IBOutlet weak var content_view: UIView!
     
     @IBOutlet weak var color_picker: UIPickerView!
@@ -58,6 +58,17 @@ class ProfileCreateViewController: UIViewController, UIPickerViewDelegate, UIPic
         let color = selected_color
         let id = String(UserInfoModel.sharedInstance.getId())
         
+        if profileName == "" {
+            dispatch_async(dispatch_get_main_queue(), {
+                let alert = UIAlertView()
+                alert.title = "Error"
+                alert.message = "Come on, don't fool us!"
+                alert.addButtonWithTitle("Ok, I'm sorry")
+                alert.show()
+            })
+            return
+        }
+        
         let params: [String: String] = [
             "name" : profileName!,
             "user" : id,
@@ -83,7 +94,6 @@ class ProfileCreateViewController: UIViewController, UIPickerViewDelegate, UIPic
                         print("no error creating profile")
                         
                         // Update profiles
-                        UserInfoModel.sharedInstance.cleanInstance()
                         UserProfilesModel.sharedInstance.cleanInstance()
                         
                         let url = NSURL(string: "http://192.168.160.56:8000/api/profile/user/" + id)
@@ -230,24 +240,24 @@ class ProfileCreateViewController: UIViewController, UIPickerViewDelegate, UIPic
     
     func keyboardWasShown(notification: NSNotification)
     {
-        //Need to calculate keyboard exact size due to Apple suggestions
-        scroll_view.scrollEnabled = true
-        let info : NSDictionary = notification.userInfo!
-        let keyboardSize = (info[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue().size
-        let contentInsets : UIEdgeInsets = UIEdgeInsetsMake(0.0, 0.0, keyboardSize!.height, 0.0)
-        
-        scroll_view.contentInset = contentInsets
-        scroll_view.scrollIndicatorInsets = contentInsets
-        
-        var aRect : CGRect = self.view.frame
-        aRect.size.height -= keyboardSize!.height
-        if let _ = activeField
-        {
-            if (!CGRectContainsPoint(aRect, activeField!.frame.origin))
-            {
-                scroll_view.scrollRectToVisible(activeField!.frame, animated: true)
-            }
-        }
+//        //Need to calculate keyboard exact size due to Apple suggestions
+//        scroll_view.scrollEnabled = true
+//        let info : NSDictionary = notification.userInfo!
+//        let keyboardSize = (info[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue().size
+//        let contentInsets : UIEdgeInsets = UIEdgeInsetsMake(0.0, 0.0, keyboardSize!.height, 0.0)
+//        
+//        scroll_view.contentInset = contentInsets
+//        scroll_view.scrollIndicatorInsets = contentInsets
+//        
+//        var aRect : CGRect = self.view.frame
+//        aRect.size.height -= keyboardSize!.height
+//        if let _ = activeField
+//        {
+//            if (!CGRectContainsPoint(aRect, activeField!.frame.origin))
+//            {
+//                scroll_view.scrollRectToVisible(activeField!.frame, animated: true)
+//            }
+//        }
         
         
     }
@@ -255,14 +265,14 @@ class ProfileCreateViewController: UIViewController, UIPickerViewDelegate, UIPic
     
     func keyboardWillBeHidden(notification: NSNotification)
     {
-        //Once keyboard disappears, restore original positions
-        let info : NSDictionary = notification.userInfo!
-        let keyboardSize = (info[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue().size
-        let contentInsets : UIEdgeInsets = UIEdgeInsetsMake(0.0, 0.0, -keyboardSize!.height, 0.0)
-        scroll_view.contentInset = contentInsets
-        scroll_view.scrollIndicatorInsets = contentInsets
-        self.view.endEditing(true)
-        scroll_view.scrollEnabled = false
+//        //Once keyboard disappears, restore original positions
+//        let info : NSDictionary = notification.userInfo!
+//        let keyboardSize = (info[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue().size
+//        let contentInsets : UIEdgeInsets = UIEdgeInsetsMake(0.0, 0.0, -keyboardSize!.height, 0.0)
+//        scroll_view.contentInset = contentInsets
+//        scroll_view.scrollIndicatorInsets = contentInsets
+//        self.view.endEditing(true)
+//        scroll_view.scrollEnabled = false
         
     }
     
