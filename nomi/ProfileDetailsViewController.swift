@@ -17,7 +17,7 @@ class ProfileDetailsViewController: UIViewController, UITableViewDelegate, UITab
     
     @IBOutlet weak var name_tf: UITextField!
     @IBOutlet weak var color_view: UIView!
-    
+
     let cell_identifier = "userProfileCell"
     
     @IBOutlet weak var scrollView: UIScrollView!
@@ -36,6 +36,8 @@ class ProfileDetailsViewController: UIViewController, UITableViewDelegate, UITab
         print (profile_id!)
         
         name_tf.delegate = self
+        
+        registerForKeyboardNotifications()
         
         user_profile_attributes.delegate = self
         user_profile_attributes.dataSource = self
@@ -82,6 +84,9 @@ class ProfileDetailsViewController: UIViewController, UITableViewDelegate, UITab
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = self.user_profile_attributes.dequeueReusableCellWithIdentifier(cell_identifier) as! ProfileDetailsCell
+        
+        cell.value.delegate = self
+        
         print (UserProfilesModel.sharedInstance.user_profiles[profile_row!].attributes[indexPath.row].value)
         cell.value.text = UserProfilesModel.sharedInstance.user_profiles[profile_row!].attributes[indexPath.row].value
         
@@ -172,6 +177,10 @@ class ProfileDetailsViewController: UIViewController, UITableViewDelegate, UITab
         aRect.size.height -= keyboardSize!.height
         if let _ = activeField
         {
+            
+            print("active field: ")
+            print(activeField!)
+            
             if (!CGRectContainsPoint(aRect, activeField!.frame.origin))
             {
                 scrollView.scrollRectToVisible(activeField!.frame, animated: true)
