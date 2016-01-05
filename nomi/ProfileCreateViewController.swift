@@ -58,6 +58,17 @@ class ProfileCreateViewController: UIViewController, UIPickerViewDelegate, UIPic
         let color = selected_color
         let id = String(UserInfoModel.sharedInstance.getId())
         
+        if profileName == "" {
+            dispatch_async(dispatch_get_main_queue(), {
+                let alert = UIAlertView()
+                alert.title = "Error"
+                alert.message = "Come on, don't fool us!"
+                alert.addButtonWithTitle("Ok, I'm sorry")
+                alert.show()
+            })
+            return
+        }
+        
         let params: [String: String] = [
             "name" : profileName!,
             "user" : id,
@@ -83,7 +94,6 @@ class ProfileCreateViewController: UIViewController, UIPickerViewDelegate, UIPic
                         print("no error creating profile")
                         
                         // Update profiles
-                        UserInfoModel.sharedInstance.cleanInstance()
                         UserProfilesModel.sharedInstance.cleanInstance()
                         
                         let url = NSURL(string: "http://192.168.160.56:8000/api/profile/user/" + id)

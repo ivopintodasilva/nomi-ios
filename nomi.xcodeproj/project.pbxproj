@@ -45,6 +45,8 @@
 		48F9FA8F1C0690CF00DAAFA3 /* nomi_splash2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 48F9FA8E1C0690CF00DAAFA3 /* nomi_splash2.jpg */; };
 		48F9FA951C069C3800DAAFA3 /* nav_bar@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 48F9FA941C069C3800DAAFA3 /* nav_bar@2x.jpg */; };
 		B51AE8011C39DB0700F73F37 /* ProfileCreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51AE8001C39DB0700F73F37 /* ProfileCreateViewController.swift */; };
+		B564E9531C3AFB280029EAAD /* ProfileDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B564E9511C3AFB280029EAAD /* ProfileDetailsCell.swift */; };
+		B564E9541C3AFB280029EAAD /* ProfileDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B564E9521C3AFB280029EAAD /* ProfileDetailsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -97,6 +99,8 @@
 		48F9FA8E1C0690CF00DAAFA3 /* nomi_splash2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = nomi_splash2.jpg; path = images/nomi_splash2.jpg; sourceTree = "<group>"; };
 		48F9FA941C069C3800DAAFA3 /* nav_bar@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "nav_bar@2x.jpg"; path = "images/nav_bar@2x.jpg"; sourceTree = "<group>"; };
 		B51AE8001C39DB0700F73F37 /* ProfileCreateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileCreateViewController.swift; sourceTree = "<group>"; };
+		B564E9511C3AFB280029EAAD /* ProfileDetailsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileDetailsCell.swift; sourceTree = "<group>"; };
+		B564E9521C3AFB280029EAAD /* ProfileDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileDetailsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -220,11 +224,13 @@
 				48F7828D1C2B89790080ADA7 /* ScanViewController.swift */,
 				4883003B1C06641D00C2B25F /* ContactsViewController.swift */,
 				4883003D1C06642B00C2B25F /* ProfilesViewController.swift */,
+				B564E9511C3AFB280029EAAD /* ProfileDetailsCell.swift */,
+				B564E9521C3AFB280029EAAD /* ProfileDetailsViewController.swift */,
+				B51AE8001C39DB0700F73F37 /* ProfileCreateViewController.swift */,
 				4883003F1C06643A00C2B25F /* SettingsViewController.swift */,
 				48F9FA8A1C06793E00DAAFA3 /* RegisterViewController.swift */,
 				48C75BF21C31F30D006908B3 /* ContactDetailsController.swift */,
 				481F2C951C3356DF0002DC3C /* ScannedViewController.swift */,
-				B51AE8001C39DB0700F73F37 /* ProfileCreateViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -324,9 +330,11 @@
 				48C75C181C32111B006908B3 /* FAKOcticons.m in Sources */,
 				48C75C191C32111B006908B3 /* FAKZocial.m in Sources */,
 				48F9FA8B1C06793E00DAAFA3 /* RegisterViewController.swift in Sources */,
+				B564E9541C3AFB280029EAAD /* ProfileDetailsViewController.swift in Sources */,
 				48C75C171C32111B006908B3 /* FAKMaterialIcons.m in Sources */,
 				48F7828E1C2B89790080ADA7 /* ScanViewController.swift in Sources */,
 				48CB89F01C2AF91900156B25 /* UserProfiles.swift in Sources */,
+				B564E9531C3AFB280029EAAD /* ProfileDetailsCell.swift in Sources */,
 				48C75C151C32111B006908B3 /* FAKIcon.m in Sources */,
 				481F2C961C3356DF0002DC3C /* ScannedViewController.swift in Sources */,
 				481557371C306EBB0025CA54 /* Contacts.swift in Sources */,
