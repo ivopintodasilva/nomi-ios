@@ -26,6 +26,8 @@ class ProfileCreateViewController: UIViewController, UIPickerViewDelegate, UIPic
     
     var session: NSURLSession?
     
+    var spinner: UIActivityIndicatorView?
+    
     let colors = [
         "BLACK",
         "BLUE",
@@ -39,9 +41,13 @@ class ProfileCreateViewController: UIViewController, UIPickerViewDelegate, UIPic
 
         // Do any additional setup after loading the view.
         
+        self.spinner = UIActivityIndicatorView(frame: CGRectMake(0, 0, view.frame.size.width, view.frame.size.height - UIApplication.sharedApplication().statusBarFrame.size.height))
+        
         txtProfileName.delegate = self
         color_picker.dataSource = self
         color_picker.delegate = self
+        
+        self.selected_color = 0
         
         registerForKeyboardNotifications()
         
@@ -54,6 +60,16 @@ class ProfileCreateViewController: UIViewController, UIPickerViewDelegate, UIPic
     }
     
     @IBAction func btnCreateProfile_click(sender: AnyObject) {
+        
+        let navigationBarHeight: CGFloat = self.navigationController!.navigationBar.frame.size.height
+        self.spinner!.center = CGPointMake(self.view.frame.size.width / 2.0, (self.view.frame.size.height - navigationBarHeight) / 2.0)
+
+        
+        self.spinner!.color = UIColor(red: 192/255, green: 57/255, blue: 43/255, alpha: 1)
+        self.spinner!.startAnimating()
+        self.spinner!.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.9)
+        self.view.addSubview(self.spinner!)
+        
         let profileName = txtProfileName.text
         let color = selected_color
         let id = String(UserInfoModel.sharedInstance.getId())
@@ -134,6 +150,7 @@ class ProfileCreateViewController: UIViewController, UIPickerViewDelegate, UIPic
                                         
                                         // segue to other view
                                         dispatch_async(dispatch_get_main_queue(), {
+                                            self.spinner!.removeFromSuperview()
                                             self.performSegueWithIdentifier("tabController", sender: self)
                                         })
                                         
@@ -142,6 +159,7 @@ class ProfileCreateViewController: UIViewController, UIPickerViewDelegate, UIPic
                                     print(httpResponse.description)
                                     
                                     dispatch_async(dispatch_get_main_queue(), {
+                                        self.spinner!.removeFromSuperview()
                                         let alert = UIAlertView()
                                         alert.title = "Error"
                                         alert.message = "Something went wrong."
@@ -157,6 +175,7 @@ class ProfileCreateViewController: UIViewController, UIPickerViewDelegate, UIPic
                         
                         // Everything ok
                         dispatch_async(dispatch_get_main_queue(), {
+                            self.spinner!.removeFromSuperview()
                             let alert = UIAlertView()
                             alert.title = "Success"
                             alert.message = "New profile created!"
@@ -167,6 +186,7 @@ class ProfileCreateViewController: UIViewController, UIPickerViewDelegate, UIPic
                         print(httpResponse.description)
                         
                         dispatch_async(dispatch_get_main_queue(), {
+                            self.spinner!.removeFromSuperview()
                             let alert = UIAlertView()
                             alert.title = "Error"
                             alert.message = "Something went wrong."

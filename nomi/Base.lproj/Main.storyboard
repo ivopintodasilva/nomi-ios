@@ -266,6 +266,7 @@
                         <outlet property="tf_fname" destination="faO-CF-al8" id="Aek-ZV-UZf"/>
                         <outlet property="tf_lname" destination="1J6-tF-tZK" id="eLj-Ft-wFg"/>
                         <outlet property="tf_password" destination="Il8-LF-rSh" id="rpN-ZZ-bK5"/>
+                        <segue destination="ciP-qT-9rr" kind="modal" identifier="register" id="cz5-V6-Jzp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JNn-nH-TLM" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -599,10 +600,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" highlighted="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Profile name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="obl-FC-kMH">
-                                <rect key="frame" x="60.5" y="75" width="200" height="30"/>
+                                <rect key="frame" x="60.5" y="75" width="200" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="3Yh-Vj-wFa"/>
-                                    <constraint firstAttribute="height" constant="30" id="RVj-K1-EZ8"/>
+                                    <constraint firstAttribute="height" constant="40" id="RVj-K1-EZ8"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="30"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
@@ -1171,6 +1172,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="dsR-WX-edv"/>
+        <segue reference="cz5-V6-Jzp"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.70980392156862748" green="0.23137254901960785" blue="0.21176470588235294" alpha="1" colorSpace="calibratedRGB"/>
 </document>

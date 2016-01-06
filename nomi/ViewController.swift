@@ -25,9 +25,13 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     var session: NSURLSession?
     
+    var spinner: UIActivityIndicatorView?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        self.spinner = UIActivityIndicatorView(frame: CGRectMake(0, 0, view.frame.size.width, view.frame.size.height - UIApplication.sharedApplication().statusBarFrame.size.height))
         
         self.setNeedsStatusBarAppearanceUpdate()
         email_text.delegate = self
@@ -52,6 +56,16 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
 
     @IBAction func button_login_click() {
+        
+        let navigationBarHeight: CGFloat = self.navigationController!.navigationBar.frame.size.height
+        self.spinner!.center = CGPointMake(self.view.frame.size.width / 2.0, (self.view.frame.size.height - navigationBarHeight) / 2.0)
+
+        
+        self.spinner!.color = UIColor(red: 192/255, green: 57/255, blue: 43/255, alpha: 1)
+        self.spinner!.startAnimating()
+        self.spinner!.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.9)
+        self.view.addSubview(self.spinner!)
+        
         let url = NSURL(string: "http://192.168.160.56:8000/api/user/login/?email=" + email_text.text! + "&password=" + password_text.text!)
         let task = session!.dataTaskWithURL(url!, completionHandler: {(data, response, error) in
             
@@ -165,11 +179,13 @@ class ViewController: UIViewController, UITextFieldDelegate {
                                                                 
                                                                 
                                                                 dispatch_async(dispatch_get_main_queue(), {
+                                                                    self.spinner!.removeFromSuperview()
                                                                     self.performSegueWithIdentifier("login", sender: self)
                                                                 })
                                                             }
                                                         } else {
                                                             dispatch_async(dispatch_get_main_queue(), {
+                                                                self.spinner!.removeFromSuperview()
                                                                 let alert = UIAlertView()
                                                                 alert.title = "Login failed"
                                                                 alert.message = "Come on, don't fool us!"
@@ -189,6 +205,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
                                             }
                                         } else {
                                             dispatch_async(dispatch_get_main_queue(), {
+                                                self.spinner!.removeFromSuperview()
                                                 let alert = UIAlertView()
                                                 alert.title = "Login failed"
                                                 alert.message = "Come on, don't fool us!"
@@ -213,6 +230,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
                     }
                 } else {
                     dispatch_async(dispatch_get_main_queue(), {
+                        self.spinner!.removeFromSuperview()
                         let alert = UIAlertView()
                         alert.title = "Login failed"
                         alert.message = "Come on, don't fool us!"

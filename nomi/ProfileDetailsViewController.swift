@@ -24,9 +24,12 @@ class ProfileDetailsViewController: UIViewController, UITableViewDelegate, UITab
     
     var sectionHeaderView: UIView?
     
+    var spinner: UIActivityIndicatorView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.spinner = UIActivityIndicatorView(frame: CGRectMake(0, 0, view.frame.size.width, view.frame.size.height - UIApplication.sharedApplication().statusBarFrame.size.height))
 
         name_tf.delegate = self
         user_profile_attributes.delegate = self
@@ -70,7 +73,12 @@ class ProfileDetailsViewController: UIViewController, UITableViewDelegate, UITab
     
     
     @IBAction func save(sender: AnyObject) {
-        
+        let navigationBarHeight: CGFloat = self.navigationController!.navigationBar.frame.size.height
+        self.spinner!.center = CGPointMake(self.view.frame.size.width / 2.0, (self.view.frame.size.height - navigationBarHeight) / 2.0)
+        self.spinner!.color = UIColor(red: 192/255, green: 57/255, blue: 43/255, alpha: 1)
+        self.spinner!.startAnimating()
+        self.spinner!.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.9)
+        self.view.addSubview(self.spinner!)
         
         
         let session = NSURLSession.sharedSession()
@@ -103,7 +111,18 @@ class ProfileDetailsViewController: UIViewController, UITableViewDelegate, UITab
                             if let httpResponse = response as? NSHTTPURLResponse{
                                 if httpResponse.statusCode == 200 {
                                     print("no error")
-                                    // check if data is not null
+                                    
+                                    
+                                    for var section = 0; section < self.user_profile_attributes.numberOfSections; section++ {
+                                        for var row = 0; row < self.user_profile_attributes.numberOfRowsInSection(section); row++ {
+                                            
+                                            let cellPath: NSIndexPath = NSIndexPath(forRow: row, inSection: section)
+                                            let cell: ProfileDetailsCell = self.user_profile_attributes.cellForRowAtIndexPath(cellPath) as! ProfileDetailsCell
+                                            print(cell.value.text)
+                                            //UserProfilesModel.sharedInstance.user_profiles[profile_row!].attributes[row].value = cell.value.text!
+                                            
+                                        }
+                                    }
                                     
                                         
                                     dispatch_async(dispatch_get_main_queue(), {
@@ -117,6 +136,7 @@ class ProfileDetailsViewController: UIViewController, UITableViewDelegate, UITab
                                     
                                 } else {
                                     dispatch_async(dispatch_get_main_queue(), {
+                                        self.spinner!.removeFromSuperview()
                                         let alert = UIAlertView()
                                         alert.title = "Impossible operation"
                                         alert.message = "Please, try again later"
@@ -138,24 +158,15 @@ class ProfileDetailsViewController: UIViewController, UITableViewDelegate, UITab
             
         }catch _{
             dispatch_async(dispatch_get_main_queue(), {
+                
+                self.spinner!.removeFromSuperview()
+                
                 let alert = UIAlertView()
                 alert.title = "Impossible operation"
                 alert.message = "Please, try again later"
                 alert.addButtonWithTitle("Ok")
                 alert.show()
             })
-        }
-        
-        
-        for var section = 0; section < user_profile_attributes.numberOfSections; section++ {
-            for var row = 0; row < user_profile_attributes.numberOfRowsInSection(section); row++ {
-                
-                let cellPath: NSIndexPath = NSIndexPath(forRow: row, inSection: section)
-                let cell: ProfileDetailsCell = user_profile_attributes.cellForRowAtIndexPath(cellPath) as! ProfileDetailsCell
-                print(cell.value.text)
-                //UserProfilesModel.sharedInstance.user_profiles[profile_row!].attributes[row].value = cell.value.text!
-                
-            }
         }
         
     }

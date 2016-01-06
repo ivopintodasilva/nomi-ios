@@ -26,11 +26,17 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
     
     var session: NSURLSession?
     
+    var spinner: UIActivityIndicatorView?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.setNeedsStatusBarAppearanceUpdate()
         // Do any additional setup after loading the view.
+        
+        self.spinner = UIActivityIndicatorView(frame: CGRectMake(0, 0, view.frame.size.width, view.frame.size.height - UIApplication.sharedApplication().statusBarFrame.size.height))
+        
+
         
         tf_fname.delegate = self
         tf_lname.delegate = self
@@ -44,6 +50,14 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
     
     
     @IBAction func btn_register() {
+        let navigationBarHeight: CGFloat = self.navigationController!.navigationBar.frame.size.height
+        self.spinner!.center = CGPointMake(self.view.frame.size.width / 2.0, (self.view.frame.size.height - navigationBarHeight) / 2.0)
+        self.spinner!.color = UIColor(red: 192/255, green: 57/255, blue: 43/255, alpha: 1)
+        self.spinner!.startAnimating()
+        self.spinner!.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.9)
+        self.view.addSubview(self.spinner!)
+        
+        
         print("registering!")
         // {}
         
@@ -64,6 +78,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
         
         if password != password2 {
             dispatch_async(dispatch_get_main_queue(), {
+                self.spinner!.removeFromSuperview()
                 let alert = UIAlertView()
                 alert.title = "Register failed"
                 alert.message = "Passwords did not match!"
@@ -90,16 +105,20 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
                         print("no error registering")
                         
                         dispatch_async(dispatch_get_main_queue(), {
+                            self.spinner!.removeFromSuperview()
                             let alert = UIAlertView()
                             alert.title = "Register success"
                             alert.message = "Congratulations, you'r registered!"
                             alert.addButtonWithTitle("Ok, lets go do login")
                             alert.show()
+                            
+                            self.performSegueWithIdentifier("register", sender: self)
                         })
                     } else {
                         print(httpResponse.description)
                         
                         dispatch_async(dispatch_get_main_queue(), {
+                            self.spinner!.removeFromSuperview()
                             let alert = UIAlertView()
                             alert.title = "Register failed"
                             alert.message = "Something went wrong."

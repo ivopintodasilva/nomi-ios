@@ -18,8 +18,12 @@ class ScannedViewController: UIViewController {
     
     var session: NSURLSession?
     
+    var spinner: UIActivityIndicatorView?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.spinner = UIActivityIndicatorView(frame: CGRectMake(0, 0, view.frame.size.width, view.frame.size.height - UIApplication.sharedApplication().statusBarFrame.size.height))
 
         self.scanned_image.layer.cornerRadius = scanned_image.frame.size.width / 2
         self.scanned_image.clipsToBounds = true
@@ -29,14 +33,13 @@ class ScannedViewController: UIViewController {
         
         session = NSURLSession.sharedSession()
         
+        self.spinner!.center = CGPointMake(self.view.frame.size.width / 2.0, (self.view.frame.size.height) / 2.0)
         
-        
-        
-        
-        
-        
-        
-        
+        self.spinner!.color = UIColor(red: 192/255, green: 57/255, blue: 43/255, alpha: 1)
+        self.spinner!.startAnimating()
+        self.spinner!.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
+        self.view.addSubview(self.spinner!)
+
         let requestURL = NSURL(string:"http://192.168.160.56:8000/api/profile/relation/")!
         
         let json: [String: AnyObject] = ["profileId1": user_profile!, "profileId2": contact_id!]
@@ -103,11 +106,13 @@ class ScannedViewController: UIViewController {
                                             let scanned_contact = ContactsModel.sharedInstance.get(self.contact_id!)
                                             self.setImage(scanned_contact!.user_email)
                                             self.scanned_name.text = scanned_contact!.user_fname + " " + scanned_contact!.user_lname
+                                            self.spinner!.removeFromSuperview()
                                         })
                                         
                                     }
                                 } else {
                                     dispatch_async(dispatch_get_main_queue(), {
+                                        self.spinner!.removeFromSuperview()
                                         let alert = UIAlertView()
                                         alert.title = "Impossible operation"
                                         alert.message = "Please, try again later"
