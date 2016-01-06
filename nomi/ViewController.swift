@@ -37,6 +37,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         self.spinner = UIActivityIndicatorView(frame: CGRectMake(0, 0, view.frame.size.width, view.frame.size.height - UIApplication.sharedApplication().statusBarFrame.size.height))
         
         self.setNeedsStatusBarAppearanceUpdate()
+        
         email_text.delegate = self
         password_text.delegate = self
         registerForKeyboardNotifications()
