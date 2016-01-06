@@ -19,6 +19,9 @@ class ContactsViewController: UIViewController, UITableViewDelegate, UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setNeedsStatusBarAppearanceUpdate()
+        //navigationController?.navigationBar.set
+        navigationController?.navigationBar.barTintColor = UIColor.whiteColor()
+        contacts_list.separatorStyle = UITableViewCellSeparatorStyle.None
         contacts_list.delegate = self
         contacts_list.dataSource = self
         self.contacts_list.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")

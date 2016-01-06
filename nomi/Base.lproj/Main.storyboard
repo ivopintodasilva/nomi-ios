@@ -273,7 +273,7 @@
             </objects>
             <point key="canvasLocation" x="-540" y="656"/>
         </scene>
-        <!--Contacts View Controller-->
+        <!--Contacts-->
         <scene sceneID="h4I-9h-L40">
             <objects>
                 <viewController id="zqF-WB-d1S" customClass="ContactsViewController" customModule="nomi" customModuleProvider="target" sceneMemberID="viewController">
@@ -353,7 +353,7 @@
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
-                    <navigationItem key="navigationItem" id="Smf-Dj-ULS"/>
+                    <navigationItem key="navigationItem" title="Contacts" id="2br-xz-2d8"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="contacts_list" destination="jlF-bA-zZ1" id="Xj2-Z9-Lmh"/>
@@ -364,7 +364,7 @@
             </objects>
             <point key="canvasLocation" x="1674" y="-5"/>
         </scene>
-        <!--Contact Details Controller-->
+        <!--Details-->
         <scene sceneID="vUb-Uq-Mqc">
             <objects>
                 <viewController id="cgr-rm-zGn" customClass="ContactDetailsController" customModule="nomi" customModuleProvider="target" sceneMemberID="viewController">
@@ -476,7 +476,7 @@
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
-                    <navigationItem key="navigationItem" id="V6x-Lj-TX9"/>
+                    <navigationItem key="navigationItem" title="Details" id="2PL-NL-DlX"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="contact_attributes" destination="Fm5-9Q-lIP" id="8EP-ef-TgG"/>
@@ -488,7 +488,7 @@
             </objects>
             <point key="canvasLocation" x="2216" y="0.0"/>
         </scene>
-        <!--Profiles View Controller-->
+        <!--Profiles-->
         <scene sceneID="b1l-Zt-Qo5">
             <objects>
                 <viewController id="fcY-oa-K91" customClass="ProfilesViewController" customModule="nomi" customModuleProvider="target" sceneMemberID="viewController">
@@ -575,7 +575,7 @@
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
-                    <navigationItem key="navigationItem" id="vex-ie-peB"/>
+                    <navigationItem key="navigationItem" title="Profiles" id="ggL-Lw-yxr"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="new_profile_btn" destination="MWg-tz-Xke" id="DJz-2p-h3m"/>

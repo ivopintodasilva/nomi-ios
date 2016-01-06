@@ -21,6 +21,10 @@ class ProfilesViewController: UIViewController, UITableViewDelegate, UITableView
         super.viewDidLoad()
         self.setNeedsStatusBarAppearanceUpdate()
         
+        navigationController?.navigationBar.barTintColor = UIColor.whiteColor()
+        
+        profile_table.separatorStyle = UITableViewCellSeparatorStyle.None
+        
         new_profile_btn.backgroundColor = UIColor(red: 0.71, green: 0.23, blue: 0.21, alpha: 1)
         new_profile_btn.layer.cornerRadius = new_profile_btn.frame.size.width / 2
         new_profile_btn.clipsToBounds = true
