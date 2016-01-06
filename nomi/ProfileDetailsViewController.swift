@@ -84,6 +84,8 @@ class ProfileDetailsViewController: UIViewController, UITableViewDelegate, UITab
         
         let json: [String: AnyObject] = ["name": name_tf.text!, "color": current_color!]
         
+        
+        
         do {
             print ("do")
             let jsonData = try NSJSONSerialization.dataWithJSONObject(json, options: .PrettyPrinted)
@@ -109,24 +111,12 @@ class ProfileDetailsViewController: UIViewController, UITableViewDelegate, UITab
                             if let httpResponse = response as? NSHTTPURLResponse{
                                 if httpResponse.statusCode == 200 {
                                     print("no error")
-                                    
-                                    
-                                    for var section = 0; section < self.user_profile_attributes.numberOfSections; section++ {
-                                        for var row = 0; row < self.user_profile_attributes.numberOfRowsInSection(section); row++ {
-                                            
-                                            let cellPath: NSIndexPath = NSIndexPath(forRow: row, inSection: section)
-                                            let cell: ProfileDetailsCell = self.user_profile_attributes.cellForRowAtIndexPath(cellPath) as! ProfileDetailsCell
-                                            print(cell.value.text)
-                                            //UserProfilesModel.sharedInstance.user_profiles[profile_row!].attributes[row].value = cell.value.text!
-                                            
-                                        }
-                                    }
+    
                                     
                                     // check all attributes
-                                    for var section = 0; section < self.user_profile_attributes.numberOfSections; section++ {
-                                        for var row = 0; row < self.user_profile_attributes.numberOfRowsInSection(section); row++ {
+                                        for var row = 0; row < self.user_profile_attributes.numberOfRowsInSection(0); row++ {
                                             
-                                            let cellPath: NSIndexPath = NSIndexPath(forRow: row, inSection: section)
+                                            let cellPath: NSIndexPath = NSIndexPath(forRow: row, inSection: 0)
                                             let cell: ProfileDetailsCell = self.user_profile_attributes.cellForRowAtIndexPath(cellPath) as! ProfileDetailsCell
                                             
                                             // check if cell data is not null
@@ -183,7 +173,7 @@ class ProfileDetailsViewController: UIViewController, UITableViewDelegate, UITab
                                                     })
                                                 }
                                             }
-                                        }
+                                        
                                     }
                                     
                                     // Update profiles
@@ -217,10 +207,16 @@ class ProfileDetailsViewController: UIViewController, UITableViewDelegate, UITab
                                                     }
                                                     
                                                 }
+                                                dispatch_async(dispatch_get_main_queue(), {
+                                                    self.spinner!.removeFromSuperview()
+                                                    self.performSegueWithIdentifier("edited", sender: self)
+                                                })
+                                                
                                             } else {
                                                 print(httpResponse.description)
                                                 
                                                 dispatch_async(dispatch_get_main_queue(), {
+                                                    self.spinner!.removeFromSuperview()
                                                     let alert = UIAlertView()
                                                     alert.title = "Error"
                                                     alert.message = "Something went wrong."
@@ -254,25 +250,25 @@ class ProfileDetailsViewController: UIViewController, UITableViewDelegate, UITab
             })
             edit_profile_task.resume()
             
-            dispatch_async(dispatch_get_main_queue(), {
-                let alert = UIAlertView()
-                alert.title = "Success"
-                alert.message = "Profile updated!"
-                alert.addButtonWithTitle("Yeah!")
-                alert.show()
-            })
+//            dispatch_async(dispatch_get_main_queue(), {
+//                let alert = UIAlertView()
+//                alert.title = "Success"
+//                alert.message = "Profile updated!"
+//                alert.addButtonWithTitle("Yeah!")
+//                alert.show()
+//            })
             
         }catch _{
-            dispatch_async(dispatch_get_main_queue(), {
-                
-                self.spinner!.removeFromSuperview()
-                
-                let alert = UIAlertView()
-                alert.title = "Impossible operation"
-                alert.message = "Please, try again later"
-                alert.addButtonWithTitle("Ok")
-                alert.show()
-            })
+//            dispatch_async(dispatch_get_main_queue(), {
+//                
+//                self.spinner!.removeFromSuperview()
+//                
+//                let alert = UIAlertView()
+//                alert.title = "Impossible operation"
+//                alert.message = "Please, try again later"
+//                alert.addButtonWithTitle("Ok")
+//                alert.show()
+//            })
         }
         
     }
