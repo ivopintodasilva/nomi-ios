@@ -199,22 +199,26 @@ class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
         
         if UserProfilesModel.sharedInstance.user_profiles[row].color == "BLACK" {
             pickerLabel.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+            pickerLabel.textColor = UIColor.whiteColor()
         }
         else if UserProfilesModel.sharedInstance.user_profiles[row].color == "BLUE" {
             pickerLabel.backgroundColor = UIColor(red: 41/255, green: 128/255.0, blue: 185/255, alpha: 1)
+            pickerLabel.textColor = UIColor.whiteColor()
         }
         else if UserProfilesModel.sharedInstance.user_profiles[row].color == "GREEN" {
             pickerLabel.backgroundColor = UIColor(red: 0/255, green: 150/96, blue: 136/255, alpha: 1)
+            pickerLabel.textColor = UIColor.whiteColor()
         }
         else if UserProfilesModel.sharedInstance.user_profiles[row].color == "RED" {
             pickerLabel.backgroundColor = UIColor(red: 192/255, green: 57/255, blue: 43/255, alpha: 1)
-
+            pickerLabel.textColor = UIColor.whiteColor()
         }
         else if UserProfilesModel.sharedInstance.user_profiles[row].color == "WHITE" {
             pickerLabel.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
+            pickerLabel.textColor = UIColor.blackColor()
         }
         
-        pickerLabel.textColor = UIColor.whiteColor()
+        
         pickerLabel.text = UserProfilesModel.sharedInstance.user_profiles[row].name
         pickerLabel.font = UIFont(name: "Avenir", size: 20) // In this use your custom font
         pickerLabel.textAlignment = NSTextAlignment.Center

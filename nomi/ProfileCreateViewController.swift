@@ -65,24 +65,25 @@ class ProfileCreateViewController: UIViewController, UIPickerViewDelegate, UIPic
         self.spinner!.center = CGPointMake(self.view.frame.size.width / 2.0, (self.view.frame.size.height - navigationBarHeight) / 2.0)
 
         
-        self.spinner!.color = UIColor(red: 192/255, green: 57/255, blue: 43/255, alpha: 1)
-        self.spinner!.startAnimating()
-        self.spinner!.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.9)
-        self.view.addSubview(self.spinner!)
+        
         
         let profileName = txtProfileName.text
         let color = selected_color
         let id = String(UserInfoModel.sharedInstance.getId())
         
         if profileName == "" {
-            dispatch_async(dispatch_get_main_queue(), {
-                let alert = UIAlertView()
-                alert.title = "Error"
-                alert.message = "Come on, don't fool us!"
-                alert.addButtonWithTitle("Ok, I'm sorry")
-                alert.show()
-            })
+            let alert = UIAlertView()
+            alert.title = "Error"
+            alert.message = "Come on, don't fool us!"
+            alert.addButtonWithTitle("Ok, I'm sorry")
+            alert.show()
             return
+        }
+        else{
+            self.spinner!.color = UIColor(red: 192/255, green: 57/255, blue: 43/255, alpha: 1)
+            self.spinner!.startAnimating()
+            self.spinner!.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.9)
+            self.view.addSubview(self.spinner!)
         }
         
         let params: [String: String] = [
