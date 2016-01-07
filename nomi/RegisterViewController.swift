@@ -31,6 +31,8 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "Avenir-heavy", size: 18)!]
+
         self.setNeedsStatusBarAppearanceUpdate()
         // Do any additional setup after loading the view.
         

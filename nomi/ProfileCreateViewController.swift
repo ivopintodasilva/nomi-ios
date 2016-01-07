@@ -41,6 +41,9 @@ class ProfileCreateViewController: UIViewController, UIPickerViewDelegate, UIPic
 
         // Do any additional setup after loading the view.
         
+        self.navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "Avenir-heavy", size: 18)!]
+
+        
         self.spinner = UIActivityIndicatorView(frame: CGRectMake(0, 0, view.frame.size.width, view.frame.size.height - UIApplication.sharedApplication().statusBarFrame.size.height))
         
         txtProfileName.delegate = self

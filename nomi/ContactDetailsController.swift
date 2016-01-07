@@ -24,6 +24,8 @@ class ContactDetailsController: UIViewController, UITableViewDelegate, UITableVi
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "Avenir-heavy", size: 18)!]
+        
         self.contact_details_image.layer.cornerRadius = contact_details_image.frame.size.width / 2
         self.contact_details_image.clipsToBounds = true
         
@@ -129,6 +131,7 @@ class ContactDetailsController: UIViewController, UITableViewDelegate, UITableVi
         
         let cell = contact_attributes.dequeueReusableCellWithIdentifier(cell_identifier) as! ContactDetailsCell
         cell.value.text = contact!.attributes[indexPath.row].value
+        cell.selectionStyle = UITableViewCellSelectionStyle.None
         
         // Example of how to write an icon into textbox
         

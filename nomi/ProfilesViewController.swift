@@ -21,6 +21,9 @@ class ProfilesViewController: UIViewController, UITableViewDelegate, UITableView
         super.viewDidLoad()
         self.setNeedsStatusBarAppearanceUpdate()
         
+        self.navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "Avenir-heavy", size: 18)!]
+
+        
         navigationController?.navigationBar.barTintColor = UIColor.whiteColor()
         
         profile_table.separatorStyle = UITableViewCellSeparatorStyle.None

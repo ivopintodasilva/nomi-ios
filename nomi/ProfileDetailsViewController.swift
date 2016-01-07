@@ -32,6 +32,8 @@ class ProfileDetailsViewController: UIViewController, UITableViewDelegate, UITab
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "Avenir-heavy", size: 18)!]
+
         self.spinner = UIActivityIndicatorView(frame: CGRectMake(0, 0, view.frame.size.width, view.frame.size.height - UIApplication.sharedApplication().statusBarFrame.size.height))
 
         name_tf.delegate = self
@@ -364,6 +366,8 @@ class ProfileDetailsViewController: UIViewController, UITableViewDelegate, UITab
         let cell = self.user_profile_attributes.dequeueReusableCellWithIdentifier(cell_identifier) as! ProfileDetailsCell
         
         cell.value.delegate = self
+        
+        cell.selectionStyle = UITableViewCellSelectionStyle.None
         
         print (UserProfilesModel.sharedInstance.user_profiles[profile_row!].attributes[indexPath.row].value)
         cell.value.text = UserProfilesModel.sharedInstance.user_profiles[profile_row!].attributes[indexPath.row].value

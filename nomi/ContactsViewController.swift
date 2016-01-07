@@ -18,6 +18,9 @@ class ContactsViewController: UIViewController, UITableViewDelegate, UITableView
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "Avenir-heavy", size: 18)!]
+
         self.setNeedsStatusBarAppearanceUpdate()
         //navigationController?.navigationBar.set
         navigationController?.navigationBar.barTintColor = UIColor.whiteColor()
