@@ -170,7 +170,7 @@ class ProfileDetailsViewController: UIViewController, UITableViewDelegate, UITab
                                                                 print (self.contacts_done)
                                                                 print (self.full_rows)
                                                                 
-                                                                if self.contacts_done == self.full_rows - 1{
+                                                                if self.contacts_done >= self.full_rows - 1{
                                                                     self.contacts_done = 0
                                                                     
                                                                     
@@ -180,8 +180,16 @@ class ProfileDetailsViewController: UIViewController, UITableViewDelegate, UITab
                                                                     
                                                                     let url = NSURL(string: "http://192.168.160.56:8000/api/profile/user/" + String(userId))
                                                                     
+                                                                    
+                                                                    
                                                                     let task_profile = session.dataTaskWithURL(url!, completionHandler: {(data, response, error) in
                                                                         if let httpResponse = response as? NSHTTPURLResponse{
+                                                                            
+                                                                            
+                                                                            
+                                                                            
+                                                                            print (httpResponse.statusCode)
+                                                                            
                                                                             if httpResponse.statusCode == 200 {
                                                                                 // check if data is not null
                                                                                 if let _ = data
