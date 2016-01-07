@@ -438,7 +438,60 @@ class ProfileDetailsViewController: UIViewController, UITableViewDelegate, UITab
     
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
-            print("delete man!!!!")
+            print("delete attribute!!!!")
+            
+            
+            let navigationBarHeight: CGFloat = self.navigationController!.navigationBar.frame.size.height
+            self.spinner!.center = CGPointMake(self.view.frame.size.width / 2.0, (self.view.frame.size.height - navigationBarHeight) / 2.0)
+            self.spinner!.color = UIColor(red: 192/255, green: 57/255, blue: 43/255, alpha: 1)
+            self.spinner!.startAnimating()
+            self.spinner!.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.9)
+            self.view.addSubview(self.spinner!)
+            
+            
+            var cell: ProfileDetailsCell? = self.user_profile_attributes.cellForRowAtIndexPath(indexPath) as? ProfileDetailsCell
+            
+            if cell == nil{
+                cell = self.user_profile_attributes.dequeueReusableCellWithIdentifier(self.cell_identifier, forIndexPath:indexPath) as? ProfileDetailsCell
+            }
+            
+            let session = NSURLSession.sharedSession()
+            
+            let url_attr = NSURL(string: "http://192.168.160.56:8000/api/attribute/profile/" + String(profile_id!) + "/" + UserProfilesModel.sharedInstance.user_profiles[self.profile_row!].attributes[indexPath.row].name + "/")
+            print (url_attr)
+            let method = "DELETE"
+
+            
+                let request = NSMutableURLRequest(URL: url_attr!)
+                request.HTTPMethod = method
+                
+                let delete_attributes_task = session.dataTaskWithRequest(request, completionHandler:{(data, response, error) in
+                    
+                    if let httpResponse = response as? NSHTTPURLResponse{
+                        if httpResponse.statusCode == 200 {
+                            
+                            print (200)
+                            
+                            dispatch_async(dispatch_get_main_queue(), {
+                                self.spinner!.removeFromSuperview()
+                                
+                            })
+                        }
+                        else{
+                            dispatch_async(dispatch_get_main_queue(), {
+                                self.spinner!.removeFromSuperview()
+                                let alert = UIAlertView()
+                                alert.title = "Impossible operation"
+                                alert.message = "Please, try again later"
+                                alert.addButtonWithTitle("Ok")
+                                alert.show()
+                            })
+
+                        }
+                    }
+                })
+            
+                delete_attributes_task.resume()
         }
     }
     
