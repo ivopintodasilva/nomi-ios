@@ -215,7 +215,7 @@ class ProfileDetailsViewController: UIViewController, UITableViewDelegate, UITab
                                                                                     
                                                                                 }
                                                                                 dispatch_async(dispatch_get_main_queue(), {
-                                                                                    self.navigationController!.setNavigationBarHidden(true, animated: true)
+                                                                                    self.navigationController!.setNavigationBarHidden(false, animated: true)
                                                                                     self.spinner!.removeFromSuperview()
                                                                                     self.performSegueWithIdentifier("edited", sender: self)
                                                                                 })
