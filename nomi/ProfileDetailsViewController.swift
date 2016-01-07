@@ -80,6 +80,7 @@ class ProfileDetailsViewController: UIViewController, UITableViewDelegate, UITab
         self.spinner!.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.9)
         self.view.addSubview(self.spinner!)
         
+        navigationController!.setNavigationBarHidden(true, animated: true)
         
         let session = NSURLSession.sharedSession()
         
@@ -214,6 +215,7 @@ class ProfileDetailsViewController: UIViewController, UITableViewDelegate, UITab
                                                                                     
                                                                                 }
                                                                                 dispatch_async(dispatch_get_main_queue(), {
+                                                                                    self.navigationController!.setNavigationBarHidden(true, animated: true)
                                                                                     self.spinner!.removeFromSuperview()
                                                                                     self.performSegueWithIdentifier("edited", sender: self)
                                                                                 })
