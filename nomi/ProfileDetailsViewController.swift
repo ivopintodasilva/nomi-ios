@@ -120,6 +120,71 @@ class ProfileDetailsViewController: UIViewController, UITableViewDelegate, UITab
                                     print("no error")
     
                                     
+                                    
+                                    if self.user_profile_attributes.numberOfRowsInSection(0) == 0{
+                                        // Update profiles
+                                        let userId = UserInfoModel.sharedInstance.id
+                                        UserProfilesModel.sharedInstance.cleanInstance()
+                                        
+                                        let url = NSURL(string: "http://192.168.160.56:8000/api/profile/user/" + String(userId))
+                                        
+                                        
+                                        
+                                        let task_profile = session.dataTaskWithURL(url!, completionHandler: {(data, response, error) in
+                                            if let httpResponse = response as? NSHTTPURLResponse{
+                                                
+                                                
+                                                
+                                                
+                                                print (httpResponse.statusCode)
+                                                
+                                                if httpResponse.statusCode == 200 {
+                                                    // check if data is not null
+                                                    if let _ = data
+                                                    {
+                                                        let json = JSON(data: data!)
+                                                        for (_ ,subJson):(String, JSON) in json["results"] {
+                                                            
+                                                            var connections: [Int] = []
+                                                            for (_ ,subJson1):(String, JSON) in subJson["connections"]{
+                                                                connections.append(subJson1.intValue)
+                                                            }
+                                                            
+                                                            var attributes: [ProfileAttributeModel] = []
+                                                            for (_ ,subJson1):(String, JSON) in subJson["attributes"]{
+                                                                attributes.append(ProfileAttributeModel(id: subJson1["id"].intValue, name: subJson1["name"].stringValue, value: subJson1["value"].stringValue))
+                                                            }
+                                                            
+                                                            let profile: ProfileModel = ProfileModel(id: subJson["id"].intValue, user_id: subJson["user"]["id"].intValue, user_fname: subJson["user"]["first_name"].stringValue, user_lname: subJson["user"]["last_name"].stringValue, user_email: subJson["user"]["email"].stringValue,  name: subJson["name"].stringValue, color: subJson["color"].stringValue, connections:  connections, attributes: attributes)
+                                                            
+                                                            UserProfilesModel.sharedInstance.addProfile(profile)
+                                                        }
+                                                        
+                                                    }
+                                                    dispatch_async(dispatch_get_main_queue(), {
+                                                        self.navigationController!.setNavigationBarHidden(false, animated: true)
+                                                        self.spinner!.removeFromSuperview()
+                                                        self.performSegueWithIdentifier("edited", sender: self)
+                                                    })
+                                                    
+                                                } else {
+                                                    print(httpResponse.description)
+                                                    
+                                                    dispatch_async(dispatch_get_main_queue(), {
+                                                        self.spinner!.removeFromSuperview()
+                                                        let alert = UIAlertView()
+                                                        alert.title = "Error"
+                                                        alert.message = "Something went wrong."
+                                                        alert.addButtonWithTitle("Ok, I'll try again")
+                                                        alert.show()
+                                                    })
+                                                }
+                                                
+                                            }
+                                        })
+                                        task_profile.resume()
+                                    }
+                                    
                                     // check all attributes
                                     for var section = 0; section < self.user_profile_attributes.numberOfSections; section++ {
                                         for var row = 0; row < self.user_profile_attributes.numberOfRowsInSection(section); row++ {
@@ -157,6 +222,8 @@ class ProfileDetailsViewController: UIViewController, UITableViewDelegate, UITab
                                                 print(url_attr)
                                                 print(method)
                                                 print(parameters)
+                                                
+                                                
                                                 
                                                 do {
                                                     let params = try NSJSONSerialization.dataWithJSONObject(parameters, options: .PrettyPrinted)
@@ -261,6 +328,8 @@ class ProfileDetailsViewController: UIViewController, UITableViewDelegate, UITab
                                                     })
                                                     edit_attributes_task.resume()
                                                     
+                                                    
+                                                    
                                                 }catch _{
                                                     dispatch_async(dispatch_get_main_queue(), {
                                                         let alert = UIAlertView()
@@ -270,6 +339,7 @@ class ProfileDetailsViewController: UIViewController, UITableViewDelegate, UITab
                                                         alert.show()
                                                     })
                                                 }
+                                                    
                                             }
                                         }
                                     }
@@ -438,9 +508,8 @@ class ProfileDetailsViewController: UIViewController, UITableViewDelegate, UITab
     
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
-            print("delete attribute!!!!")
             
-            
+            self.navigationController!.setNavigationBarHidden(true, animated: true)
             let navigationBarHeight: CGFloat = self.navigationController!.navigationBar.frame.size.height
             self.spinner!.center = CGPointMake(self.view.frame.size.width / 2.0, (self.view.frame.size.height - navigationBarHeight) / 2.0)
             self.spinner!.color = UIColor(red: 192/255, green: 57/255, blue: 43/255, alpha: 1)
@@ -471,14 +540,77 @@ class ProfileDetailsViewController: UIViewController, UITableViewDelegate, UITab
                         if httpResponse.statusCode == 200 {
                             
                             print (200)
+                            // Update profiles
+                            let userId = UserInfoModel.sharedInstance.id
+                            UserProfilesModel.sharedInstance.cleanInstance()
                             
-                            dispatch_async(dispatch_get_main_queue(), {
-                                self.spinner!.removeFromSuperview()
-                                
+                            let url = NSURL(string: "http://192.168.160.56:8000/api/profile/user/" + String(userId))
+                            
+                            
+                            
+                            let task_profile = session.dataTaskWithURL(url!, completionHandler: {(data, response, error) in
+                                if let httpResponse = response as? NSHTTPURLResponse{
+                                    
+                                    
+                                    
+                                    
+                                    print (httpResponse.statusCode)
+                                    
+                                    if httpResponse.statusCode == 200 {
+                                        // check if data is not null
+                                        if let _ = data
+                                        {
+                                            let json = JSON(data: data!)
+                                            for (_ ,subJson):(String, JSON) in json["results"] {
+                                                
+                                                var connections: [Int] = []
+                                                for (_ ,subJson1):(String, JSON) in subJson["connections"]{
+                                                    connections.append(subJson1.intValue)
+                                                }
+                                                
+                                                var attributes: [ProfileAttributeModel] = []
+                                                for (_ ,subJson1):(String, JSON) in subJson["attributes"]{
+                                                    attributes.append(ProfileAttributeModel(id: subJson1["id"].intValue, name: subJson1["name"].stringValue, value: subJson1["value"].stringValue))
+                                                }
+                                                
+                                                let profile: ProfileModel = ProfileModel(id: subJson["id"].intValue, user_id: subJson["user"]["id"].intValue, user_fname: subJson["user"]["first_name"].stringValue, user_lname: subJson["user"]["last_name"].stringValue, user_email: subJson["user"]["email"].stringValue,  name: subJson["name"].stringValue, color: subJson["color"].stringValue, connections:  connections, attributes: attributes)
+                                                
+                                                UserProfilesModel.sharedInstance.addProfile(profile)
+                                            }
+                                            
+                                        }
+                                        dispatch_async(dispatch_get_main_queue(), {
+                                            self.navigationController!.setNavigationBarHidden(false, animated: true)
+                                            self.spinner!.removeFromSuperview()
+                                            self.user_profile_attributes.reloadData()
+                                        })
+                                        
+                                    } else {
+                                        print(httpResponse.description)
+                                        
+                                        dispatch_async(dispatch_get_main_queue(), {
+                                            self.user_profile_attributes.reloadData()
+                                            self.navigationController!.setNavigationBarHidden(false, animated: true)
+                                            self.spinner!.removeFromSuperview()
+                                            let alert = UIAlertView()
+                                            alert.title = "Error"
+                                            alert.message = "Something went wrong."
+                                            alert.addButtonWithTitle("Ok, I'll try again")
+                                            alert.show()
+                                        })
+                                    }
+                                    
+                                }
                             })
+                            task_profile.resume()
+                            
+                        
+                        
                         }
                         else{
                             dispatch_async(dispatch_get_main_queue(), {
+                                self.user_profile_attributes.reloadData()
+                                self.navigationController!.setNavigationBarHidden(false, animated: true)
                                 self.spinner!.removeFromSuperview()
                                 let alert = UIAlertView()
                                 alert.title = "Impossible operation"
@@ -490,11 +622,11 @@ class ProfileDetailsViewController: UIViewController, UITableViewDelegate, UITab
                         }
                     }
                 })
-            
+        
                 delete_attributes_task.resume()
         }
     }
-    
+
     func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         
         self.sectionHeaderView = UIView(frame: CGRectMake(0, 0, tableView.frame.size.width, 50.0))

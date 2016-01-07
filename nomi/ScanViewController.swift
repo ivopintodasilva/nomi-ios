@@ -232,5 +232,9 @@ class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
         }
     }
     
+    override func viewWillAppear(animated: Bool) {
+        self.profile_picker.reloadAllComponents()
+    }
+    
 
 }

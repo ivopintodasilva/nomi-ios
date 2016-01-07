@@ -44,7 +44,7 @@ class ProfileCreateViewController: UIViewController, UIPickerViewDelegate, UIPic
         self.navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "Avenir-heavy", size: 18)!]
 
         
-        self.spinner = UIActivityIndicatorView(frame: CGRectMake(0, 0, view.frame.size.width, view.frame.size.height - UIApplication.sharedApplication().statusBarFrame.size.height))
+        self.spinner = UIActivityIndicatorView(frame: CGRectMake(0, 0, view.frame.size.width, view.frame.size.height))
         
         txtProfileName.delegate = self
         color_picker.dataSource = self
@@ -64,10 +64,9 @@ class ProfileCreateViewController: UIViewController, UIPickerViewDelegate, UIPic
     
     @IBAction func btnCreateProfile_click(sender: AnyObject) {
         
-        let navigationBarHeight: CGFloat = self.navigationController!.navigationBar.frame.size.height
-        self.spinner!.center = CGPointMake(self.view.frame.size.width / 2.0, (self.view.frame.size.height - navigationBarHeight) / 2.0)
+        self.spinner!.center = CGPointMake(self.view.frame.size.width / 2.0, (self.view.frame.size.height) / 2.0)
 
-        
+        navigationController!.setNavigationBarHidden(true, animated: true)
         
         
         let profileName = txtProfileName.text
@@ -154,6 +153,7 @@ class ProfileCreateViewController: UIViewController, UIPickerViewDelegate, UIPic
                                         
                                         // segue to other view
                                         dispatch_async(dispatch_get_main_queue(), {
+                                            self.navigationController!.setNavigationBarHidden(false, animated: true)
                                             self.spinner!.removeFromSuperview()
                                             self.performSegueWithIdentifier("tabController", sender: self)
                                         })
@@ -163,6 +163,7 @@ class ProfileCreateViewController: UIViewController, UIPickerViewDelegate, UIPic
                                     print(httpResponse.description)
                                     
                                     dispatch_async(dispatch_get_main_queue(), {
+                                        self.navigationController!.setNavigationBarHidden(false, animated: true)
                                         self.spinner!.removeFromSuperview()
                                         let alert = UIAlertView()
                                         alert.title = "Error"
@@ -179,6 +180,7 @@ class ProfileCreateViewController: UIViewController, UIPickerViewDelegate, UIPic
                         
                         // Everything ok
                         dispatch_async(dispatch_get_main_queue(), {
+                            self.navigationController!.setNavigationBarHidden(false, animated: true)
                             self.spinner!.removeFromSuperview()
                             let alert = UIAlertView()
                             alert.title = "Success"
@@ -190,6 +192,7 @@ class ProfileCreateViewController: UIViewController, UIPickerViewDelegate, UIPic
                         print(httpResponse.description)
                         
                         dispatch_async(dispatch_get_main_queue(), {
+                            self.navigationController!.setNavigationBarHidden(false, animated: true)
                             self.spinner!.removeFromSuperview()
                             let alert = UIAlertView()
                             alert.title = "Error"

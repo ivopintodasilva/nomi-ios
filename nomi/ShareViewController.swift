@@ -13,7 +13,7 @@ class ShareViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     
     let picker_profiles = UserProfilesModel.sharedInstance.user_profiles
 
-    @IBOutlet weak var share_picker: UIPickerView!
+    @IBOutlet weak var profile_picker: UIPickerView!
     
     var login_info: NSString?
     var profile_info: NSString?
@@ -76,8 +76,8 @@ class ShareViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         
         //share_picker = UIPickerView()
         
-        share_picker.dataSource = self
-        share_picker.delegate = self
+        self.profile_picker.dataSource = self
+        self.profile_picker.delegate = self
         
         
         //print(login_info)
@@ -120,18 +120,18 @@ class ShareViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     }
     
     func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int{
-        return picker_profiles.count
+        return UserProfilesModel.sharedInstance.user_profiles.count
     }
     
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return picker_profiles[row].name
+        return UserProfilesModel.sharedInstance.user_profiles[row].name
     }
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int){
         
-        if picker_profiles.count > 0{
+        if UserProfilesModel.sharedInstance.user_profiles.count > 0{
             
-            print(picker_profiles[row].id)
+            print(UserProfilesModel.sharedInstance.user_profiles[row].id)
             
             
             // generate QR code
@@ -145,20 +145,20 @@ class ShareViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
             var backgroundColor = CIColor(red: 1, green: 1, blue: 1)
             
             
-            if picker_profiles[row].color == "BLACK" {
+            if UserProfilesModel.sharedInstance.user_profiles[row].color == "BLACK" {
                 color = CIColor(red: 0, green: 0, blue: 0)
             }
-            else if picker_profiles[row].color == "BLUE" {
+            else if UserProfilesModel.sharedInstance.user_profiles[row].color == "BLUE" {
                 color = CIColor(red: 41/255, green: 128/255.0, blue: 185/255)
             }
-            else if picker_profiles[row].color == "GREEN" {
+            else if UserProfilesModel.sharedInstance.user_profiles[row].color == "GREEN" {
                 
                 color = CIColor(red: 0/255, green: 150/96, blue: 136/255)
             }
-            else if picker_profiles[row].color == "RED" {
+            else if UserProfilesModel.sharedInstance.user_profiles[row].color == "RED" {
                 color = CIColor(red: 192/255, green: 57/255, blue: 43/255)
             }
-            else if picker_profiles[row].color == "WHITE" {
+            else if UserProfilesModel.sharedInstance.user_profiles[row].color == "WHITE" {
                 color = CIColor(red: 1, green: 1, blue: 1)
                 backgroundColor = CIColor(red: 0, green: 0, blue: 0)
             }
@@ -190,6 +190,11 @@ class ShareViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         pickerLabel.font = UIFont(name: "Avenir", size: 17) // In this use your custom font
         pickerLabel.textAlignment = NSTextAlignment.Center
         return pickerLabel
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        print ("viewwillappear share")
+        self.profile_picker.reloadAllComponents()
     }
     
 
