@@ -21,6 +21,8 @@ class ProfilesViewController: UIViewController, UITableViewDelegate, UITableView
         super.viewDidLoad()
         self.setNeedsStatusBarAppearanceUpdate()
         
+        self.profile_table.allowsMultipleSelectionDuringEditing = false
+        
         self.navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "Avenir-heavy", size: 18)!]
 
         
@@ -155,6 +157,15 @@ class ProfilesViewController: UIViewController, UITableViewDelegate, UITableView
         profile_table.deselectRowAtIndexPath(indexPath, animated: true)
     }
     
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == .Delete {
+            print("delete man!!!!")
+        }
+    }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         if (segue.identifier == "profileDetails") {

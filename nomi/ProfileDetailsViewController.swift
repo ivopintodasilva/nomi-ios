@@ -32,6 +32,9 @@ class ProfileDetailsViewController: UIViewController, UITableViewDelegate, UITab
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.user_profile_attributes.allowsMultipleSelectionDuringEditing = false
+
+        
         self.navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "Avenir-heavy", size: 18)!]
 
         self.spinner = UIActivityIndicatorView(frame: CGRectMake(0, 0, view.frame.size.width, view.frame.size.height - UIApplication.sharedApplication().statusBarFrame.size.height))
@@ -361,6 +364,8 @@ class ProfileDetailsViewController: UIViewController, UITableViewDelegate, UITab
         return UserProfilesModel.sharedInstance.user_profiles[profile_row!].attributes.count
     }
     
+    
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = self.user_profile_attributes.dequeueReusableCellWithIdentifier(cell_identifier) as! ProfileDetailsCell
@@ -425,6 +430,16 @@ class ProfileDetailsViewController: UIViewController, UITableViewDelegate, UITab
     
     func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 50.0
+    }
+    
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == .Delete {
+            print("delete man!!!!")
+        }
     }
     
     func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
